@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilingual Typing Tutor | Smartech Education</title>
+<style>
+body {
+  font-family: 'Bookman Old Style', serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  color: #222;
+  overflow-x: hidden;
+}
+.header {display:flex;justify-content:space-between;align-items:center;padding:15px 40px;animation:fadeDown 1s ease;}
+.header img{height:90px;}
+nav{background:#00295f;padding:10px 20px;animation:fadeDown 1s ease .3s forwards;}
+nav ul{list-style:none;display:flex;gap:25px;margin:0;padding:0;}
+nav a{color:white;text-decoration:none;font-weight:bold;transition:.3s;}
+nav a:hover{color:black;}
+.hero{text-align:center;padding:15px 2%;background:linear-gradient(to right,#fff,#f9f8f6);animation:fadeUp 1s ease .5s;}
+.hero h1{font-size:2rem;}
+.hero p{color:#555;font-size:1.1rem;max-width:700px;margin:auto;}
+.container{width:90%;max-width:900px;margin:30px auto;animation:fadeUp 1s ease 1s;}
+.card{background:#fff;border-radius:12px;padding:25px;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+.card h2{color:#00295f;text-align:center;}
+#test_text{background:#f5f5f5;border:1px solid #ccc;border-radius:10px;padding:15px;font-size:22px;line-height:1.8;height:80px;overflow:hidden;margin-bottom:20px;font-family:'Bookman Old Style',serif;}
+#typed_text{width:100%;height:80px;font-size:22px;border:2px solid #00295f;border-radius:8px;padding:8px;outline:none;font-family:'Bookman Old Style',serif;transition:.3s;}
+#typed_text:focus{border-color:#000;}
+.stats{display:flex;justify-content:space-between;flex-wrap:wrap;text-align:center;}
+.stats div{flex:1;padding:10px;}
+button{background:#00295f;color:white;border:none;border-radius:6px;padding:10px 20px;font-size:16px;font-weight:bold;cursor:pointer;margin:8px;transition:.3s;}
+button:hover{background:#000;color:white;}
+.correct{color:green;}
+.incorrect{color:red;}
+.current{background-color:#00295f;color:white;padding:2px 5px;border-radius:4px;}
+.popup-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);display:none;justify-content:center;align-items:center;animation:fadeIn .5s ease;}
+.popup{background:white;padding:30px 40px;border-radius:20px;text-align:center;box-shadow:0 0 20px rgba(0,0,0,0.2);transform:scale(0.8);animation:popUp .5s ease forwards;}
+.popup img{width:120px;margin-bottom:15px;}
+.popup h2{color:#00295f;}
+.popup p{color:#444;font-size:18px;}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes popUp{to{transform:scale(1);opacity:1;}}
+@media(max-width:768px){.stats{flex-direction:column;}}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<div class="header">
+  <img src="Smartech Educatation Computer Centre.png" alt="Logo">
+  <img src="Typing Boy.png" alt="Typing Boy">
+</div>
+
+<!-- ===== Navigation ===== -->
+<nav>
+  <ul>
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="exercises.html">Exercises</a></li>
+    <li><a href="english_tutor.html">Typing Tutor</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ===== Hero Section ===== -->
+<section class="hero">
+  <h1>Smart Typing Tutor</h1>
+  <p>Practice typing in both English and Punjabi with real-time feedback and speed tracking.</p>
+</section>
+
+<div style="text-align:center;margin-bottom:15px;">
+  <b>
+    <label>Language:
+      <select id="language">
+        <option value="english">English</option>
+        <option value="punjabi">Punjabi</option>
+      </select>
+    </label>
+    <label>Timer:
+      <select id="timer">
+        <option value="60">1 Minute</option>
+        <option value="300">5 Minutes</option>
+        <option value="600">10 Minutes</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="highlight_toggle" checked> Highlight Words</label>
+    <label><input type="checkbox" id="backspace_toggle" checked> Allow Backspace</label>
+    <button id="restart_button">Restart</button>
+  </b>
+</div>
+
+<!-- ===== Typing Area ===== -->
+<div class="container">
+  <div class="card">
+    <h2>Typing Practice</h2>
+    <div class="stats">
+      <div>⏱ Time: <span id="time_remaining">01:00</span></div>
+      <div id="live_results">✅ Correct: 0 | ❌ Wrong: 0 | 🔢 Total: 0</div>
+    </div>
+    <div id="test_text"></div>
+    <textarea id="typed_text" placeholder="Start typing here..."></textarea>
+  </div>
+</div>
+
+<!-- ===== Result Popup ===== -->
+<div class="popup-overlay" id="resultPopup">
+  <div class="popup">
+    <img id="popupImg" src="" alt="Result Image">
+    <h2 id="popupTitle"></h2>
+    <p id="popupText"></p>
+    <button onclick="document.getElementById('resultPopup').style.display='none'">Close</button>
+  </div>
+</div>
+
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+
+// ===== Word Lists =====
+const englishWords = ["about","above","after","again","air","all","almost","along","also","always","animal","answer","any","are","ask","away","back","be","because","before","below","between","big","book","boy","but","by","call","came","can","car","children","city","close","come","could","country","cut","day","did","different","do","does","down","each","end","enough","even","every","example","face","family","far","father","few","find","first","food","for","found","from","get","girl","give","go","good","great","grow","had","hand","has","have","he","help","her","here","high","him","his","home","house","how","idea","if","important","in","into","is","it","its","just","keep","kind","know","land","large","last","learn","leave","life","light","like","line","live","look","made","make","many","may","me","mean","men","might","more","most","mother","move","much","must","my","name","need","never","new","no","not","now","of","off","often","old","on","one","only","open","or","other","our","out","over","own","page","paper","part","people","place","play","point","put","read","really","right","run","said","same","say","school","sea","see","seem","set","she","should","show","side","small","so","some","something","soon","start","state","stop","story","study","such","take","tell","than","that","the","their","them","then","there","these","they","thing","think","this","those","three","through","time","to","together","too","try","two","under","until","up","us","use","very","walk","want","was","watch","water","way","we","well","were","what","when","where","which","while","who","why","will","with","without","word","work","world","would","write","year","you","young","your"];
+const punjabiWords = ["ਸਿੱਖਿਆ","ਕੰਪਿਊਟਰ","ਪੰਜਾਬ","ਵਿਦਿਆਰਥੀ","ਗੁਰੂ","ਪਿਆਰ","ਸੱਚ","ਮੇਹਨਤ","ਸਮਾਂ","ਕਲਮ","ਪੋਥੀ","ਅਧਿਆਪਕ","ਸਕੂਲ","ਪਰਿਵਾਰ","ਜੀਵਨ","ਦੋਸਤ","ਕਿਰਤ","ਇਨਸਾਨ","ਮਾਤਾ","ਪਿਤਾ","ਸਹਿਯੋਗ","ਸੁੰਦਰ","ਬੋਲ","ਕਰਮ","ਕਿਰਪਾ","ਮਨ","ਸਮਾਜ","ਘਰ","ਪ੍ਰੇਮ","ਧੰਨਵਾਦ","ਸਿੱਖ","ਸੱਚਾ","ਰੱਬ","ਕਿਤਾਬ","ਲਿਖਣਾ","ਪੜ੍ਹਨਾ","ਮਾਂ","ਭਾਸ਼ਾ","ਨੌਕਰੀ","ਗਿਆਨ","ਖੁਸ਼ੀ","ਆਦਰ","ਦਿਲ","ਵਿਚਾਰ","ਸੰਗੀਤ","ਕਲਾ","ਗਾਂਵ","ਸ਼ਹਿਰ","ਸੇਵਾ","ਸਫਲਤਾ","ਇਜ਼ਤ","ਮੁਹੱਬਤ","ਭਾਈਚਾਰਾ","ਨਮਰਤਾ","ਦਇਆ","ਵਿਦਿਆ","ਸ਼ਕਤੀ","ਜੀਵਨ","ਅਨੰਦ","ਸ਼ਰਧਾ","ਇਕਤਾ","ਆਰਾਮ","ਤਾਕਤ","ਹਿੰਮਤ","ਅਕਲ","ਸਰਦਾਰ","ਪ੍ਰੇਰਣਾ","ਦੁਨੀਆ","ਅਮਨ","ਸ਼ਾਂਤੀ","ਪੁੱਤਰ","ਧੀ","ਅਰਦਾਸ","ਰਾਹ","ਸੱਚਾਈ","ਉਮੀਦ","ਹੌਸਲਾ","ਇਮਾਨਦਾਰੀ","ਆਦਮੀ","ਇਨਸਾਫ","ਦੋਸਤੀ"];
+
+let words=[],timer,timeRemaining,currentIndex=0,correct=0,wrong=0,timeTaken=0,typed=[],chunkStart=0,chunkSize=18,testDone=false;
+const box=document.getElementById("test_text"),input=document.getElementById("typed_text"),time=document.getElementById("time_remaining"),live=document.getElementById("live_results");
+
+function generateWords(){
+  const lang=document.getElementById("language").value;
+  const source=lang==="punjabi"?punjabiWords:englishWords;
+  words=Array.from({length:600},()=>source[Math.floor(Math.random()*source.length)]);
+}
+function displayChunk(){
+  box.innerHTML=words.slice(chunkStart,chunkStart+chunkSize)
+    .map((w,i)=>`<span id='word-${chunkStart+i}' class='${i===0?"current":""}'>${w}</span>`).join(" ");
+}
+function updateHighlight(){
+  const highlight=document.getElementById("highlight_toggle").checked;
+  for(let i=chunkStart;i<chunkStart+chunkSize;i++){
+    const el=document.getElementById(`word-${i}`);
+    if(!el)continue;
+    el.className="";
+    if(!highlight)continue;
+    if(i<currentIndex)el.classList.add(typed[i]===words[i]?"correct":"incorrect");
+    else if(i===currentIndex)el.classList.add("current");
+  }
+}
+function nextChunk(){chunkStart+=chunkSize;displayChunk();updateHighlight();}
+function reset(){
+  clearInterval(timer);timer=null;
+  timeRemaining=parseInt(document.getElementById("timer").value);
+  currentIndex=0;correct=0;wrong=0;timeTaken=0;typed=[];chunkStart=0;testDone=false;
+  input.disabled=false;input.value="";
+  generateWords();updateTime();displayChunk();
+  live.innerHTML="✅ Correct: 0 | ❌ Wrong: 0 | 🔢 Total: 0";
+}
+function updateTime(){
+  const m=String(Math.floor(timeRemaining/60)).padStart(2,"0");
+  const s=String(timeRemaining%60).padStart(2,"0");
+  time.textContent=`${m}:${s}`;
+}
+function startTime(){
+  if(!timer){
+    timer=setInterval(()=>{
+      if(timeRemaining>0){timeRemaining--;timeTaken++;updateTime();}
+      else{clearInterval(timer);finish();}
+    },1000);
+  }
+}
+function finish(){
+  testDone=true;input.disabled=true;
+  const total=correct+wrong;
+  const acc=total?((correct/total)*100).toFixed(2):0;
+  const wpm=(total/(timeTaken/60)).toFixed(2);
+  let img,title,text;
+  if(wpm>50){img="https://cdn-icons-png.flaticon.com/512/5038/5038837.png";title="🌟 Typing Wizard! 🌟";text="Incredible! You type with magical precision!";}
+  else if(wpm>40){img="https://cdn-icons-png.flaticon.com/512/1791/1791320.png";title="🎉 Great Job!";text="Awesome work! Keep up your amazing speed!";}
+  else if(wpm>25){img="https://cdn-icons-png.flaticon.com/512/1055/1055646.png";title="👍 Keep Practicing!";text="Good effort! Stay consistent!";}
+  else{img="https://cdn-icons-png.flaticon.com/512/753/753318.png";title="🚧 Keep Improving!";text="Every master was once a beginner.";}
+  document.getElementById("popupImg").src=img;
+  document.getElementById("popupTitle").innerHTML=title;
+  document.getElementById("popupText").innerHTML=`${text}<br><br><b>Speed:</b> ${wpm} WPM<br><b>Accuracy:</b> ${acc}%`;
+  document.getElementById("resultPopup").style.display="flex";
+}
+input.addEventListener("keydown",e=>{
+  const allow=document.getElementById("backspace_toggle").checked;
+  if(e.key===" "){
+    const val=input.value.trim();
+    if(val){
+      typed[currentIndex]=val;
+      if(val===words[currentIndex])correct++;else wrong++;
+      currentIndex++;
+      if(currentIndex>=chunkStart+chunkSize)nextChunk();
+      updateHighlight();
+      live.innerHTML=`✅ Correct: ${correct} | ❌ Wrong: ${wrong} | 🔢 Total: ${correct+wrong}`;
+    }
+    input.value="";
+    if(!timer)startTime();
+    e.preventDefault();
+  }else if(e.key==="Backspace"&&!allow)e.preventDefault();
+});
+document.getElementById("restart_button").onclick=reset;
+document.getElementById("timer").onchange=reset;
+document.getElementById("language").onchange=reset;
+reset();
+});
+</script>
+</body>
+</html>
+
+

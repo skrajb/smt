@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Smartech Education</title>
+
+<style>
+body {
+  font-family: 'Bookman Old Style', serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* ===== Header & Nav ===== */
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 40px;
+  animation: fadeDown 1s ease forwards;
+}
+.header img { height: 80px; }
+
+nav {
+  background: #00295f;
+  padding: 10px 20px;
+  animation: fadeDown 1s ease .3s forwards;
+}
+nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+nav a {
+  color: white; text-decoration: none; font-weight: bold; transition: 0.3s;
+}
+nav a:hover { color: black; }
+
+/* ===== Hero Section ===== */
+.hero {
+  text-align: center;
+  padding: 60px 10%;
+  background: linear-gradient(to right, #fff, #f9f8f6);
+  animation: fadeUp 1s ease .5s forwards;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  color: #000;
+}
+.hero p {
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* ===== Contact Form ===== */
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 50px auto;
+  animation: fadeUp 1s ease 1s forwards;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  color: #00295f;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input, textarea {
+  font-family: 'Bookman Old Style', serif;
+  padding: 12px 15px;
+  font-size: 18px;
+  border: 2px solid #00295f;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+input:focus, textarea:focus {
+  border-color: #000;
+}
+
+textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+button {
+  background: #00295f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 200px;
+  align-self: center;
+}
+button:hover {
+  background: #000;
+  color: white;
+}
+
+/* ===== Thank You Popup ===== */
+.popup-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: none; justify-content: center; align-items: center;
+  animation: fadeIn .5s ease;
+}
+.popup {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  transform: scale(0.8);
+  animation: popUp .5s ease forwards;
+}
+.popup img {
+  width: 120px;
+  margin-bottom: 15px;
+}
+.popup h2 {
+  color: #00295f;
+}
+.popup p {
+  color: #444;
+  font-size: 18px;
+}
+.popup button {
+  background: #00295f;
+  margin-top: 15px;
+}
+.popup button:hover {
+  background: black;
+  color: white;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeDown {
+  from {opacity:0; transform:translateY(-40px);}
+  to {opacity:1; transform:translateY(0);}
+}
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(40px);}
+  to {opacity:1; transform:translateY(0);}
+}
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+@keyframes popUp {
+  to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width:768px){
+  nav ul { flex-direction: column; align-items: center; }
+}
+</style>
+<script>
+        // Prevent right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        }, false);
+
+        // Prevent copy
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            return false;
+        }, false);
+
+        // Prevent paste (except in typing-input)
+        document.addEventListener('paste', function(e) {
+            e.preventDefault();
+            return false;
+        }, false);
+
+        // Prevent developer tools and view source shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Block F12 (Dev Tools)
+            if (e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+            // Block Ctrl+Shift+I (Dev Tools)
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+                return false;
+            }
+            // Block Ctrl+U (View Source)
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+                return false;
+            }
+            // Block Ctrl+S (Save Page)
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                return false;
+            }
+        }, false);
+    </script>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<div class="header">
+  <img src="Smartech Educatation Computer Centre.png" alt="Logo">
+  <img src="Typing Boy.png" alt="Typing Boy" height="80">
+</div>
+
+<!-- ===== Navigation ===== -->
+<nav>
+  <ul>
+    <li><a href="Home.html">Home</a></li>
+   <!--<li><a href="exercises.html">Exercises</a></li>-->
+    <li><a href="english_tutor.html">English Tutor</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ===== Hero Section ===== -->
+<section class="hero">
+  <h1>Contact Smartech Education</h1>
+  <p>We’d love to hear from you! Send us your queries, feedback, or suggestions.</p>
+  <p>On</p>
+  <h3>smartecheducation@gmail.com</h3>
+</section>
+
+
+
+
+
+
+
+</body>
+</html>
+
+

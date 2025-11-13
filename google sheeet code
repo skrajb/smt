@@ -1,0 +1,57 @@
+function doGet(e) {
+  const sheet = SpreadsheetApp.openById("1B9eKlpnYosGXAe0vwZJl2zP1I2i9EDxCTlj7-yjyJng").getSheetByName("LoginStatus");
+  const action = e.parameter.action;
+  const username = e.parameter.username;
+  const sessionId = e.parameter.sessionId;
+
+  if (!action) return ContentService.createTextOutput("NO_ACTION");
+
+  if (action === "login") {
+    const expiry = Date.now() + 60 * 60 * 1000; // 1 hour
+    const rows = sheet.getDataRange().getValues();
+    let found = false;
+
+    for (let i = 1; i < rows.length; i++) {
+      if (rows[i][0] === username) {
+        found = true;
+        sheet.getRange(i + 1, 2).setValue(sessionId);
+        sheet.getRange(i + 1, 3).setValue(new Date());
+        sheet.getRange(i + 1, 4).setValue(expiry);
+        break;
+      }
+    }
+
+    if (!found) {
+      sheet.appendRow([username, sessionId, new Date(), expiry]);
+    }
+
+    return ContentService.createTextOutput("OK");
+  }
+
+  if (action === "check") {
+    const rows = sheet.getDataRange().getValues();
+    for (let i = 1; i < rows.length; i++) {
+      if (rows[i][0] === username) {
+        const activeSession = rows[i][1];
+        const expiry = rows[i][3];
+        if (Date.now() > expiry) return ContentService.createTextOutput("EXPIRED");
+        if (activeSession !== sessionId) return ContentService.createTextOutput("LOGOUT");
+        return ContentService.createTextOutput("ACTIVE");
+      }
+    }
+    return ContentService.createTextOutput("NOUSER");
+  }
+
+  if (action === "logout") {
+    const rows = sheet.getDataRange().getValues();
+    for (let i = 1; i < rows.length; i++) {
+      if (rows[i][0] === username) {
+        sheet.getRange(i + 1, 2).setValue("");
+        return ContentService.createTextOutput("LOGGEDOUT");
+      }
+    }
+    return ContentService.createTextOutput("NOUSER");
+  }
+
+  return ContentService.createTextOutput("INVALID");
+}

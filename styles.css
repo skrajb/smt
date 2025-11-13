@@ -1,0 +1,272 @@
+/* Basic Smartech-themed styles for test + results */
+:root{
+    --accent:#2b7a2b;
+    --muted:#666;
+    --bg:#ffffff;
+    --card:#f8f8f8;
+    --danger:#c0392b;
+}
+
+body {
+    margin:0;
+    background:var(--bg);
+    color:#222;
+    font-family: "Bookman Old Style", serif;
+}
+
+.site-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 20px;
+    border-bottom:2px solid #eee;
+    background:linear-gradient(90deg,#fff,#fbfffb);
+}
+.logo { height:72px; }
+
+.main-nav a {
+    margin:0 10px;
+    text-decoration:none;
+    color:var(--muted);
+    font-weight:600;
+}
+.container {
+    max-width:1000px;
+    margin:18px auto;
+    padding:12px;
+}
+
+/* Test section */
+.header-row {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+.left-meta, .center-meta, .right-meta { display:flex; align-items:center; gap:10px; }
+#timer { font-weight:700; color:var(--danger); }
+#current-chunk { font-size:0.95rem; color:var(--muted); text-align:center; color:red;font-weight:bold}
+
+.reference-outer {
+    background:#00295f;
+    border-radius:6px;
+    padding:12px;
+    margin-bottom:8px;
+    border:1px solid #e6e6e6;
+}
+.paragraph { line-height:1.8; font-size:1.25rem; padding:4px;  font-family: 'Bookman Old Style', serif; background-color:white}
+
+.typing-input {
+    width:98%;
+    resize:vertical;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ddd;
+	line-height:1.5;
+    font-size:1.25rem;
+    margin-bottom:8px;
+	
+	 font-family: 'Bookman Old Style', serif;
+}
+
+/* Buttons */
+.primary-btn {
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+}
+.small-btn {
+    background:#fff;
+    border:1px solid #ddd;
+    padding:6px 10px;
+    border-radius:6px;
+    cursor:pointer;
+}
+.link-btn {
+    background:transparent;
+    color:var(--accent);
+    border:0;
+    cursor:pointer;
+}
+
+/* Results */
+.results-section { margin-top:16px; }
+.results-table { width:100%; border-collapse:collapse; margin-top:8px; }
+.results-table th, .results-table td {
+    border:1px solid #e6e6e6;
+    padding:8px;
+    text-align:left;
+}
+.results-table th { background:#f4f8f4; font-weight:700; color:#1b5d1b; }
+
+.error-highlight { margin-top:12px; padding:10px; background:#fff8f8; border:1px solid #f2dede; border-radius:6px; }
+
+/* highlight classes used by engine */
+.correct { color:green; font-weight:600; }
+.wrong { color:#c0392b; font-weight:600; }
+.given { color:#333; opacity:0.85; }
+
+/* stats history */
+.stats-history-table { width:100%; border-collapse:collapse; margin-top:10px; }
+.stats-history-table th, .stats-history-table td { border:1px solid #eee; padding:8px; }
+.pass-result { color:green; font-weight:700; }
+.fail-result { color:#c0392b; font-weight:700; }
+
+/* popups */
+.popup {
+    position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+    background: rgba(0,0,0,0.35);
+}
+.popup-inner {
+    background:#fff; padding:18px; border-radius:8px; min-width:260px; text-align:center;
+}
+.popup-actions { margin-top:8px; display:flex; gap:8px; justify-content:center; }
+
+/* misc */
+.error-message { background:#fdecea; border:1px solid #f5c6cb; padding:8px; margin-bottom:8px; border-radius:6px; }
+/* =======================
+   RESULT TABLE DESIGN
+   ======================= */
+
+#results {
+    margin-top: 25px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+#results h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+    font-family: "Bookman Old Style", serif;
+}
+
+/* Table */
+#results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    font-family: "Bookman Old Style", serif;
+    text-align: left;
+}
+
+/* Header Row */
+#results-table thead th {
+    background: #004688;
+    color: white;
+    padding: 12px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+/* Table Row Styling */
+#results-table tbody td {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+}
+
+/* Zebra effect rows like PSSSB answer sheet */
+#results-table tbody tr:nth-child(even) {
+    background-color: #f5f1e7;
+}
+
+#results-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Notes Section */
+#results-notes {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Pass/Fail styles */
+#exam-note {
+    color: #b80000;
+    font-weight: bold;
+}
+
+#pass-note {
+    color: #007b00;
+    font-weight: bold;
+}
+
+/* Buttons Row */
+#button-row button,
+#refresh-btn-2,
+#practice-another-btn-2 {
+    font-family: "Bookman Old Style", serif;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+}
+
+/* Primary Buttons */
+#refresh-btn-2,
+#practice-another-btn-2 {
+    background: #0055b8;
+    color: white;
+}
+
+#refresh-btn-2:hover,
+#practice-another-btn-2:hover {
+    background: #003f8a;
+}
+
+/* Error text / Highlight */
+#error-highlight {
+    margin-top: 10px;
+    padding: 10px;
+    background: ;
+    border: 1px solid #f5ca49;
+    color: #7d5b00;
+    border-radius: 5px;
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.left-meta button,
+.right-meta button {
+    margin-left: 5px;
+}
+
+.small-btn {
+    padding: 6px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    background: Black;
+    color: white;
+}
+.small-btn:hover {
+    background: #003b84;
+}
+
+
+
+
+
+
+
+
+
+
