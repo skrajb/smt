@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>English Typing Tutor — Smartech Education</title>
+<style>
+  :root{
+    --bg:#f7f8fb; --card:#fff; --accent:#00295f; --muted:#6b7280;
+    --green:#1f9d55; --red:#e03d3d; --blue:#2563eb;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family:Inter, "Bookman Old Style", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    margin:0; background:var(--bg); color:#111;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  header{
+    padding:22px 28px; display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(90deg,#fff,#f2f4f8); border-bottom:1px solid rgba(0,0,0,0.04);
+  }
+  header h1{margin:0; font-size:20px; color:var(--accent); letter-spacing:0.2px}
+  header p{margin:0; color:var(--muted); font-size:13px}
+
+  main{max-width:1100px;margin:28px auto;padding:0 20px}
+
+  /* LESSON GRID */
+  #lessonGrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; margin-bottom:22px}
+  .lessonBtn{
+    background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(16,24,40,0.06);
+    border:1px solid rgba(2,41,95,0.04); cursor:pointer; text-align:center;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .lessonBtn:hover{transform:translateY(-6px); box-shadow:0 10px 30px rgba(16,24,40,0.08)}
+  .lessonBtn h3{margin:0;color:var(--accent);font-size:16px}
+  .lessonBtn p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+  /* TEST AREA */
+  #testArea{display:none; margin-top:10px}
+  .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+  .btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(2,41,95,0.12)}
+  .meta{color:var(--muted);font-size:13px}
+
+  .card{
+    background:var(--card); border-radius:12px; padding:18px; box-shadow:0 8px 30px rgba(16,24,40,0.06);
+    border:1px solid rgba(2,41,95,0.04);
+  }
+
+  /* text display */
+  #textDisplay{min-height:140px; padding:14px;border-radius:8px;border:1px dashed rgba(0,0,0,0.06);
+    font-size:20px; line-height:1.7; font-family:Bookman Old Style; white-space:pre-wrap; word-break:break-word;
+    background:linear-gradient(180deg,#fff,#fbfdff);
+  }
+
+  /* character spans */
+  #textDisplay .ch{border-radius:2px;}
+  #textDisplay .current{color:#1131d9; box-shadow:0 2px 0 rgba(0,0,0,0.06); font-size:25px;}
+  #textDisplay .correct{background:transparent; color:var(--green); font-weight:600}
+  #textDisplay .incorrect{background:transparent; color:var(--red); font-weight:600}
+  #textDisplay .space{display:inline-block; min-width:8px; border-bottom:1px dashed rgba(0,0,0,0.03)}
+
+  /* flash animation when wrong pressed */
+  @keyframes flashRed {
+    0%{background:rgba(224,61,61,0.14)}
+    100%{background:transparent}
+  }
+  .flash { animation: flashRed .45s ease; }
+
+  /* stats */
+  .statsGrid{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap}
+  .stat{background:#fff;padding:10px 12px;border-radius:10px;box-shadow:0 6px 20px rgba(16,24,40,0.03);font-size:14px}
+  .stat strong{display:block;color:var(--accent);font-size:15px}
+
+  /* results area */
+  #results{margin-top:16px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(2,41,95,0.03)}
+  #results h4{margin:0 0 8px;color:var(--accent)}
+  #results p{margin:4px 0;color:var(--muted);font-size:14px}
+
+  /* back button */
+  .backLink{display:inline-flex;align-items:center;gap:8px;color:var(--accent);cursor:pointer;font-weight:600;margin-bottom:8px}
+
+  @media(max-width:640px){
+    #textDisplay{font-size:18px}
+  }
+  .header {display:flex;justify-content:space-between;align-items:center;padding:15px 40px;animation:fadeDown 1s ease;}
+.header img{height:60px;}
+nav{background:#00295f;padding:10px 20px;animation:fadeDown 1s ease .3s forwards;}
+nav ul{list-style:none;display:flex;gap:25px;margin:0;padding:0;}
+nav a{color:white;text-decoration:none;font-weight:bold;transition:.3s;}
+nav a:hover{color:Gold;}
+</style>
+</head>
+
+<body>
+<div class="header">
+  <img src="Smartech Educatation Computer Centre.png" alt="Logo">
+  <img src="Typing Boy.png" alt="Typing Boy">
+</div>
+<nav>
+  <ul>
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="exercises.html">Exercises</a></li>
+    <li><a href="english_tutor.html">Speed Test</a></li>
+	 <li><a href="engtutor.html">English Typing Tutor</a></li>
+	  <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <div>
+    <h1>Punjabi Typing Tutor</h1>
+    <p>Strict letter-by-letter tutor — you must type the correct letter to advance.</p>
+  </div>
+  <div class="meta">Smartech Education</div>
+</header>
+
+<main>
+  <section id="lessonsSection">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+      <h2 style="margin:0">Choose a Lesson</h2>
+      <div class="meta">Pick any lesson to begin — tests use random words from the lesson.</div>
+    </div>
+    <div id="lessonGrid" aria-label="lessons grid"></div>
+  </section>
+
+  <section id="testArea">
+    <div class="backLink" id="backToLessons" title="Back to lessons">← Back to lessons</div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <h3 id="lessonTitle" style="margin:0;color:var(--accent)"></h3>
+          <div class="meta" id="lessonSubtitle"></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <button id="restartBtn" class="btn ghost">Restart Lesson</button>
+          <button id="newTextBtn" class="btn">New Random Text</button>
+        </div>
+      </div>
+
+      <hr style="margin:12px 0;border:none;border-top:1px solid rgba(0,0,0,0.04)">
+
+      <div id="textDisplay" aria-live="polite" tabindex="0"></div>
+
+      <div class="statsGrid" style="margin-top:12px">
+        <div class="stat"><strong id="time">00:00</strong><small>Time</small></div>
+        <div class="stat"><strong id="correctCount">0</strong><small>Correct chars</small></div>
+        <div class="stat"><strong id="wrongCount">0</strong><small>Wrong hits</small></div>
+        <div class="stat"><strong id="accuracy">0%</strong><small>Accuracy</small></div>
+        <div class="stat"><strong id="wpm">0</strong><small>WPM</small></div>
+      </div>
+
+      <div id="results" style="display:none">
+        <h4>Result</h4>
+        <p id="finalSummary">Complete the test to see results here.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Hidden textarea to capture IME / composed input reliably -->
+<textarea id="capture" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+  style="position:absolute;left:-9999px;top:auto;opacity:0;" aria-hidden="true"></textarea>
+
+<script>
+(() => {
+  const lessons = {
+    lesson1: ["ਪਰ","ਕਰ","ਤਕ","ਤਪ","ਚੋਰ","ਪਰਤ","ਪਰਕੋ","ਕਰੋ","ਰੋਕ","ਰੇਤ","ਚੇਤ","ਰੋਚਕ","ਰੋਕੋ","ਕਿ","ਰੁਤ","ਚਤਰ","ਰਕਤ","ਚੇਤਕ","ਕਿਰਤ","ਚਿਪਕ","ਪਰਕ","ਟਚ","ਟਿਕ","ਰਿਕਤ","ਪਰਕ","ਰਿਪੋਰਟ","ਚੋਕਰ","ਟੋਰਚ","ਚਰਚ","ਟਿਕਟ","ਤੁਰ","ਚਟਪਟ","ਕੋਟ","ਕਿਕ","ਟੇਪ"],
+    lesson2: ["ਕਪ","ਹਦ","ਦਾਤਾ","ਹਾਜਰ","ਜਾਗਰ","ਕੌਰ","ਡੋਰ","ਡੀ","ਡੋਗਰ","ਗਤੀ","ਬਚੀ","ਦੀਪ","ਬਾਹੀ","ਹਿਪ","ਬਾਜੀ","ਦਰਜੀ","ਦੀਪਕ","ਪਿਤਾ","ਤੋਤਾ","ਪੋਤੀ","ਦੂਰੀ","ਦੁਹਰੀ","ਬੋਰਡ","ਪੈਰ","ਜੇਬ","ਗੌਦ","ਪੌਦਾ","ਜਦ","ਟੋਟਾ","ਬਾਡੀਗਾਰਡ","ਗੌਰੀ","ਜਾਦੂਗਰ","ਗਰਾਹਕ","ਦਾਦੀ","ਦਰਦ","ਗਦਰ","ਡਰਪੋਕ","ਪੀਰ","ਪਰਬਤ","ਬਰਾਬਰ","ਜੇਕਰ","ਹੀਰਾ","ਗਿਟਾਰ","ਕਿਤਾਬ","ਗੈਰ","ਦਰਗਾਹ","ਗਰੀਬ","ਪਾਰਟੀ","ਬਗਦਾਦ","ਗਰਾਹੀ","ਰੁਤਬਾ","ਚਾਰਜ","ਜਾਗਰੂਕਤਾ","ਡਾਕੂ","ਚਾਕੂ","ਬੋਰੀ"],
+    lesson3: ["ਨਾਲ","ਵੀ","ਵਿਚ","ਰਕਮ","ਚੰਦਾ","ਰੂਪ","ਲਿਵਾਸ","ਮਾਨਵ","ਹੀਰਾ","ਮਕਾਨ","ਕਿਰਨ","ਕਿਸੇ","ਸਲਾਹ","ਵੋਟ","ਮਾਨ","ਮਹਾਨ","ਹਿਸਾਬ","ਹੁਕਮ","ਸਕਦਾ","ਵਿਚਾਰ","ਹਿੰਦ","ਵੀਰ","ਵੀਰਤਾ","ਪੰਜਾਬੀ","ਨੀਯਤ","ਬੁਲਟ","ਕਾਹਲੀ","ਵਾਦੀ","ਸਰਕਾਰ","ਚਮਤਕਾਰ","ਨਮੂਨਾ","ਸਲਾਦ","ਮਹਿਕ","ਯੋਜਨਾ","ਕੀਮਤ","ਮੋਹਿਤ","ਜਯ","ਪੰਜ","ਵਿਕਾਸ","ਸਪੀਕਰ","ਵਹਿਮ","ਸਤਿਕਾਰ","ਸਮਾਜ","ਸਹੂਲਤ","ਸੰਪਰਕ","ਸੈਮ","ਸੰਗ","ਹਰਮਨ","ਮਹਿਸੂਸ","ਰੁਕਾਵਟ","ਸਮੂਹ","ਪੰਡਿਤ","ਜੀਵਨ","ਸਨਮਾਨਿਤ","ਕੂਲਰ","ਬਿਜਲੀ","ਬੰਦੂਕ","ਤਾਪਮਾਨ","ਮੌਸਮ","ਸਰੀਰਕ","ਹੈਰਾਨੀ","ਜਨਕ","ਸੰਕਟ","ਦੇਵਤਾ","ਪਰਯੋਗ","ਮੁਕਾ","ਬਲਾ","ਸੈਲੰਡਰ","ਸਮੌਸਾ"],
+    lesson4: ["ਠਪ","ਟਪ","ਤੜ","ਫੜ","ਅੜ","ਏਕ","ਓਮ","ਉਕਤ","ਏਕਤਾ","ਠਰ","ਛਟ","ਥੂੜ","ਖੜਕ","ਰੜਕ","ਰਬੜ","ਇਟ","ਪੁਰਖ","ਛਪਰ","ਇਤਰ","ਕੜਕ","ਅਰਕ","ਕਾਰ","ਉਰਫ","ਰੋਕੜ","ਇਮਲੀ","ਸਥਿਰ","ਸਥਾਨ","ਕਥਨ","ਖਿੜਕੀ","ਜਕੜ","ਉਚਿਚਤਾ","ਅਸੀ","ਏਜੰਸੀ","ਇਮਤਿਹਾਨ","ਸੜਕ","ਠੇਲਾ","ਓਕੜ","ਲੜਕੀ","ਅਨਮੋਲ","ਖਤਰਨਾਕ","ਛੂਤਛਾਤ","ਖੰਡਰ","ਸੈਲੰਡਰ","ਪਦਾਰਥ","ਸੁਖਾਲਾ","ਵਿਅਕਤੀ","ਏਥਿਕਸ","ਫੈਲਾਉ","ਉਬਾਲ","ਚੌਥੀ","ਥਿੰਦਾ","ਮੁਖਤਾਰ","ਅਫਵਾਹ","ਉਬਾਲ","ਫੈਸਲਾ","ਠੰਡਕ"],
+    lesson5: ["ਔਕੜ","ਆਰੀ","ਈਰਖਾ","ਧੋਬੀ","ਆਖੇ","ਆੜੂ","ਝਾੜੂ","ਝਗੜਾ","ਢਾਈ","ਭਗਤ","ਭਰਾ","ਢਾਕਾ","ਐਨਕ","ਆਈ","ਘੜਾ","ਕਿੰਞ","ਘਰਾਚੋ","ਘੜੀ","ਥਿੰਦਾ","ਔਰਤ","ਘਾਉ","ਐਗਰੀ","ਥੈਲਾ","ਘਗਰ","ਊਜ","ਇੰਞ","ਬਾਊ","ਬਾਈ","ਉਚਿਚਤਾ","ਭੌਲਾ","ਧੀਰਜ","ਧੰਨਵਾਦ","ਵੰਝਲੀ","ਘੋੜਾ","ਢੂੰਡ","ਈਦ","ਊਰਜਾ","ਊਠ","ਢੋਲ","ਔਜਾਰ","ਆਦਮੀ","ਧਰਤੀ"],
+    lesson6: ["ਘੇਰਦਾ","ਞਤਨ","ਖਿੰਘਰ","ਡਾਕਘਰ","ਕੰਙਲ","ਝੰਜੋੜ","ਲੰਬਾਈ","ਸੁਭਾਅ","ਸੁਧੀਰ","ਧਮਾਕਾ","ਆਦਤ","ਸੰਙ","ਪਿਘਲ","ਆਗਰਾ","ਪਿਛੌਕੜ","ਘੁਮਿਆਰ","ਈਨਾਮ","ਈਕਾਈ","ਘੌਲ","ਊਚਾਈ","ਢੋਲਕ","ਮਾਂ","ਛਾਂ","ਜਾਂ","ਝਾਵਾਂ","ਇਟਾਂ","ਵਾਂਝਾ","ਛਣ","ਪੌਣ","ਪਾਣੀ","ਸ਼ੰਖ","ਨਮਕ","ਖਣਜ","ਮਾਣਕ","ਮੰਨਣਾ","ਲਕਸ਼","ਗਿਣਤੀ","ਸ਼ਲਗਮ","ਸ਼ੌਰ","ਯੂਨੀਕੋਡ","ਲਿਸ਼ਕਾਰਾ","ਇਲਾਵਾ","ਨਿਰਮਾਣ","ਵਿਸ਼ਵਾਸ","ਉਂਗਲਾਂ","ਓਨਾਂ","ੲਰਾਦਾ","ਲੌਂਗ","ੲਨਸਾਨ","ਪਹਿਚਾਣ","ਕਠਣਾਈ","ਦੁਗਣੀ","ਗੁਣਾ","ਸ਼ਹਿਦ","ਦਿਸ਼ਾ","ਹੋਸ਼","ਦਹਿਸ਼ਤ","ਬੁਰਸ਼","ਪੁਣਛਾਣ","ਊਣਾਂ","ਸ਼ਿਫਟ","ਊਂਙਣਾ","ਸ਼ੁਧ","ਸਿਆਣਪ","ਇੰਜਣ","ਸ਼ਬਦ","ਸ਼ਰਧਾ","ਖੇਡਾਂ","ਸ਼ਕਤੀ","ਦੂਸ਼ਿਤ","ੲਮਤਿਹਾਨ","ਸ਼ੁਰੂਆਤ","ਮਹਾਂਭਾਰਤ","ਨਾਲ਼","ਜਾਂਚ","ਤਮਾਸ਼ਾ","ਇਸ਼ਨਾਨ","ਸਕੋਲਰਸ਼ਿਪ","ਹੌਲ਼ੀ","ਲ਼ਕੜੀ","ੲਮਾਨਦਾਰ","ੲਤਿਹਾਸ"],
+    lesson7: ["ਹੜ੍ਹ","ਤਰ੍ਹਾਂ","ਉਨ੍ਹਾਂ","ਜਿਨ੍ਹਾਂ","ਪੜ੍ਹਦੇ","ਪੜ੍ਹਾਇਆ","ਪ੍ਰਕਾਰ","ਪ੍ਰਕਾਸ਼","ਪ੍ਰੰਤੂ","(ਗ੍ਰਹਿ)","ਪ੍ਰੀਤ","ਪ੍ਰਿਥਵੀ","ਕ੍ਰਿਸ਼ਨ","ਪ੍ਰਣਬ","ਪ੍ਰਤੀ","ਪ੍ਰਤੀ-ਸ਼ਤ","ਨਾਗ੍ਰਿਕ","ਪ੍ਰਬੰਧ","ਪ੍ਰਦਾਨ","ਗ੍ਰਹਿਸਤੀ","ਕ੍ਰਮਚਾਰੀ","ਘੱਟ","ਸੱਤ","ਅੱਠ","ਹੱਕ","ਹੱਦ","ਬੱਚਤ","(ਉੱਨਤ)","ਬੱਚਿਆ","ਮਨੁੱਖ","ਗੱਡੀ","ਮੱਦਦ","ਵਿੱਦਿਆ","ਪ੍ਰੱਚਲਤ","ਸ੍ਵਰ","ਪ੍ਰੇਮ","ਬਿਸ੍ਵ","(ਬਿਸ੍ਵੰਭਰ)","ਸ੍ਵੈਮਾਨ","ਸ੍ਵੀਕਾਰ","ਤ੍ਵ","ਪਰਮੇ-ਸ੍ਵਰ","ਸ੍ਵੈਜੀ-ਵਨੀ","ਧੱਬਾ","ਸੈੱਟ","ਅੜਿੱਕਾ","ਚੜ੍ਹਦਾ","ਤ੍ਰਿੰਞਣ","ਪ੍ਰੇਰਨਾ","ਪਵਿੱਤਰ","ਫੁੱਲ","ਪ੍ਰਭਾਵ","ਅਮ੍ਰਿੰਤਾ","ਉੱਥੇ","ਉੱਪਰ","ਗ੍ਰੰਥ","ਸੱਭਿਆਚਾਰ","ਸੱਤਿਆਗ੍ਰਹਿ"],
+    lesson8: ["ਜ਼ਹਾਜ","ਫ਼ਲ","ਖ਼ੁਸ਼","ਸਜ਼ਾ","ਗ਼ੁਲਾਮ","ਸਫ਼ਾਈ","ਜ਼ਿਕਰ","ਜ਼ੋਕਰ","ਲਿਸ਼ਕਾਰਾ","ੳਰਜਾ","ਜ਼ੂਸ","ੳਸਾਰ","ਜ਼ੋਰ","ਕਾਗਜ਼","ਜ਼ਫ਼ਰਨਾਮਾ","ਗ਼ੁਬਾਰਾ","ਜ਼ੰਜੀਰ","ਰੁਜ਼ਗਾਰ","ਅਖ਼ਬਾਰ","ਖ਼ਬਰਾਂ","ਸਬਜ਼ੀ","ੳਣਮੱਤ","ਸੂਫ਼ੀ","ਫ਼ਲਸਫ਼ੇ","ਨਜ਼ਰ","ਟੈਲੀਵਿਜ਼ਨ","ਫ਼ਸਲ","ਮਜ਼ਾਰ","ਖ਼ਰਗੋਸ਼","ਰਫ਼ਤਾਰ","ਜ਼ੁਰਾਬ","ੳਲਝਣ","ਮਜ਼ੂਮਨ","ਸਾਫ਼","ੳਲੰਬਾ"],
+    lesson9: ["੧੨੩੪੫","੦੯੮੭੬","੧੨੩੪੫","੦੯੮੭੬","੧੨੩੪੫","੦੯੮੭੬","੫੪੯੦੧","੨੩੬੧੮","੫੪੯੦੧","੯੫੩੦੪","੬੮੩੧੫","੪੦੫੧੭","੦੯੮੭੬","੫੪੯੦੧","੧੨੩੪੫","੬੮੩੧੫","੫੪੯੦੧","੨੩੬੧੮"],
+    lesson10:["ਪਰ","ਕਰ","ਚੇਤ","ਰੋਚਕ","ਟੋਰਚ","ਕਿਕ","ਟੇਪ","ਕਪ","ਦੀਪਕ","ਪਿਤਾ","ਜੇਬ","ਗਦਰ","ਹੀਰਾ","ਗਿਟਾਰ","ਨਾਲ","ਰੂਪ","ਸਲਾਹ","ਹਿੰਦ","ਵੀਰਤਾ","ਵਾਦੀ","ਸਰਕਾਰ","ਮਹਿਕ","ਯੋਜਨਾ","ਸਤਿਕਾਰ","ਸਮਾਜ","ਬੰਦੂਕ","ਤਾਪਮਾਨ","ਮੌਸਮ","ਸਰੀਰਕ","ਪਰਯੋਗ","ਸਮੌਸਾ","ਠਪ","ਖੜਕ","ਰਬੜ","ਪੁਰਖ","ਕਥਨ","ਜਕੜ","ਇਮਤਿਹਾਨ","ਔਕੜ","ਝਾੜੂ","ਭਰਾ","ਘੜੀ","ਇੰਞ","ਆਦਮੀ","ਧਰਤੀ","ਘੇਰਦਾ","ਆਦਤ","ਈਨਾਮ","ਊਚਾਈ","ਪਾਣੀ","ਮਾਣਕ","ਲਕਸ਼","ਲਿਸ਼ਕਾਰਾ","ਨਿਰਮਾਣ","ਲੌਂਗ","ਦਿਸ਼ਾ","ਸ਼ੁਧ","ਸ਼ਬਦ","ਸ਼ਕਤੀ","ਤਮਾਸ਼ਾ","ਸਕੋਲਰਸ਼ਿਪ","ਤਰ੍ਹਾਂ","ਪ੍ਰਕਾਸ਼","ਕ੍ਰਿਸ਼ਨ","ਪ੍ਰਤੀਸ਼ਤ","ਗ੍ਰਹਿਸਤੀ","ਬੱਚਤ","ਸ੍ਵੈਮਾਨ","ਪ੍ਰੇਰਨਾ","ਪਵਿੱਤਰ","ਜ਼ਹਾਜ","ਖ਼ੁਸ਼","ਸਜ਼ਾ","ਗ਼ੁਲਾਮ","ਜ਼ਿਕਰ","ੳਰਜਾ","ਫ਼ਸਲ","ਖ਼ਬਰਾਂ","ਟੈਲੀਵਿਜ਼ਨ","ੳਲੰਬਾ","੧੨੩੪੫","੦੯੮੭੬","੫੪੯੦੧","੨੩੬੧੮","੯੫੩੦੪","੬੮੩੧੫"]
+  };
+
+  // DOM refs
+  const lessonGrid = document.getElementById('lessonGrid');
+  const lessonsSection = document.getElementById('lessonsSection');
+  const testArea = document.getElementById('testArea');
+  const backToLessons = document.getElementById('backToLessons');
+  const lessonTitle = document.getElementById('lessonTitle');
+  const textDisplay = document.getElementById('textDisplay');
+  const correctCountEl = document.getElementById('correctCount');
+  const wrongCountEl = document.getElementById('wrongCount');
+  const accuracyEl = document.getElementById('accuracy');
+  const wpmEl = document.getElementById('wpm');
+  const timeEl = document.getElementById('time');
+  const resultsBox = document.getElementById('results');
+  const finalSummary = document.getElementById('finalSummary');
+  const restartBtn = document.getElementById('restartBtn');
+  const newTextBtn = document.getElementById('newTextBtn');
+  const capture = document.getElementById('capture');
+
+  // state
+  let currentLesson = null;
+  let currentString = "";
+  let charSpans = [];
+  let cursor = 0;
+  let startedAt = 0;
+  let timerId = null;
+  let correctChars = 0;
+  let wrongHits = 0;
+  let running = false;
+
+  // fill lesson grid
+  (function fillGrid(){
+    const keys = Object.keys(lessons);
+    keys.forEach((k,i) => {
+      const btn = document.createElement('div');
+      btn.className = 'lessonBtn';
+      btn.setAttribute('role','button');
+      btn.tabIndex = 0;
+      btn.innerHTML = `<h3>Lesson ${i+1}</h3><p>${lessons[k].slice(0,5).join(', ')}...</p>`;
+      btn.addEventListener('click', () => startLesson(k));
+      btn.addEventListener('keydown', (ev)=> { if(ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); startLesson(k); } });
+      lessonGrid.appendChild(btn);
+    });
+  })();
+
+  function generateRandomText(lessonKey, wordCount = 60){
+    const pool = lessons[lessonKey] || lessons.lesson1;
+    const arr = [];
+    for(let i=0;i<wordCount;i++){
+      const w = pool[Math.floor(Math.random()*pool.length)];
+      arr.push(w);
+    }
+    return arr.join(' ');
+  }
+
+  function renderText(str){
+    textDisplay.innerHTML = '';
+    charSpans = [];
+    for(let i=0;i<str.length;i++){
+      const ch = str[i];
+      const span = document.createElement('span');
+      span.className = 'ch';
+      if(ch === ' ') { span.classList.add('space'); span.textContent = ' '; }
+      else span.textContent = ch;
+      textDisplay.appendChild(span);
+      charSpans.push({span, char: ch});
+    }
+    cursor = 0;
+    updateVisuals();
+  }
+
+  function updateVisuals(){
+    charSpans.forEach((obj, idx) => {
+      obj.span.classList.remove('current','correct','incorrect','flash');
+      if(obj.char === ' '){ obj.span.textContent = ' '; } else obj.span.textContent = obj.char;
+    });
+    if(cursor < charSpans.length){
+      const c = charSpans[cursor].span;
+      c.classList.add('current');
+      textDisplay.scrollLeft = Math.max(0, c.offsetLeft - 20);
+    }
+  }
+
+  function startLesson(lessonKey){
+    currentLesson = lessonKey;
+    lessonTitle.textContent = `Lesson ${Object.keys(lessons).indexOf(lessonKey)+1}`;
+    lessonsSection.style.display = 'none';
+    testArea.style.display = 'block';
+    resultsBox.style.display = 'none';
+    resetStats();
+    currentString = generateRandomText(lessonKey, 80);
+    renderText(currentString);
+    // focus capture textarea for input (works for IME too)
+    setTimeout(()=> capture.focus(), 50);
+  }
+
+  function resetStats(){
+    stopTimer();
+    startedAt = 0;
+    correctChars = 0; wrongHits = 0; cursor = 0; running = false;
+    correctCountEl.textContent = '0';
+    wrongCountEl.textContent = '0';
+    accuracyEl.textContent = '0%';
+    wpmEl.textContent = '0';
+    timeEl.textContent = '00:00';
+    finalSummary.textContent = 'Complete the test to see results here.';
+  }
+
+  function startTimer(){
+    if(startedAt) return;
+    startedAt = Date.now();
+    running = true;
+    timerId = setInterval(updateTimer, 500);
+  }
+  function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } running = false; }
+  function updateTimer(){ if(!startedAt) return; const elapsed = Math.floor((Date.now() - startedAt) / 1000); const mm = String(Math.floor(elapsed/60)).padStart(2,'0'); const ss = String(elapsed%60).padStart(2,'0'); timeEl.textContent = `${mm}:${ss}`; updateWPM(); }
+
+  function updateWPM(){ if(!startedAt) { wpmEl.textContent = '0'; return; } const elapsedMinutes = Math.max( (Date.now() - startedAt) / 60000, 1/60 ); const wpm = Math.round((correctChars / 5) / elapsedMinutes); wpmEl.textContent = String(wpm); }
+  function updateAccuracy(){ const totalHits = correctChars + wrongHits; const acc = totalHits ? Math.round((correctChars / totalHits) * 100) : 0; accuracyEl.textContent = acc + '%'; }
+
+  // --- BACKSPACE handler (defined so no undefined errors) ---
+  function handleBackspace(){
+    if(cursor === 0) return;
+    const prev = charSpans[cursor-1];
+    if(!prev) return;
+    // remove marks from previous char and move cursor back
+    prev.span.classList.remove('correct','incorrect','flash');
+    cursor = cursor - 1;
+    // recompute correct count (we keep wrongHits as attempt count)
+    recomputeCountsFromDOM();
+    updateVisuals();
+  }
+
+  // recompute counts from DOM (useful after backspace)
+  function recomputeCountsFromDOM(){
+    correctChars = 0;
+    charSpans.forEach(obj => { if(obj.span.classList.contains('correct')) correctChars++; });
+    correctCountEl.textContent = String(correctChars);
+    wrongCountEl.textContent = String(wrongHits);
+    updateAccuracy();
+    updateWPM();
+  }
+
+  // accept correct char
+  function acceptCorrect(){
+    const obj = charSpans[cursor];
+    if(!obj) return;
+    obj.span.classList.remove('current','flash','incorrect');
+    obj.span.classList.add('correct');
+    cursor++;
+    correctChars++;
+    correctCountEl.textContent = String(correctChars);
+    updateAccuracy();
+    updateWPM();
+    if(cursor >= charSpans.length){
+      stopTimer();
+      showFinalResults();
+    } else updateVisuals();
+  }
+
+  // mark wrong attempt (don't advance cursor)
+  function markWrong(){
+    wrongHits++;
+    wrongCountEl.textContent = String(wrongHits);
+    updateAccuracy();
+    const obj = charSpans[cursor];
+    if(!obj) return;
+    obj.span.classList.remove('flash');
+    void obj.span.offsetWidth;
+    obj.span.classList.add('flash','incorrect');
+  }
+
+  function showFinalResults(){
+    const elapsedSeconds = Math.max(1, Math.floor((Date.now() - startedAt) / 1000));
+    const minutes = elapsedSeconds / 60;
+    const wpm = Math.round((correctChars / 5) / Math.max(minutes, 1/60));
+    const totalHits = correctChars + wrongHits;
+    const accuracy = totalHits ? Math.round((correctChars / totalHits) * 100) : 0;
+    finalSummary.innerHTML = `<strong>Completed in ${formatTime(elapsedSeconds)} — WPM: ${wpm} — Accuracy: ${accuracy}%</strong><br>Correct characters: ${correctChars} &nbsp; • &nbsp; Wrong hits: ${wrongHits}`;
+    resultsBox.style.display = 'block';
+    wpmEl.textContent = String(wpm);
+    accuracyEl.textContent = accuracy + '%';
+  }
+
+  function formatTime(totalSeconds){ const mm = String(Math.floor(totalSeconds/60)).padStart(2,'0'); const ss = String(totalSeconds%60).padStart(2,'0'); return `${mm}:${ss}`; }
+
+  // --- Input capture (works with IME) ---
+  // We use composition events and the hidden textarea "capture".
+  // On input/compositionend we receive the typed/composed character(s).
+  capture.addEventListener('compositionend', (e) => {
+    // e.data contains composed text
+    if(!e.data) return;
+    processTypedString(e.data);
+    capture.value = '';
+  });
+
+  capture.addEventListener('input', (e) => {
+    // For simple keys (non-IME), e.data may be null in some browsers; use value instead
+    const data = e.data || capture.value;
+    if(!data) return;
+    processTypedString(data);
+    capture.value = '';
+  });
+
+  // keydown on capture to catch Backspace / Enter etc
+  capture.addEventListener('keydown', (e) => {
+    if(e.key === 'Backspace'){
+      e.preventDefault();
+      handleBackspace();
+    }
+    // prevent default for other modifiers to avoid leaving textarea
+    if(e.ctrlKey || e.metaKey || e.altKey) return;
+  });
+
+  // Process a string (may contain multiple characters) as typed input
+  function processTypedString(str){
+    if(!charSpans.length) return;
+    // start timer on first input
+    if(!startedAt) startTimer();
+    for(const ch of str){
+      if(cursor >= charSpans.length) break;
+      const expected = charSpans[cursor].char;
+      // Accept direct match
+      if(ch === expected){
+        acceptCorrect();
+      } else {
+        // If expected is ASCII letter, accept case-insensitive
+        if(expected.length === 1 && /[a-zA-Z]/.test(expected) && ch.length === 1 && ch.toLowerCase() === expected.toLowerCase()){
+          acceptCorrect();
+        } else if(expected === ' ' && ch === ' '){
+          acceptCorrect();
+        } else {
+          markWrong();
+          // user must type correct character next; do not advance cursor
+        }
+      }
+    }
+  }
+
+  // for convenience: click on textDisplay focuses the hidden capture textarea
+  textDisplay.addEventListener('click', () => capture.focus());
+  textDisplay.addEventListener('focus', () => capture.focus());
+
+  // also allow clicking anywhere in card to focus capture
+  document.querySelectorAll('.card').forEach(c => c.addEventListener('click', ()=> capture.focus()));
+
+  // UI actions
+  backToLessons.addEventListener('click', () => {
+    testArea.style.display = 'none';
+    lessonsSection.style.display = 'block';
+    resetStats();
+  });
+
+  restartBtn.addEventListener('click', () => {
+    resetStats();
+    currentString = generateRandomText(currentLesson, 80);
+    renderText(currentString);
+    resultsBox.style.display = 'none';
+    setTimeout(()=> capture.focus(), 50);
+  });
+
+  newTextBtn.addEventListener('click', () => {
+    resetStats();
+    currentString = generateRandomText(currentLesson, 80);
+    renderText(currentString);
+    resultsBox.style.display = 'none';
+    setTimeout(()=> capture.focus(), 50);
+  });
+
+  // initial accessibility focus
+  setTimeout(()=> {
+    const firstBtn = lessonGrid.querySelector('.lessonBtn');
+    if(firstBtn) firstBtn.setAttribute('tabindex','0');
+  }, 200);
+
+})();
+</script>
+</body>
+</html>
