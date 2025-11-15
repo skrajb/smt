@@ -13,286 +13,91 @@ if (sessionStorage.getItem("isLoggedIn") !== "true") {
 </script>
 
 <style>
-/* ========================
-   PREMIUM THEME — GOLD + GLASS
-   ======================== */
+ :root{
+    --bg:#f7f8fb; --card:#fff; --accent:#00295f; --muted:#6b7280;
+    --green:#1f9d55; --red:#e03d3d; --blue:#2563eb;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family:Inter, "Bookman Old Style", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    margin:0; background:var(--bg); color:#111;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
 
-:root{
-  --bg:#eef1f7;
-  --glass-bg:rgba(255,255,255,0.28);
-  --card-bg:rgba(255,255,255,0.45);
-  --blur:22px;
-  --accent:#0a2463;
-  --gold:#f4c542;
-  --muted:#5e6a7a;
-  --green:#00b87a;
-  --red:#ff4f4f;
-  --blue:#2563eb;
-  --shadow-lg:0 12px 34px rgba(0,0,0,0.12);
-  --shadow-sm:0 4px 14px rgba(0,0,0,0.08);
-}
+  header{
+    padding:22px 28px; display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(90deg,#fff,#f2f4f8); border-bottom:1px solid rgba(0,0,0,0.04);
+  }
+  header h1{margin:0; font-size:20px; color:var(--accent); letter-spacing:0.2px}
+  header p{margin:0; color:var(--muted); font-size:13px}
 
-*{
-  box-sizing:border-box;
-  -webkit-font-smoothing:antialiased;
-}
+  main{max-width:1100px;margin:28px auto;padding:0 20px}
 
-body{
-  margin:0;
-  font-family:Inter, "Bookman Old Style", system-ui;
-  background:linear-gradient(135deg,#d8e2f5,#f3f6fb);
-  min-height:100vh;
-}
+  /* LESSON GRID */
+  #lessonGrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; margin-bottom:22px}
+  .lessonBtn{
+    background:var(--card); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(16,24,40,0.06);
+    border:1px solid rgba(2,41,95,0.04); cursor:pointer; text-align:center;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .lessonBtn:hover{transform:translateY(-6px); box-shadow:0 10px 30px rgba(16,24,40,0.08)}
+  .lessonBtn h3{margin:0;color:var(--accent);font-size:16px}
+  .lessonBtn p{margin:6px 0 0;color:var(--muted);font-size:13px}
 
-/* =================================
-   HEADER WITH GLASS + GOLD OUTLINE
-   ================================= */
-.header{
-  display:flex;
-  justify-content:space-between;
-  padding:20px 40px;
-  backdrop-filter:blur(var(--blur));
-  background:var(--glass-bg);
-  border-bottom:1px solid rgba(255,255,255,0.4);
-  box-shadow:var(--shadow-sm);
-  border-radius:0 0 16px 16px;
-  animation:fadeDown .8s ease;
-}
+  /* TEST AREA */
+  #testArea{display:none; margin-top:10px}
+  .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+  .btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(2,41,95,0.12)}
+  .meta{color:var(--muted);font-size:13px}
 
-.header img{
-  height:62px;
-  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-}
+  .card{
+    background:var(--card); border-radius:12px; padding:18px; box-shadow:0 8px 30px rgba(16,24,40,0.06);
+    border:1px solid rgba(2,41,95,0.04);
+  }
 
-/* ===============================
-   GOLD NAVIGATION — PREMIUM LOOK
-   =============================== */
-nav{
-  background:linear-gradient(90deg,#0a2463,#15409d);
-  padding:12px 30px;
-  border-bottom:3px solid var(--gold);
-  box-shadow:0 6px 18px rgba(0,0,0,0.15);
-  animation:fadeDown 1s ease;
-}
+  /* text display */
+  #textDisplay{min-height:140px; padding:14px;border-radius:8px;border:1px dashed rgba(0,0,0,0.06);
+    font-size:20px; line-height:1.7; font-family:Bookman Old Style; white-space:pre-wrap; word-break:break-word;
+    background:linear-gradient(180deg,#fff,#fbfdff);
+  }
 
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:28px;
-  margin:0;
-  padding:0;
-}
+  /* character spans */
+  #textDisplay .ch{border-radius:2px;}
+  #textDisplay .current{color:#1131d9; box-shadow:0 2px 0 rgba(0,0,0,0.06); font-size:25px;}
+  #textDisplay .correct{background:transparent; color:var(--green); font-weight:600}
+  #textDisplay .incorrect{background:transparent; color:var(--red); font-weight:600}
+  #textDisplay .space{display:inline-block; min-width:8px; border-bottom:1px dashed rgba(0,0,0,0.03)}
 
-nav a{
-  color:white;
-  font-weight:600;
-  text-decoration:none;
-  font-size:15px;
-  letter-spacing:0.4px;
-  position:relative;
-  transition:0.3s;
-}
+  /* flash animation when wrong pressed */
+  @keyframes flashRed {
+    0%{background:rgba(224,61,61,0.14)}
+    100%{background:transparent}
+  }
+  .flash { animation: flashRed .45s ease; }
 
-nav a:hover{
-  color:var(--gold);
-  text-shadow:0 0 8px rgba(255,215,0,0.6);
-}
+  /* stats */
+  .statsGrid{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap}
+  .stat{background:#fff;padding:10px 12px;border-radius:10px;box-shadow:0 6px 20px rgba(16,24,40,0.03);font-size:14px}
+  .stat strong{display:block;color:var(--accent);font-size:15px}
 
-/* ============================
-   SECTION HEADERS + TITLES
-   ============================ */
-header{
-  padding:24px 32px;
-  background:var(--glass-bg);
-  backdrop-filter:blur(var(--blur));
-  border-radius:14px;
-  margin:25px auto;
-  box-shadow:var(--shadow-sm);
-  border:1px solid rgba(255,255,255,0.5);
-}
+  /* results area */
+  #results{margin-top:16px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(2,41,95,0.03)}
+  #results h4{margin:0 0 8px;color:var(--accent)}
+  #results p{margin:4px 0;color:var(--muted);font-size:14px}
 
-header h1{
-  margin:0;
-  font-size:22px;
-  color:var(--accent);
-  font-weight:700;
-}
+  /* back button */
+  .backLink{display:inline-flex;align-items:center;gap:8px;color:var(--accent);cursor:pointer;font-weight:600;margin-bottom:8px}
 
-header p{
-  margin:2px 0 0;
-  color:var(--muted);
-}
-
-/* ============================
-   LESSON GRID — GLASS CARDS
-   ============================ */
-#lessonGrid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:18px;
-}
-
-.lessonBtn{
-  background:var(--card-bg);
-  padding:20px;
-  border-radius:18px;
-  backdrop-filter:blur(var(--blur));
-  border:1px solid rgba(255,255,255,0.5);
-  box-shadow:var(--shadow-lg);
-  cursor:pointer;
-  text-align:center;
-  transition:transform .15s ease, box-shadow .2s ease;
-}
-
-.lessonBtn:hover{
-  transform:translateY(-8px);
-  box-shadow:0 16px 40px rgba(0,0,0,0.18);
-}
-
-.lessonBtn h3{
-  color:var(--accent);
-  margin:0;
-}
-
-.lessonBtn p{
-  margin:6px 0 0;
-  color:var(--muted);
-}
-
-/* ============================
-   CARD / TEST PANEL
-   ============================ */
-.card{
-  background:var(--card-bg);
-  padding:22px;
-  border-radius:18px;
-  backdrop-filter:blur(var(--blur));
-  border:1px solid rgba(255,255,255,0.5);
-  box-shadow:var(--shadow-lg);
-}
-
-/* BUTTONS — GOLD RINGED */
-.btn{
-  background:var(--accent);
-  color:white;
-  padding:10px 16px;
-  border-radius:10px;
-  border:2px solid transparent;
-  cursor:pointer;
-  font-weight:600;
-  transition:0.25s;
-}
-
-.btn:hover{
-  background:#0d2f7e;
-  box-shadow:0 0 12px rgba(10,36,99,0.4);
-}
-
-.btn.ghost{
-  background:rgba(255,255,255,0.2);
-  backdrop-filter:blur(10px);
-  border:2px solid var(--accent);
-  color:var(--accent);
-}
-
-.btn.ghost:hover{
-  background:var(--accent);
-  color:white;
-}
-
-/* ============================
-   TEXT DISPLAY — PREMIUM AREA
-   ============================ */
-#textDisplay{
-  min-height:160px;
-  padding:16px;
-  font-size:22px;
-  line-height:1.8;
-  font-family:"Bookman Old Style";
-  border-radius:12px;
-  background:rgba(255,255,255,0.5);
-  backdrop-filter:blur(var(--blur));
-  border:1px solid rgba(255,255,255,0.55);
-  box-shadow:inset 0 0 20px rgba(0,0,0,0.06);
-}
-
-/* Highlight Styles */
-#textDisplay .current{
-  background:var(--gold);
-  padding:2px 3px;
-  border-radius:4px;
-  font-weight:bold;
-  box-shadow:0 0 12px rgba(255,215,0,0.8);
-}
-
-#textDisplay .correct{
-  color:var(--green);
-  font-weight:600;
-}
-
-#textDisplay .incorrect{
-  color:var(--red);
-  font-weight:600;
-}
-
-.space{
-  display:inline-block;
-  min-width:10px;
-  border-bottom:1px dashed rgba(0,0,0,0.08);
-}
-
-/* Wrong flash animation */
-@keyframes flashRed{
-  0%{background:rgba(255,0,0,0.22)}
-  100%{background:transparent}
-}
-.flash{
-  animation:flashRed .4s ease;
-}
-
-/* ============================
-   STATS — GOLD HIGHLIGHT
-   ============================ */
-.stat{
-  background:rgba(255,255,255,0.5);
-  padding:10px 14px;
-  border-radius:14px;
-  font-size:14px;
-  border:1px solid rgba(255,255,255,0.5);
-  box-shadow:var(--shadow-sm);
-}
-
-.stat strong{
-  display:block;
-  color:var(--accent);
-  font-size:17px;
-}
-
-/* ============================
-   FINAL RESULTS PANEL
-   ============================ */
-#results{
-  margin-top:18px;
-  background:rgba(255,255,255,0.58);
-  border:1px solid rgba(255,255,255,0.55);
-  padding:14px;
-  border-radius:14px;
-  backdrop-filter:blur(var(--blur));
-  box-shadow:var(--shadow-sm);
-}
-
-#results h4{
-  margin:0;
-  color:var(--accent);
-  font-size:18px;
-}
-
-/* Fade-down animation */
-@keyframes fadeDown{
-  from{opacity:0; transform:translateY(-15px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
+  @media(max-width:640px){
+    #textDisplay{font-size:18px}
+  }
+  .header {display:flex;justify-content:space-between;align-items:center;padding:15px 40px;animation:fadeDown 1s ease;}
+.header img{height:60px;}
+nav{background:#00295f;padding:10px 20px;animation:fadeDown 1s ease .3s forwards;}
+nav ul{list-style:none;display:flex;gap:25px;margin:0;padding:0;}
+nav a{color:white;text-decoration:none;font-weight:bold;transition:.3s;}
+nav a:hover{color:Gold;}
 </style>
 </head>
 
@@ -660,6 +465,7 @@ header p{
 </script>
 </body>
 </html>
+
 
 
 
