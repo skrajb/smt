@@ -13,6 +13,7 @@ if (sessionStorage.getItem("isLoggedIn") !== "true") {
 </script>
 
 <style>
+	/*
   :root{
     --bg:#f7f8fb; --card:#fff; --accent:#00295f; --muted:#6b7280;
     --green:#1f9d55; --red:#e03d3d; --blue:#2563eb;
@@ -97,7 +98,287 @@ if (sessionStorage.getItem("isLoggedIn") !== "true") {
 nav{background:#00295f;padding:10px 20px;animation:fadeDown 1s ease .3s forwards;}
 nav ul{list-style:none;display:flex;gap:25px;margin:0;padding:0;}
 nav a{color:white;text-decoration:none;font-weight:bold;transition:.3s;}
-nav a:hover{color:Gold;}
+nav a:hover{color:Gold;}*/
+	/* ========================
+   PREMIUM THEME — GOLD + GLASS
+   ======================== */
+
+:root{
+  --bg:#eef1f7;
+  --glass-bg:rgba(255,255,255,0.28);
+  --card-bg:rgba(255,255,255,0.45);
+  --blur:22px;
+  --accent:#0a2463;
+  --gold:#f4c542;
+  --muted:#5e6a7a;
+  --green:#00b87a;
+  --red:#ff4f4f;
+  --blue:#2563eb;
+  --shadow-lg:0 12px 34px rgba(0,0,0,0.12);
+  --shadow-sm:0 4px 14px rgba(0,0,0,0.08);
+}
+
+*{
+  box-sizing:border-box;
+  -webkit-font-smoothing:antialiased;
+}
+
+body{
+  margin:0;
+  font-family:Inter, "Bookman Old Style", system-ui;
+  background:linear-gradient(135deg,#d8e2f5,#f3f6fb);
+  min-height:100vh;
+}
+
+/* =================================
+   HEADER WITH GLASS + GOLD OUTLINE
+   ================================= */
+.header{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 40px;
+  backdrop-filter:blur(var(--blur));
+  background:var(--glass-bg);
+  border-bottom:1px solid rgba(255,255,255,0.4);
+  box-shadow:var(--shadow-sm);
+  border-radius:0 0 16px 16px;
+  animation:fadeDown .8s ease;
+}
+
+.header img{
+  height:62px;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+/* ===============================
+   GOLD NAVIGATION — PREMIUM LOOK
+   =============================== */
+nav{
+  background:linear-gradient(90deg,#0a2463,#15409d);
+  padding:12px 30px;
+  border-bottom:3px solid var(--gold);
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  animation:fadeDown 1s ease;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:28px;
+  margin:0;
+  padding:0;
+}
+
+nav a{
+  color:white;
+  font-weight:600;
+  text-decoration:none;
+  font-size:15px;
+  letter-spacing:0.4px;
+  position:relative;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:var(--gold);
+  text-shadow:0 0 8px rgba(255,215,0,0.6);
+}
+
+/* ============================
+   SECTION HEADERS + TITLES
+   ============================ */
+header{
+  padding:24px 32px;
+  background:var(--glass-bg);
+  backdrop-filter:blur(var(--blur));
+  border-radius:14px;
+  margin:25px auto;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(255,255,255,0.5);
+}
+
+header h1{
+  margin:0;
+  font-size:22px;
+  color:var(--accent);
+  font-weight:700;
+}
+
+header p{
+  margin:2px 0 0;
+  color:var(--muted);
+}
+
+/* ============================
+   LESSON GRID — GLASS CARDS
+   ============================ */
+#lessonGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+}
+
+.lessonBtn{
+  background:var(--card-bg);
+  padding:20px;
+  border-radius:18px;
+  backdrop-filter:blur(var(--blur));
+  border:1px solid rgba(255,255,255,0.5);
+  box-shadow:var(--shadow-lg);
+  cursor:pointer;
+  text-align:center;
+  transition:transform .15s ease, box-shadow .2s ease;
+}
+
+.lessonBtn:hover{
+  transform:translateY(-8px);
+  box-shadow:0 16px 40px rgba(0,0,0,0.18);
+}
+
+.lessonBtn h3{
+  color:var(--accent);
+  margin:0;
+}
+
+.lessonBtn p{
+  margin:6px 0 0;
+  color:var(--muted);
+}
+
+/* ============================
+   CARD / TEST PANEL
+   ============================ */
+.card{
+  background:var(--card-bg);
+  padding:22px;
+  border-radius:18px;
+  backdrop-filter:blur(var(--blur));
+  border:1px solid rgba(255,255,255,0.5);
+  box-shadow:var(--shadow-lg);
+}
+
+/* BUTTONS — GOLD RINGED */
+.btn{
+  background:var(--accent);
+  color:white;
+  padding:10px 16px;
+  border-radius:10px;
+  border:2px solid transparent;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.25s;
+}
+
+.btn:hover{
+  background:#0d2f7e;
+  box-shadow:0 0 12px rgba(10,36,99,0.4);
+}
+
+.btn.ghost{
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(10px);
+  border:2px solid var(--accent);
+  color:var(--accent);
+}
+
+.btn.ghost:hover{
+  background:var(--accent);
+  color:white;
+}
+
+/* ============================
+   TEXT DISPLAY — PREMIUM AREA
+   ============================ */
+#textDisplay{
+  min-height:160px;
+  padding:16px;
+  font-size:22px;
+  line-height:1.8;
+  font-family:"Bookman Old Style";
+  border-radius:12px;
+  background:rgba(255,255,255,0.5);
+  backdrop-filter:blur(var(--blur));
+  border:1px solid rgba(255,255,255,0.55);
+  box-shadow:inset 0 0 20px rgba(0,0,0,0.06);
+}
+
+/* Highlight Styles */
+#textDisplay .current{
+  background:var(--gold);
+  padding:2px 3px;
+  border-radius:4px;
+  font-weight:bold;
+  box-shadow:0 0 12px rgba(255,215,0,0.8);
+}
+
+#textDisplay .correct{
+  color:var(--green);
+  font-weight:600;
+}
+
+#textDisplay .incorrect{
+  color:var(--red);
+  font-weight:600;
+}
+
+.space{
+  display:inline-block;
+  min-width:10px;
+  border-bottom:1px dashed rgba(0,0,0,0.08);
+}
+
+/* Wrong flash animation */
+@keyframes flashRed{
+  0%{background:rgba(255,0,0,0.22)}
+  100%{background:transparent}
+}
+.flash{
+  animation:flashRed .4s ease;
+}
+
+/* ============================
+   STATS — GOLD HIGHLIGHT
+   ============================ */
+.stat{
+  background:rgba(255,255,255,0.5);
+  padding:10px 14px;
+  border-radius:14px;
+  font-size:14px;
+  border:1px solid rgba(255,255,255,0.5);
+  box-shadow:var(--shadow-sm);
+}
+
+.stat strong{
+  display:block;
+  color:var(--accent);
+  font-size:17px;
+}
+
+/* ============================
+   FINAL RESULTS PANEL
+   ============================ */
+#results{
+  margin-top:18px;
+  background:rgba(255,255,255,0.58);
+  border:1px solid rgba(255,255,255,0.55);
+  padding:14px;
+  border-radius:14px;
+  backdrop-filter:blur(var(--blur));
+  box-shadow:var(--shadow-sm);
+}
+
+#results h4{
+  margin:0;
+  color:var(--accent);
+  font-size:18px;
+}
+
+/* Fade-down animation */
+@keyframes fadeDown{
+  from{opacity:0; transform:translateY(-15px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
 </style>
 </head>
 
@@ -465,6 +746,7 @@ nav a:hover{color:Gold;}
 </script>
 </body>
 </html>
+
 
 
 
