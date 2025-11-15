@@ -307,7 +307,7 @@ nav a:hover{color:Gold;}
   function updateAccuracy(){ const totalHits = correctChars + wrongHits; const acc = totalHits ? Math.round((correctChars / totalHits) * 100) : 0; accuracyEl.textContent = acc + '%'; }
 
   // --- BACKSPACE handler (defined so no undefined errors) ---
-  function handleBackspace(){
+ /* function handleBackspace(){
     if(cursor === 0) return;
     const prev = charSpans[cursor-1];
     if(!prev) return;
@@ -317,7 +317,7 @@ nav a:hover{color:Gold;}
     // recompute correct count (we keep wrongHits as attempt count)
     recomputeCountsFromDOM();
     updateVisuals();
-  }
+  }*/
 
   // recompute counts from DOM (useful after backspace)
   function recomputeCountsFromDOM(){
@@ -465,5 +465,6 @@ nav a:hover{color:Gold;}
 </script>
 </body>
 </html>
+
 
 
