@@ -4,6 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>English Typing Tutor — Smartech Education</title>
+	<script>
+// 🔒 Block access to the page if user is not logged in
+if (sessionStorage.getItem("isLoggedIn") !== "true") {
+    alert("Please login to access this page.");
+    window.location.href = "Home.html"; // redirect back to home/login page
+}
+</script>
+
 <style>
   :root{
     --bg:#f7f8fb; --card:#fff; --accent:#00295f; --muted:#6b7280;
@@ -533,5 +541,6 @@ nav a:hover{color:Gold;}
 </script>
 </body>
 </html>
+
 
 
