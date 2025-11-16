@@ -178,17 +178,9 @@ if (sessionStorage.getItem("isLoggedIn") !== "true") {
   }
   .header {display:flex;justify-content:space-between;align-items:center;padding:15px 40px;animation:fadeDown 1s ease;}
 .header img{height:60px;}
-nav{background:#00295f;padding:10px 20px;animation:fadeDown 1s ease .3s forwards;}
-nav ul li a, nav ul li button {   color: white;
-    text-decoration: none;
-    margin: 0 12px;
-    font-size: 16px;
-    transition: 0.3s;
-    padding: 6px 10px;
-    border-radius: 6px;
-	font-weight:bold;}
-nav ul li a:hover, nav ul li button:hover { background: white;
-    color: #00295f; }
+nav { background: #00295f; padding: 10px 20px;}
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
+nav ul li { margin-right: 20px; }
 
 
 	#fullscreenBtn {
@@ -605,6 +597,7 @@ fullscreenBtn.addEventListener('click', () => {
 </footer>
 </body>
 </html>
+
 
 
 
