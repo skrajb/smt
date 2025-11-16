@@ -44,6 +44,21 @@ button:hover{background:#000;color:white;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 @keyframes popUp{to{transform:scale(1);opacity:1;}}
 @media(max-width:768px){.stats{flex-direction:column;}}
+
+	#fullscreenBtn {
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#fullscreenBtn:hover {
+  background: #0056b3;
+}
+
 </style>
 </head>
 <body>
@@ -63,6 +78,9 @@ button:hover{background:#000;color:white;}
 	 <li><a href="engtutor.html">English Typing Tutor</a></li>
 	  <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
     <li><a href="contact.html">Contact</a></li>
+	        <li style="margin-left:auto;">
+         <button id="fullscreenBtn">Full Screen</button>
+      </li>
   </ul>
 </nav>
 
@@ -205,9 +223,26 @@ document.getElementById("timer").onchange=reset;
 document.getElementById("language").onchange=reset;
 reset();
 });
+	const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+fullscreenBtn.addEventListener('click', () => {
+  if (!document.fullscreenElement) {
+    // Enter full screen
+    document.documentElement.requestFullscreen().catch(err => {
+      alert(`Error enabling full-screen mode: ${err.message}`);
+    });
+    fullscreenBtn.textContent = "Exit Full Screen";
+  } else {
+    // Exit full screen
+    document.exitFullscreen();
+    fullscreenBtn.textContent = "Full Screen";
+  }
+});
+
 </script>
 </body>
 </html>
+
 
 
 
