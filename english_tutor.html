@@ -11,6 +11,91 @@ if (sessionStorage.getItem("isLoggedIn") !== "true") {
     window.location.href = "Home.html"; // redirect back to home/login page
 }
 </script>
+	<script>
+  
+        // Prevent right-click
+  
+        document.addEventListener('contextmenu', function(e) {
+  
+            e.preventDefault();
+  
+            return false;
+  
+        }, false);
+  
+
+  
+        // Prevent copy
+  
+        document.addEventListener('copy', function(e) {
+  
+            e.preventDefault();
+  
+            return false;
+  
+        }, false);
+  
+
+  
+        // Prevent paste (except in typing-input)
+  
+        document.addEventListener('paste', function(e) {
+  
+            e.preventDefault();
+  
+            return false;
+  
+        }, false);
+  
+
+  
+        // Prevent developer tools and view source shortcuts
+  
+        document.addEventListener('keydown', function(e) {
+  
+            // Block F12 (Dev Tools)
+  
+            if (e.key === 'F12') {
+  
+                e.preventDefault();
+  
+                return false;
+  
+            }
+  
+            // Block Ctrl+Shift+I (Dev Tools)
+  
+            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+  
+                e.preventDefault();
+  
+                return false;
+  
+            }
+  
+            // Block Ctrl+U (View Source)
+  
+            if (e.ctrlKey && e.key === 'u') {
+  
+                e.preventDefault();
+  
+                return false;
+  
+            }
+  
+            // Block Ctrl+S (Save Page)
+  
+            if (e.ctrlKey && e.key === 's') {
+  
+                e.preventDefault();
+  
+                return false;
+  
+            }
+  
+        }, false);
+  
+    </script>
 <style>
 body {
   font-family: 'Bookman Old Style', serif;
@@ -250,6 +335,7 @@ fullscreenBtn.addEventListener('click', () => {
 </script>
 </body>
 </html>
+
 
 
 
