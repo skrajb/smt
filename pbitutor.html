@@ -98,6 +98,22 @@ nav{background:#00295f;padding:10px 20px;animation:fadeDown 1s ease .3s forwards
 nav ul{list-style:none;display:flex;gap:25px;margin:0;padding:0;}
 nav a{color:white;text-decoration:none;font-weight:bold;transition:.3s;}
 nav a:hover{color:Gold;}
+
+
+	#fullscreenBtn {
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#fullscreenBtn:hover {
+  background: #0056b3;
+}
+
 </style>
 </head>
 
@@ -114,6 +130,10 @@ nav a:hover{color:Gold;}
 	 <li><a href="engtutor.html">English Typing Tutor</a></li>
 	  <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
     <li><a href="contact.html">Contact</a></li>
+	        <li style="margin-left:auto;">
+        <button onclick="document.getElementById('loginModal').style.display='flex'" id="loginBtn">Admin Login</button>
+        <button onclick="logout()" id="logoutButton" class="hidden">Logout</button> <button id="fullscreenBtn">Full Screen</button>
+      </li>
   </ul>
 </nav>
 
@@ -462,9 +482,27 @@ nav a:hover{color:Gold;}
   }, 200);
 
 })();
+
+	const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+fullscreenBtn.addEventListener('click', () => {
+  if (!document.fullscreenElement) {
+    // Enter full screen
+    document.documentElement.requestFullscreen().catch(err => {
+      alert(`Error enabling full-screen mode: ${err.message}`);
+    });
+    fullscreenBtn.textContent = "Exit Full Screen";
+  } else {
+    // Exit full screen
+    document.exitFullscreen();
+    fullscreenBtn.textContent = "Full Screen";
+  }
+});
+
 </script>
 </body>
 </html>
+
 
 
 
