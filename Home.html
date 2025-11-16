@@ -215,9 +215,9 @@ document.addEventListener("DOMContentLoaded", () => {
         Regular practice on our portal will not only strengthen your typing technique but also sharpen your attention to detail — turning your keyboard into your finest exam ally.
       </p>
 
-   <!--   <div class="intro-buttons">
-        <a href="exercises.html" class="btn gold-btn" id="start">Start Practice</a>
-      </div>-->
+      <div class="intro-buttons">
+        <a href="exercises.html" class="btn gold-btn" class="hidden">Start Practice</a>
+      </div>
     </div>
 
     <div class="intro-image">
@@ -487,7 +487,7 @@ async function performLogoutLocal(callBackend = true) {
     console.warn("Backend logout failed (network?). Proceeding with local logout.", err);
   }
 	document.getElementById('exerciseLink').classList.add('hidden');
-document.getElementById('start').classList.add('hidden');
+
   localStorage.removeItem("username");
   localStorage.removeItem("sessionId");
   sessionStorage.removeItem('isLoggedIn');
@@ -545,27 +545,32 @@ async function verifyCredentials() {
   const p = passwordEl.value.trim();
   if (!u || !p) return alert("Enter username & password!");
 
-  // Log in everyone, but only admin gets exercise container
-  sessionStorage.setItem('isLoggedIn', 'true');
-  localStorage.setItem('username', u); // store username if needed
-  isLoggedIn = true;
+  try {
+    const res = await fetch(`${GOOGLE_APP_URL}?action=verify&username=${encodeURIComponent(u)}&password=${encodeURIComponent(p)}`);
+    const text = await res.text();
 
-  if (loginModal) loginModal.style.display = 'none';
-  if (logoutButton) logoutButton.classList.remove('hidden');
-  if (loginBtn) loginBtn.classList.add('hidden');
+    if (text === "VALID") {
+      sessionStorage.setItem('isLoggedIn', 'true');
+      isLoggedIn = true;
+      loadExercisesFromUrl();
+      if (loginModal) loginModal.style.display = 'none';
+      if (exerciseContainer) exerciseContainer.classList.remove('hidden');
+      if (logoutButton) logoutButton.classList.remove('hidden');
+      if (loginBtn) loginBtn.classList.add('hidden');
+      if (exerciseLink) exerciseLink.classList.remove('hidden');
 
-  // Only show exercise container if admin
-  if (u === "skraj" && p === "5775") {
-    if (exerciseContainer) exerciseContainer.classList.remove('hidden');
-    if (exerciseLink) exerciseLink.classList.remove('hidden');
-  } else {
-    if (exerciseContainer) exerciseContainer.classList.add('hidden');
-    if (exerciseLink) exerciseLink.classList.add('hidden');
+      // Register login with backend
+      registerLogin(u);
+      resetInactivityTimer();
+    } else {
+      loginMessage.innerText = "Invalid credentials.";
+    }
+  } catch (err) {
+    console.error(err);
+    alert("⚠️ Login failed — check network or script URL");
   }
-
-  // Reset inactivity timer for auto logout
-  resetInactivityTimer();
 }
+
 
 /* restore UI state on load if session exists */
 window.onload = () => {
