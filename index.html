@@ -89,6 +89,23 @@ document.addEventListener('keydown', function(e) {
 <!-- ✅ END RESULTS -->
 
 <main class="container">
+
+
+<!-- ✅ USER DETAILS -->
+<div id="user-info" style="text-align:center; margin-bottom:20px;">
+  <h3 style="color:#00295f; margin-bottom:10px;">Enter Your Details Before Starting the Test</h3>
+  <input type="text" id="userName" placeholder="Enter your name" 
+         pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" required
+         style="padding:10px; width:260px; border:1px solid #00295f;
+                border-radius:6px; margin-right:10px; color:black;">
+  <input type="number" id="userRefNo" placeholder="Enter reference number"
+         required oninput="if(this.value.length>10)this.value=this.value.slice(0,10);"
+         style="padding:10px; width:260px; border:1px solid #00295f;
+                border-radius:6px; color:black;">
+</div>
+
+
+<main class="container">
 <section class="test-section" id="test-section">
   <div>
     <div id="timer">Time: 10:00</div>
@@ -110,6 +127,39 @@ document.addEventListener('keydown', function(e) {
 </section>
 </main>
 </main>
+
+<!-- POPUPS -->
+<div id="time-over-popup" class="popup" style="display:none;">
+  <div class="popup-inner">
+    <p>Time is over. View results?</p>
+    <button id="popup-ok-btn" class="primary-btn">Yes</button>
+  </div>
+</div>
+
+<div id="no-input-popup" class="popup" style="display:none;">
+  <div class="popup-inner">
+    <p>No typed input detected.</p>
+    <button id="no-input-ok-btn" class="primary-btn">OK</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+  </script>
+	<footer style="
+  background:#00295f;
+  color:white;
+  text-align:center;
+  padding:15px 10px;
+  margin-top:40px;
+  font-family:'Bookman Old Style', serif;
+  font-size:14px;
+">
+  © 2025 Smartech Education Computer Institute — All Rights Reserved.<br>
+  Designed & Developed by Sahil Kumar
+</footer>
+</body>
+</html>
+
 <!-- POPUPS -->
 <div id="time-over-popup" class="popup" style="display:none;">
   <div class="popup-inner">
@@ -129,6 +179,7 @@ document.addEventListener('keydown', function(e) {
 
 </body>
 </html>
+
 
 
 
