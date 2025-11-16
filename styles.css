@@ -30,11 +30,7 @@ body {
     color:var(--muted);
     font-weight:600;
 }
-.container {
-    max-width:1000px;
-    margin:18px auto;
-    padding:12px;
-}
+
 
 /* Test section */
 .header-row {
@@ -260,6 +256,7 @@ body {
 .small-btn:hover {
     background: #003b84;
 }
+
 
 
 
