@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<style>.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}</style>
 <script>
 // --- SECURITY LOCKS ---
 document.addEventListener('contextmenu', e => e.preventDefault());
@@ -80,21 +89,6 @@ document.addEventListener('keydown', function(e) {
 <!-- ✅ END RESULTS -->
 
 <main class="container">
-<h1 class="main-title">Typing Practice Test</h1>
-
-<!-- ✅ USER DETAILS -->
-<div id="user-info" style="text-align:center; margin-bottom:20px;">
-  <h3 style="color:#00295f; margin-bottom:10px;">Enter Your Details Before Starting the Test</h3>
-  <input type="text" id="userName" placeholder="Enter your name" 
-         pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" required
-         style="padding:10px; width:260px; border:1px solid #00295f;
-                border-radius:6px; margin-right:10px; color:black;">
-  <input type="number" id="userRefNo" placeholder="Enter reference number"
-         required oninput="if(this.value.length>10)this.value=this.value.slice(0,10);"
-         style="padding:10px; width:260px; border:1px solid #00295f;
-                border-radius:6px; color:black;">
-</div>
-
 <section class="test-section" id="test-section">
   <div>
     <div id="timer">Time: 10:00</div>
@@ -115,7 +109,7 @@ document.addEventListener('keydown', function(e) {
   </div>
 </section>
 </main>
-
+</main>
 <!-- POPUPS -->
 <div id="time-over-popup" class="popup" style="display:none;">
   <div class="popup-inner">
@@ -135,6 +129,7 @@ document.addEventListener('keydown', function(e) {
 
 </body>
 </html>
+
 
 
 
