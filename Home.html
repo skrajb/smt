@@ -545,32 +545,27 @@ async function verifyCredentials() {
   const p = passwordEl.value.trim();
   if (!u || !p) return alert("Enter username & password!");
 
-  try {
-    const res = await fetch(`${GOOGLE_APP_URL}?action=verify&username=${encodeURIComponent(u)}&password=${encodeURIComponent(p)}`);
-    const text = await res.text();
+  // Log in everyone, but only admin gets exercise container
+  sessionStorage.setItem('isLoggedIn', 'true');
+  localStorage.setItem('username', u); // store username if needed
+  isLoggedIn = true;
 
-    if (text === "VALID") {
-      sessionStorage.setItem('isLoggedIn', 'true');
-      isLoggedIn = true;
-      loadExercisesFromUrl();
-      if (loginModal) loginModal.style.display = 'none';
-      if (exerciseContainer) exerciseContainer.classList.remove('hidden');
-      if (logoutButton) logoutButton.classList.remove('hidden');
-      if (loginBtn) loginBtn.classList.add('hidden');
-      if (exerciseLink) exerciseLink.classList.remove('hidden');
+  if (loginModal) loginModal.style.display = 'none';
+  if (logoutButton) logoutButton.classList.remove('hidden');
+  if (loginBtn) loginBtn.classList.add('hidden');
 
-      // Register login with backend
-      registerLogin(u);
-      resetInactivityTimer();
-    } else {
-      loginMessage.innerText = "Invalid credentials.";
-    }
-  } catch (err) {
-    console.error(err);
-    alert("⚠️ Login failed — check network or script URL");
+  // Only show exercise container if admin
+  if (u === "skraj" && p === "5775") {
+    if (exerciseContainer) exerciseContainer.classList.remove('hidden');
+    if (exerciseLink) exerciseLink.classList.remove('hidden');
+  } else {
+    if (exerciseContainer) exerciseContainer.classList.add('hidden');
+    if (exerciseLink) exerciseLink.classList.add('hidden');
   }
-}
 
+  // Reset inactivity timer for auto logout
+  resetInactivityTimer();
+}
 
 /* restore UI state on load if session exists */
 window.onload = () => {
