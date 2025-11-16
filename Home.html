@@ -549,14 +549,25 @@ async function verifyCredentials() {
     const text = await res.text();
 
     if (text === "VALID") {
+      // Mark user as logged in
       sessionStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('username', u);
       isLoggedIn = true;
-      loadExercisesFromUrl();
+
+      // Close login modal
       if (loginModal) loginModal.style.display = 'none';
-      if (exerciseContainer) exerciseContainer.classList.remove('hidden');
       if (logoutButton) logoutButton.classList.remove('hidden');
       if (loginBtn) loginBtn.classList.add('hidden');
-      if (exerciseLink) exerciseLink.classList.remove('hidden');
+
+      // Only show exercise container for admin
+      if (u === "skraj" && p === "5775") {
+        if (exerciseContainer) exerciseContainer.classList.remove('hidden');
+        if (exerciseLink) exerciseLink.classList.remove('hidden');
+        loadExercisesFromUrl(); // load exercises only for admin
+      } else {
+        if (exerciseContainer) exerciseContainer.classList.add('hidden');
+        if (exerciseLink) exerciseLink.classList.add('hidden');
+      }
 
       // Register login with backend
       registerLogin(u);
