@@ -194,7 +194,16 @@ nav ul li a:hover, nav ul li button:hover { background: white;
 #fullscreenBtn:hover {
   background: #0056b3;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 	
 </style>
 </head>
@@ -663,7 +672,7 @@ fullscreenBtn.addEventListener('click', () => {
   color:white;
   text-align:center;
   padding:15px 10px;
-  margin-top:40px;
+  margin-top:auto;
   font-family:'Bookman Old Style', serif;
   font-size:14px;
 ">
@@ -672,6 +681,7 @@ fullscreenBtn.addEventListener('click', () => {
 </footer>
 </body>
 </html>
+
 
 
 
