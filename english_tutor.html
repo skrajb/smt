@@ -97,6 +97,16 @@ if (sessionStorage.getItem("isLoggedIn") !== "true") {
   
     </script>
 <style>
+	html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 body {
   font-family: 'Bookman Old Style', serif;
   background-color: #f8f9fa;
@@ -347,7 +357,7 @@ fullscreenBtn.addEventListener('click', () => {
   color:white;
   text-align:center;
   padding:15px 10px;
-  margin-top:40px;
+  margin-top:auto;
   font-family:'Bookman Old Style', serif;
   font-size:14px;
 ">
@@ -356,6 +366,7 @@ fullscreenBtn.addEventListener('click', () => {
 </footer>
 </body>
 </html>
+
 
 
 
