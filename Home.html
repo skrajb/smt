@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </p>
 
       <div class="intro-buttons">
-        <a href="exercises.html" class="btn gold-btn" class="hidden">Start Practice</a>
+        <a href="exercises.html" class="btn gold-btn" class="hidden" id="start">Start Practice</a>
       </div>
     </div>
 
@@ -487,7 +487,7 @@ async function performLogoutLocal(callBackend = true) {
     console.warn("Backend logout failed (network?). Proceeding with local logout.", err);
   }
 	document.getElementById('exerciseLink').classList.add('hidden');
-
+document.getElementById('start').classList.add('hidden');
   localStorage.removeItem("username");
   localStorage.removeItem("sessionId");
   sessionStorage.removeItem('isLoggedIn');
