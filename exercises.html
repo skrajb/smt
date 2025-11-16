@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Typing Exercises | Smartech Typing Tutor</title>
 <link rel="stylesheet" href="styles.css">
+		<script>
+// 🔒 Block access to the page if user is not logged in
+if (sessionStorage.getItem("isLoggedIn") !== "true") {
+    alert("Please login to access this page.");
+    window.location.href = "Home.html"; // redirect back to home/login page
+}
+</script>
 <style>
 /* ====== PAGE LAYOUT ====== */
 body {
@@ -281,6 +288,7 @@ renderExercises('Punjabi');
 
 </body>
 </html>
+
 
 
 
