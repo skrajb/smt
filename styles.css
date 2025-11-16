@@ -46,7 +46,7 @@ body {
 .reference-outer {
     background:#00295f;
     border-radius:6px;
-    padding:20px;
+    padding:10px;
     margin-bottom:8px;
     border:1px solid #e6e6e6;
 }
@@ -256,6 +256,7 @@ body {
 .small-btn:hover {
     background: #003b84;
 }
+
 
 
 
