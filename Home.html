@@ -716,7 +716,7 @@ window.onload = () => {
 
 /* ---- load exercises from URL code (keeps your parsing logic) ---- */
 async function loadExercisesFromUrl() {
-  const url = document.getElementById("exerciseFileUrl").value.trim();
+  const url = document.getElementById("exerciseFileUrl").value.trim()||"https://raw.githubusercontent.com/skrajb/speedweb/refs/heads/main/practicetest.txt";
   if (!url) return alert("Please enter a valid file URL!");
 
   try {
