@@ -382,6 +382,13 @@ html, body {
 
   // ---------- key handling (letter-by-letter enforcement) ----------
   window.addEventListener('keydown', (e) => {
+	    const ignoreKeys = [
+      'Shift','Control','Alt','Meta','CapsLock','Tab',
+      'ContextMenu','Escape'
+    ];
+    if (ignoreKeys.includes(e.key) || e.key.startsWith('Arrow')) {
+      return; // do nothing
+    }
      if(e.key === 'Backspace'){
       e.preventDefault();
       handleBackspace();
@@ -602,6 +609,7 @@ fullscreenBtn.addEventListener('click', () => {
 </footer>
 </body>
 </html>
+
 
 
 
