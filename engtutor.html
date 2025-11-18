@@ -391,7 +391,7 @@ html, body {
     if(testArea.style.display !== 'block' || !charSpans.length) return;
 
     // ignore modifier combos
-    if(e.ctrlKey || e.altKey || e.metaKey) return;
+    if(e.ctrlKey || e.altKey || e.metaKey||e.shift) return;
 
     // allow back to go back
     if(e.key === 'Backspace'){
@@ -602,6 +602,7 @@ fullscreenBtn.addEventListener('click', () => {
 </footer>
 </body>
 </html>
+
 
 
 
