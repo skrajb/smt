@@ -108,7 +108,10 @@ body {
 }
 .header {display:flex;justify-content:space-between;align-items:center;padding:15px 40px;animation:fadeDown 1s ease;}
 .header img{height:90px;}
-
+nav{background:#00295f;padding:10px 20px;animation:fadeDown 1s ease .3s forwards;}
+nav ul{list-style:none;display:flex;gap:25px;margin:0;padding:0;}
+nav a{color:white;text-decoration:none;font-weight:bold;transition:.3s;}
+nav a:hover{color:black;}
 .hero{text-align:center;padding:15px 2%;background:linear-gradient(to right,#fff,#f9f8f6);animation:fadeUp 1s ease .5s;}
 .hero h1{font-size:2rem;}
 .hero p{color:#555;font-size:1.1rem;max-width:700px;margin:auto;}
@@ -135,22 +138,6 @@ button:hover{background:#000;color:white;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 @keyframes popUp{to{transform:scale(1);opacity:1;}}
 @media(max-width:768px){.stats{flex-direction:column;}}
-
-	#fullscreenBtn {
-  
-  color: white;
-  border-radius: 5px;
-  border: none;
-  padding: 2px 2px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-#fullscreenBtn:hover {
-  color: white; font-weight: bold; text-decoration: none; background: transparent; border: none; font-size: 16px; cursor: pointer;
-}
-
-
 </style>
 </head>
 <body>
@@ -166,21 +153,16 @@ button:hover{background:#000;color:white;}
   <ul>
     <li><a href="Home.html">Home</a></li>
     <li><a href="exercises.html">Exercises</a></li>
-       <li><a href="english_tutor.html">Speed Test</a></li>
-	 <li><a href="engtutor.html">Eng. Typing Tutor</a></li>
-	  <li><a href="pbitutor.html">Pbi. Typing Tutor</a></li>
+    <li><a href="english_tutor.html">Typing Tutor</a></li>
     <li><a href="contact.html">Contact</a></li>
-	        <li style="margin-left:auto;">
-         <button id="fullscreenBtn">Full Screen</button>
-      </li>
   </ul>
 </nav>
 
-<!-- ===== Hero Section =====
+<!-- ===== Hero Section ===== -->
 <section class="hero">
   <h1>Smart Typing Tutor</h1>
   <p>Practice typing in both English and Punjabi with real-time feedback and speed tracking.</p>
-</section> -->
+</section>
 
 <div style="text-align:center;margin-bottom:15px;">
   <b>
@@ -230,8 +212,55 @@ button:hover{background:#000;color:white;}
 window.addEventListener("DOMContentLoaded", () => {
 
 // ===== Word Lists =====
-const englishWords = ["about","above","after","again","air","all","almost","along","also","always","animal","answer","any","are","ask","away","back","be","because","before","below","between","big","book","boy","but","by","call","came","can","car","children","city","close","come","could","country","cut","day","did","different","do","does","down","each","end","enough","even","every","example","face","family","far","father","few","find","first","food","for","found","from","get","girl","give","go","good","great","grow","had","hand","has","have","he","help","her","here","high","him","his","home","house","how","idea","if","important","in","into","is","it","its","just","keep","kind","know","land","large","last","learn","leave","life","light","like","line","live","look","made","make","many","may","me","mean","men","might","more","most","mother","move","much","must","my","name","need","never","new","no","not","now","of","off","often","old","on","one","only","open","or","other","our","out","over","own","page","paper","part","people","place","play","point","put","read","really","right","run","said","same","say","school","sea","see","seem","set","she","should","show","side","small","so","some","something","soon","start","state","stop","story","study","such","take","tell","than","that","the","their","them","then","there","these","they","thing","think","this","those","three","through","time","to","together","too","try","two","under","until","up","us","use","very","walk","want","was","watch","water","way","we","well","were","what","when","where","which","while","who","why","will","with","without","word","work","world","would","write","year","you","young","your"];
-const punjabiWords = ["ਸਿੱਖਿਆ","ਕੰਪਿਊਟਰ","ਪੰਜਾਬ","ਵਿਦਿਆਰਥੀ","ਗੁਰੂ","ਪਿਆਰ","ਸੱਚ","ਮੇਹਨਤ","ਸਮਾਂ","ਕਲਮ","ਪੋਥੀ","ਅਧਿਆਪਕ","ਸਕੂਲ","ਪਰਿਵਾਰ","ਜੀਵਨ","ਦੋਸਤ","ਕਿਰਤ","ਇਨਸਾਨ","ਮਾਤਾ","ਪਿਤਾ","ਸਹਿਯੋਗ","ਸੁੰਦਰ","ਬੋਲ","ਕਰਮ","ਕਿਰਪਾ","ਮਨ","ਸਮਾਜ","ਘਰ","ਪ੍ਰੇਮ","ਧੰਨਵਾਦ","ਸਿੱਖ","ਸੱਚਾ","ਰੱਬ","ਕਿਤਾਬ","ਲਿਖਣਾ","ਪੜ੍ਹਨਾ","ਮਾਂ","ਭਾਸ਼ਾ","ਨੌਕਰੀ","ਗਿਆਨ","ਖੁਸ਼ੀ","ਆਦਰ","ਦਿਲ","ਵਿਚਾਰ","ਸੰਗੀਤ","ਕਲਾ","ਗਾਂਵ","ਸ਼ਹਿਰ","ਸੇਵਾ","ਸਫਲਤਾ","ਇਜ਼ਤ","ਮੁਹੱਬਤ","ਭਾਈਚਾਰਾ","ਨਮਰਤਾ","ਦਇਆ","ਵਿਦਿਆ","ਸ਼ਕਤੀ","ਜੀਵਨ","ਅਨੰਦ","ਸ਼ਰਧਾ","ਇਕਤਾ","ਆਰਾਮ","ਤਾਕਤ","ਹਿੰਮਤ","ਅਕਲ","ਸਰਦਾਰ","ਪ੍ਰੇਰਣਾ","ਦੁਨੀਆ","ਅਮਨ","ਸ਼ਾਂਤੀ","ਪੁੱਤਰ","ਧੀ","ਅਰਦਾਸ","ਰਾਹ","ਸੱਚਾਈ","ਉਮੀਦ","ਹੌਸਲਾ","ਇਮਾਨਦਾਰੀ","ਆਦਮੀ","ਇਨਸਾਫ","ਦੋਸਤੀ"];
+const englishWords = [
+  "has", "had", "lad", "add", "dada", "ask", "alfa", "kafla", "dass", "flag", "all", "flash", "slag", "salsa",
+  "jag's", "half", "jaal's", "salad", "shall", "glass", "lakh's", "fall", "hall", "glad", "desk", "lead", "alert",
+  "ugly", "less", "skill", "fail", "dull", "first", "risk", "faith", "early", "tiger", "height", "yellow", "flight",
+  "author", "fight", "style", "loyal", "eight", "right", "towel", "judge", "their", "other", "whose", "looks",
+  "should", "useful", "quality", "south", "large", "frog's", "park", "user", "silk", "she'll", "joe's", "quill",
+  "post", "wife", "that's", "keep", "safe", "spiritual", "yesterday", "fruitflow", "dutiful", "universe", "nature",
+  "zenith", "valley", "current", "smooth", "knees", "margin", "zila", "zero", "quick", "zebra", "chase", "need",
+  "neck", "smell", "some", "maps", "number", "young", "charity", "miracle", "boxing", "narrow", "caught", "defects",
+  "liable", "limbs", "turn", "burn", "mike", "hint", "doze", "next", "meat", "veto", "lock", "chart", "body", "xray",
+  "humble", "major", "exactly", "print", "action", "define", "brought", "manner", "money", "value", "navy", "sixth",
+  "box", "fox", "boy", "mat", "copycat", "nice", "milk", "net", "Kafla", "Dass", "Jaal's", "Dada", "Flag", "Khallas",
+  "Skaff", "Slag", "Salsa", "Dalda", "Slash", "Hash", "Alfas", "Glass", "Shalk", "Sallad", "Jaffa", "Add", "Gas",
+  "Hall", "Lass", "Aid", "People", "Equip", "Hillary", "Jupiter", "Jealousy", "Safe", "Yule", "Earth", "Guide",
+  "Sleek", "Flies", "Ride", "Dialogue", "Pares", "Tulip", "Tuesday", "Lotus", "Years", "Farewell", "Diesel", "Result",
+  "Foods", "Fiddle", "Tailor", "Europe", "Leaf", "Lily", "Regard", "Hour", "Feature", "Failed", "Quetta", "Kabir",
+  "Zigs", "Negative", "Beggar", "Foreign", "British", "Scale", "Wizard", "Machine", "Diwali", "Country", "Amazing",
+  "Blessing", "Cycle", "Nylon", "Opinion", "Village", "Tundra", "Zealous", "Hungry", "Knowledge", "Policies",
+  "United", "Studies", "India", "Indian", "Needle", "Million", "Mainly", "Oxford", "Nanak", "Over", "Inkpot",
+  "Remington", "Lovely", "Onion", "Literacy", "Costly", "Rejuvenate", "Filth", "Soporific", "Tenebrous", "Candid",
+  "Prevaricate", "Otiose", "Swift", "Palindrome", "Inamorata", "Meretricious", "Meritorious", "Rein", "Hilt", "Sigh",
+  "Pessimistic", "Leisure", "Wane", "Squall", "Pupil", "Vicinity", "Empiricism", "Glimpses", "Fascinating",
+  "Formidable", "Admirable", "Scold", "Largesse", "Contemporary", "Miscreants", "Culmination", "Spate", "Conquering",
+  "Winging", "Whining", "Cruelty", "Notion", "Cringe", "Meticulous", "Stringent", "Strength", "Drenched", "Drunk",
+  "Tonsure", "Impinge", "Binge", "Reluctant", "Tremendous", "Saddle", "Scoop", "Furious", "Sweat", "Idle", "Idol",
+  "Stagnant", "Inconsiderate", "Connoisseur", "Foster", "Febrile", "Sacred", "Artery", "Muscles", "Pancreas", "Heed",
+  "Hell", "Hilarious", "University", "Fraught", "Ancient", "Analog", "Clad", "Discernible", "Pitfall", "Potholes",
+  "Betrayed", "Shatter", "Suffered", "Queen", "Tainted", "Pamper", "Mentor", "Religious", "Physics", "Chemical",
+  "Physiology", "Numerical", "Effigy", "Trespass", "Lopsided", "Sophisticated", "Apprised", "Applaud", "Somber",
+  "Privilege", "Garbage", "Heritage", "Rescue", "Derogatory", "Lapse", "Rival", "Prone", "Finicky", "Throttle",
+  "Coward", "Hassle"
+];
+const punjabiWords = ["ਪਰ","ਕਰ","ਤਕ","ਤਪ","ਚਰਚ","ਰਕਤ","ਪਰਤ","ਤਰਕ","ਚਟਪਟ","ਕੇ","ਕਿ","ਕਰੋ","ਰੋਕ","ਬਾਡੀਗਾਰਡ","ਰੁਤਬਾ","ਕਿਤਾਬ","ਗਿਟਾਰ",
+  "ਰਿਪੋਰਟ","ਚੇਤਕ","ਕਿਰਤ","ਰਿਕਤ","ਚਿਪਕ","ਚੋਕਰ","ਬਗਦਾਦ","ਹਾਜਰ","ਸ਼ਿਫਟ","ੲਮਾਨਦਾਰ","ਸਕੋਲਰਸ਼ਿਪ","ਸ਼ਰਧਾ","ਵਿਸ਼ਵਾਸ",
+  "ਊਂਙਣਾ","ਹੌਲ਼ੀ","ਏਜੰਸੀ","ਪਦਾਰਥ","ਚਾਕੂ","ਗਰਾਹੀ","ਡਾਕੂ","ਗਰੀਬ","ਚਾਰਜ","ਸੂਫ਼ੀ","ਮਜ਼ੂਮਨ","ਸਬਜ਼ੀ","ਜ਼ੁਰਾਬ","ਰਫ਼ਤਾਰ",
+  "ਨਜ਼ਰ","ਕਾਗਜ਼","ਖੇਡਾਂ","ਤਮਾਸ਼ਾ","ਇਸ਼ਨਾਨ","ਗੁਣਾ","ੲਰਾਦਾ","ਲੌਂਗ","ਲਕਸ਼","ਮੰਨਣਾ","ਡੋਗਰ","ਜਾਗਰੂਕਤਾ","ਪਾਰਟੀ","ਡਰਪੋਕ",
+  "ਦੀਪਕ","ਲਿਵਾਸ","ਲਿਸ਼ਕਾਰਾ","ੳਸਾਰ","ਗ਼ੁਲਾਮ","ਖ਼ਰਗੋਸ਼","ਗ੍ਰਹਿਸਤੀ","ਬਿਸ੍ਵੰਭਰ","ਤ੍ਰਿੰਞਣ","ਪੜ੍ਹਾਇਆ","ਵਿੱਦਿਆ","ਚੜ੍ਹਦਾ",
+  "ਸੱਤਿਆਗ੍ਰਹਿ","ਕਿਸੇ","ਰੂਪ","ਮਾਨਵ","ਰੁਕਾਵਟ","ਬਾਡੀ","ਵੋਟ","ਸਰਕਾਰ","ਮਹਾਨ","ਸਕਦਾ","ਜੇਕਰ","ਦਾਦਾ","ਚਾਚਾ","ਮਾਮਾ",
+  "ਨਾਨਾ","ਦਰਦ","ਵਸੀਕਾ","ਵਿਚਾਰ","ਚਾਰਟਰ","ਠਪ","ਟਪ","ਤੜ","ਫੜ","ਛਟ","ਅੜ","ਠੜ","ਥੂੜ","ਥੜ","ਏਕ","ਉਕਤ","ਉੜ","ਊਠ",
+  "ਖੜਕ","ਕੜਕ","ਰੜਕ","ਉਰਫ","ੳਣਮੱਤ","ਫ਼ਲਸਫ਼ੇ","ਰੋਕੜ","ਅਖਰ","ਅਰਕ","ਅਪਰ","ਪੁਰਖ","ਛਪਰ","ਇਤਰ","ਚਪੇਟ","ਔਕੜ","ਆਰੀ","ਈਰਖਾ",
+  "ਧੋਬੀ","ਆਦਰ","ਆਖੇ","ਐਗਰੀ","ਆੜੂ","ਝਾੜੂ","ਚੌਥੀ","ਝਗੜਾ","ਢਾਈ","ਊਜ","ਇੰਞ","ਢੂੰਡ","ਬਾਊ","ਬਾਈ","ਉਚਿਚਤਾ","ਊਜ","ਮਾਂ",
+  "ਛਾਂ","ਜਾਂ","ਛਾਵਾਂ","ਇਟਾਂ","ਵਾਂਝਾ","ਛਣ","ਪੌਣ","ਸ਼ੰਖ","ਖਣਜ","ਮਾਣਕ","ਲਕਸ਼","ਪਹਿਚਾਣ","ਕਠਣਾਈ","ਗਿਣਤੀ","ਗਣਿਤ","ਸ਼ਲਗਮ",
+  "ਦੂਸ਼ਿਤ","ਬੁਰਸ਼","ਊਣਾਂ","ਦਿਸ਼ਾ","ਕੰਙਲ","ਝੰਜੋੜ","ਪਿਛੌਕੜ","ਈਨਾਮ","ਪਿਘਲ","ਘੁਮਿਆਰ","ਆਦਰ","ਈਰਖਾ","ਸਨਮਾਨ","ਸਤਿਕਾਰ",
+  "ਨਿਰਦਾਰ","ਸ਼ਲਗਮ","ਔਰਤ","ਮਤਲਬ","ਅਮਰਿੰਦਰ","ਕਰਤਾਰ","ਸਿੰਘ","ਸਰਾਭਾ","ਸ਼ੌਰ","ਟਾਈਪਿੰਗ","ਮਹੀਨਾ","ਆਨਲਾਈਨ","ਯੂਨੀਕੋਰਡ",
+  "ਫੋਟੋ","ਸਟੈਟ","ਇਲਾਵਾ","ਅਪਲਾਈ","ਆਧਾਰ","ਸਿਖਾਈ","ਨਨਕਾਣਾ","ਸਾਹਿਬ","ਨਿਰਮਾਣ","ਹੈਰਾਨੀਜਨਕ","ੳਲਝਣ","ਜ਼ਫਰਨਾਮਾ","ੳਲੰਬਾ",
+  "ਪ੍ਰੇਰਨਾ","ਅੜਿੱਕਾ","ਉੱਨਤ","ਅਮ੍ਰਿੰਤਾ","ਓਨਾਂ","ੲਨਸਾਨ","ਮਹਾਂਭਾਰਤ","ੲਤਿਹਾਸ","ਸ਼ੁਰੂਆਤ","ਉਂਗਲਾਂ","ਇੰਜਣ","ਐਨਕ","ਡਾਕਘਰ",
+  "ਖਿੰਘਰ","ਈਕਾਈ","ਸੁਭਾਅ","ਧਰਤੀ","ਢੋਲਕ","ਘਾਉ","ਓਕੜ","ਅਨਮੋਲ","ਫੈਸਲਾ","ਠੰਡਕ","ਥਿੰਦਾ","ਮੁਖਤਾਰ","ਅਫਵਾਹ","ਇਮਲੀ",
+  "ਏਥਿਕਸ","ਉਬਾਲ","ਸੈਲੰਡਰ","ਕਥਨ","ਛੂਤਛਾਤ","ਓਮਕਾਰ","ਰੁਤਬਾ"
+];
 
 let words=[],timer,timeRemaining,currentIndex=0,correct=0,wrong=0,timeTaken=0,typed=[],chunkStart=0,chunkSize=18,testDone=false;
 const box=document.getElementById("test_text"),input=document.getElementById("typed_text"),time=document.getElementById("time_remaining"),live=document.getElementById("live_results");
@@ -315,38 +344,11 @@ document.getElementById("timer").onchange=reset;
 document.getElementById("language").onchange=reset;
 reset();
 });
-	const fullscreenBtn = document.getElementById('fullscreenBtn');
-
-fullscreenBtn.addEventListener('click', () => {
-  if (!document.fullscreenElement) {
-    // Enter full screen
-    document.documentElement.requestFullscreen().catch(err => {
-      alert(`Error enabling full-screen mode: ${err.message}`);
-    });
-    fullscreenBtn.textContent = "Exit Full Screen";
-  } else {
-    // Exit full screen
-    document.exitFullscreen();
-    fullscreenBtn.textContent = "Full Screen";
-  }
-});
-
 </script>
-	  </script>
-	<footer style="
-  background:#00295f;
-  color:white;
-  text-align:center;
-  padding:15px 10px;
-  margin-top:auto;
-  font-family:'Bookman Old Style', serif;
-  font-size:14px;
-">
-  © 2025 Smartech Education Computer Institute — All Rights Reserved.<br>
-  Designed & Developed by Sahil Kumar
-</footer>
 </body>
 </html>
+
+
 
 
 
