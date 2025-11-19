@@ -341,14 +341,14 @@ setTimeout(() => {
             <table class="error-table" width="100%"border="2px" style="border-collapse:collapse;">
                 <thead>
                     <tr>
-                        <th>Original Chunk #${i + 1}</th>
-                        <th>Typed Chunk #${i + 1}</th>
+                        <th width="50%">Original Chunk #${i + 1}</th>
+                        <th width="50%">Typed Chunk #${i + 1}</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="given">${window.paragraphs[i]}</span></td>
-                        <td>${chunkErrors || "No errors"}</td>
+                        <td width="50%"><span class="given">${window.paragraphs[i]}</span></td>
+                        <td width="50%">${chunkErrors || "No errors"}</td>
                     </tr>
                 </tbody>
             </table>
