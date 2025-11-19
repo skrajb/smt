@@ -432,19 +432,16 @@ html, body {
     // convert ' ' (space) - when user presses space key, e.key === ' '
     // normalize quotes and dashes? We keep it simple.
     // For case-insensitive letters we accept either case:
-    if(expected.length === 1 && /[a-zA-Z]/.test(expected)){
-      // accept letter ignoring case
-      if(pressed.length === 1 && pressed.toLowerCase() === expected.toLowerCase()){
-        // correct
+    // STRICT case-sensitive matching for letters
+if (expected.length === 1 && /[a-zA-Z]/.test(expected)) {
+    if (pressed === expected) {
         acceptCorrect();
-        e.preventDefault();
-        return;
-      } else {
-        markWrong();
-        e.preventDefault();
-        return;
-      }
     } else {
+        markWrong();
+    }
+    e.preventDefault();
+    return;
+} else {
       // non-letter characters (spaces, punctuation, numbers)
       // For spaces, we expect space key
       if(expected === ' '){
@@ -609,6 +606,7 @@ fullscreenBtn.addEventListener('click', () => {
 </footer>
 </body>
 </html>
+
 
 
 
