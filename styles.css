@@ -123,7 +123,7 @@ body {
 /* highlight classes used by engine */
 .correct { color:green; font-weight:600; }
 .wrong { color:#c0392b; font-weight:600; }
-.given { color:#050000; opacity:0.85; }
+.given { color:#050000;}
 
 /* stats history */
 .stats-history-table { width:100%; border-collapse:collapse; margin-top:10px; }
@@ -430,5 +430,6 @@ button:hover { background: black; }
   transform: translateY(0);
   
 }
+
 
 
