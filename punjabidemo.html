@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo Test</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Keep your container + basic layout (unchanged) */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+html, body { height: 100%; margin: 0; }
+body { display: flex; flex-direction: column; min-height: 100vh; font-family:'Bookman Old Style',serif; }
+
+/* (You can keep your original CSS file; this ensures the page looks right if styles.css missing) */
+.reference-outer { background:#00295f; border-radius:6px; padding:12px; margin-bottom:8px; border:1px solid #e6e6e6; }
+.paragraph { line-height:1.8; font-size:1.25rem; padding:20px; font-family:'Bookman Old Style',serif; background-color:white; }
+.typing-input { width:98%; resize:vertical; padding:10px; border-radius:6px; border:1px solid #ddd; line-height:1.5; font-size:1.25rem; margin-bottom:8px; font-family:'Bookman Old Style',serif; }
+.primary-btn { background:#00295f; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; }
+.popup { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.35); display:none; }
+.popup-inner { background:#fff; padding:18px; border-radius:8px; min-width:260px; text-align:center; }
+</style>
+
+</head>
+<body>
+
+<header class="site-header" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:2px solid #eee;background:linear-gradient(90deg,#fff,#fbfffb);">
+  <img src="Smartech Educatation Computer Centre3.png" alt="Smartech" class="logo" style="height:72px;">
+  
+</header>
+<nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+     <li><a href="exercises.html">Exercises</a></li>
+
+	 <li><a href="english_tutor.html">Speed Test</a></li>
+	 <li><a href="engtutor.html">English Typing Tutor</a></li>
+	  <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li style="margin-left:auto;">
+     <!-- <button id="statusBtn">Show Activation Status</button>
+  <pre id="out"></pre>-->
+      </li>
+    </ul>
+  </nav>
+<!-- RESULTS (kept as in original) -->
+<section id="results" style="display:none;">
+  <div style="flex:2; min-width:400px;">
+    <h2>Results</h2>
+    <table id="results-table" style="display:none; width:100%; border-collapse:collapse;">
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Gross Characters</td><td id="gross-characters-value"></td></tr>
+        <tr><td>Wrong / Extra / Skipped Words</td><td id="wrong-extra-words-value"></td></tr>
+        <tr><td>Space Errors</td><td id="space-errors-value"></td></tr>
+        <tr><td>Error Characters</td><td id="error-characters-value"></td></tr>
+        <tr><td>Net Characters</td><td id="net-characters-value"></td></tr>
+        <tr><td>Gross Speed</td><td id="gross-speed-value"></td></tr>
+        <tr><td>Actual Gross Speed</td><td id="actual-gross-speed-value"></td></tr>
+        <tr><td>Time Taken</td><td id="time-spent-value"></td></tr>
+        <tr><td>Accuracy</td><td id="accuracy-percentage-value"></td></tr>
+        <tr><td>Backspace Count</td><td id="backspace-count-value"></td></tr>
+        <tr><td>Result</td><td id="result-value"></td></tr>
+        <tr id="notes-section" style="display:none;">
+          <td colspan="2">
+            <div id="results-notes" style="display:none;">
+              <div id="exam-note" style="margin-bottom:5px; color:#b80000;"></div>
+              <div id="pass-note" style="color:#0055b8;"></div>
+            </div>
+          </td>
+        </tr>
+        <tr id="button-row" style="display:none;">
+          <td colspan="2" style="text-align:center; padding-top:10px;">
+            <button id="practice-another-btn-2" class="primary-btn">Practice Another</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="error-section" style="margin-top:15px; display:none;">
+      <div id="error-highlight"></div>
+    </div>
+    <div id="saved-stats-container" style="margin-top:20px;"></div>
+  </div>
+</section>
+<!-- END RESULTS -->
+
+<main class="container">
+  <center><h2>Punjabi Demo Test </center></h2>
+ <!-- <div id="user-info" style="text-align:center; margin-bottom:20px;">
+    <h3 style="color:#00295f; margin-bottom:10px;">Candidate Details</h3>
+    <input type="text" id="userName" placeholder="Enter your name (Eng/Pbi)" style="padding:10px; width:260px; border:1px solid #00295f; border-radius:6px; margin-right:10px; color:black;">
+    <input type="number" id="userRefNo" placeholder="Enter reference number" style="padding:10px; width:260px; border:1px solid #00295f; border-radius:6px; color:black;">
+  </div>-->
+
+  <section class="test-section" id="test-section">
+    <div>
+      <div id="timer">Time: 02:00</div>
+      <div id="current-chunk"><center>Current Chunk - 1</center></div>
+    </div>
+
+    <div id="test-area">
+      <div id="reference-text" class="reference-outer">
+        <div id="paragraph" class="paragraph">Loading...</div>
+      </div>
+
+      <textarea id="typing-input" placeholder="Start typing here..." rows="4" class="typing-input" spellcheck="false" autofocus></textarea>
+
+      <div class="controls">
+        <button id="submit-btn" class="primary-btn">Submit Test</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- POPUPS -->
+<div id="time-over-popup" class="popup"><div class="popup-inner"><p>Time is over. View results?</p><button id="popup-ok-btn" class="primary-btn">Yes</button></div></div>
+<div id="no-input-popup" class="popup"><div class="popup-inner"><p>No typed input detected.</p><button id="no-input-ok-btn" class="primary-btn">OK</button></div></div>
+
+<!-- ======= DEMO PATCH: set fixed paragraph BEFORE the engine loads ======= -->
+<script>
+/*
+  Patch strategy:
+  - Put a fixed paragraph into localStorage so script.js loads it via loadTestParagraph()
+  - This prevents script.js from fetching URL/localStorage exercise later.
+  - We'll then override chunking (to 2 chunks) and timer (120s) after script.js runs.
+*/
+try {
+  const fixed = `ਉਂਙਲਾਂ ਦੁਆਰਾ ਕਾਫੀ ਠਰੰਮੇ, ਧੀਰਜ, ਦ੍ਰਿੜ੍ਹਤਾ, ਡ੍ਹਾਢੇ ਸਹਿਯੋਗ ਤਥਾ ਉਂਜ ਕੁਝ ਡੂੰਘੇ ਰੌ ਵਿਚ, ਇੰਞ ਬਟਨ-ਅੱਖਰ ਭਾਲਣੇ ਛੂਹ-ਪ੍ਰਣਾਲੀ ਹੈ। ਕ, ਖ, ਗ, ਘ, ਙ, ਚ, ਛ, ਜ, ਝ, ਟ, ਠ, ਡ, ਢ, ਤ, ਥ, ਦ, ਧ, ਨ, ਪ, ਫ, ਬ, ਭ, ਮ, ਯ, ਰ, ਲ, ਵ, ਸ, ਹ ਵਰਗੇ ਬਹੁਤ ਸਾਰੇ ਇਕੱਲੇ ਅੱਖਰ ਸ਼ਾਮਲ ਹਨ। ੨੩੧ ਕਲਮ ਘਰ ਚਾਹ ਜਹਾਜ਼ ਟਮਾਟਰ ੪੬੭੯ ੧ ੨ ੩ ੪ ਠੰਡ ਡੱਬਾ ਤਾਰ ਦਵਾਈ ਨਦੀ ਪੱਤਾ ਫੁੱਲ ਬਾਜ਼ਾਰ ਮਿੱਠਾ ਯਾਤਰਾ ਰੋਸ਼ਨੀ ਲੇਖ ਵੱਟ ਸੜਕ ਹਵਾ।  
+`;
+  localStorage.setItem('selectedExerciseText', fixed);
+  // also set a demo user so submit-to-sheet won't warn
+  localStorage.setItem('userName', 'Demo User');
+  localStorage.setItem('userRefNo', '0000');
+} catch (e) {
+  console.warn('localStorage unavailable', e);
+}
+</script>
+
+<!-- ======= Load your original engine ======= -->
+<script src="script.js"></script>
+<script>
+(function strongTimerFix(){
+
+    function forceTwoMinutes(){
+        try {
+            // Override main timer value in engine
+            if (window.state) {
+                window.state.totalTime = 120;
+            }
+
+            // Override timer remaining (if engine already started countdown)
+            if (window.state && typeof window.state.secondsLeft !== "undefined") {
+                if (window.state.secondsLeft > 120) {
+                    window.state.secondsLeft = 120;
+                }
+            }
+
+            // Fix visible text
+            const timerEl = document.getElementById("timer");
+            if (timerEl && !timerEl.textContent.startsWith("Time: 0")) {
+                timerEl.textContent = "Time: 2:00";
+            }
+
+        } catch(e){ console.warn("Timer override error", e); }
+    }
+
+    // Re-run many times so script.js cannot undo it
+    setInterval(forceTwoMinutes, 100);
+
+})();
+</script>
+
+<!-- ======= Post-load overrides: force 2 chunks and 2-minute timer ======= -->
+<script>
+(function(){
+  // 1) Wait until script likely initialized (DOMContentLoaded handler already ran in script.js).
+  // Use small delay to ensure initializeTest() completed.
+  function apply2ChunkPatch(){
+    try {
+      // Ensure we have the fullParagraph or paragraphs
+      // Build paragraph text from either window.paragraphs or #paragraph element
+      let text = "";
+      if (window.paragraphs && window.paragraphs.length > 0) {
+        // join existing paragraphs to make full text
+        text = window.paragraphs.join(" ");
+      } else {
+        const p = document.getElementById('paragraph');
+        text = p && p.textContent.trim().length ? p.textContent.trim() : localStorage.getItem('selectedExerciseText') || "";
+      }
+
+      // Normalize and split into words
+      text = (text || "").replace(/\s+/g,' ').trim();
+      const words = text.length ? text.split(' ') : [];
+
+      if (words.length === 0) return;
+
+      // Compute two equal word chunks
+      const mid = Math.ceil(words.length/2);
+      window.paragraphs = [
+        words.slice(0, mid).join(' '),
+        words.slice(mid).join(' ')
+      ];
+
+      // Update engine state to use only two chunks
+      if (!window.state) window.state = {};
+      window.state.currentParagraphIndex = 0;
+      window.state.paragraph = window.paragraphs[0];
+      window.state.defaultWords = window.state.paragraph.split(' ');
+      // totalTypedInput reset for two chunks
+      window.state.totalTypedInput = '|';
+      // Set totalTime to 120 seconds (2 minutes)
+      window.state.totalTime = 120;
+
+      // Update visible paragraph, chunk indicator and timer text
+      const paraEl = document.getElementById('paragraph');
+      if (paraEl) paraEl.innerHTML = window.paragraphs[0];
+
+      const cc = document.getElementById('current-chunk');
+      if (cc) cc.innerHTML = 'Current Chunk - 1';
+
+      const timerEl = document.getElementById('timer');
+      if (timerEl) timerEl.textContent = 'Time: 2:00';
+
+      // Refresh UI via provided function if exists
+      try { if (typeof refreshTest === 'function') refreshTest(); } catch(e){}
+
+      // Defensive: make sure submit button works — remove any broken listeners and add safe one
+      const oldBtn = document.getElementById('submit-btn');
+      if (oldBtn) {
+        const newBtn = oldBtn.cloneNode(true);
+        oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+        newBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          try {
+            if (typeof submitResults === 'function') {
+              submitResults();
+            } else {
+              console.warn('submitResults not defined');
+            }
+          } catch(err){
+            console.error('submitResults error', err);
+          }
+        });
+      }
+
+      // Ensure popup-ok triggers submitResults
+      const popupOk = document.getElementById('popup-ok-btn');
+      if (popupOk) {
+        popupOk.addEventListener('click', function(){
+          try { if (typeof submitResults === 'function') submitResults(); } catch(e){}
+        });
+      }
+
+      // Fix timer start logic: ensure startTimer uses 120s value already set above
+      // If engine has startTimer loop running, it will use window.state.totalTime next frame.
+
+    } catch (err) {
+      console.error('2-chunk patch failed', err);
+    }
+  }
+
+  // Apply after a short delay to let script.js finish initialization.
+  // Try once immediately, then again after 300ms and 1200ms for robustness.
+  setTimeout(apply2ChunkPatch, 50);
+  setTimeout(apply2ChunkPatch, 350);
+  setTimeout(apply2ChunkPatch, 1200);
+})();
+</script>
+
+<footer style="background:#00295f;color:white;text-align:center;padding:15px 10px;margin-top:auto;font-family:'Bookman Old Style', serif;font-size:14px;">
+  © 2025 Smartech Education Computer Institute — All Rights Reserved.<br>Designed & Developed by Sahil Kumar
+</footer>
+
+</body>
+</html>
