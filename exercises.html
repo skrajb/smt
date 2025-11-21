@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typing Exercises | Smartech Typing Tutor</title>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* ====== PAGE LAYOUT ====== */
+body {
+  font-family: 'Bookman Old Style', serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  color: #222;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+nav {
+  background: #00295f;
+  padding: 10px 20px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  margin-right: 8px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 16px;
+  padding: 6px 0px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+nav ul li a:hover {
+  background: white;
+  color: #00295f;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+.header img {
+  height: 60px;
+}
+
+/* ====== INTRO SECTION ====== */
+#exercises-intro {
+  text-align: center;
+  padding: 10px 10% 30px;
+  background: linear-gradient(to right, #fff, #f9f8f6);
+}
+#exercises-intro h1 {
+  font-size: 2.5rem;
+  color: #000;
+}
+#exercises-intro p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 700px;
+  margin: 10px auto;
+  line-height: 1.6;
+}
+.highlight {
+  color: #00295f;
+}
+
+/* ====== EXERCISES SECTION ====== */
+.exercise-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 90%;
+  margin: 40px auto;
+}
+
+.exercise-box {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease;
+}
+.exercise-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.exercise-box h2 {
+  color: #00295f;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+.exercise-btn {
+  background: #00295f;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 120px;
+  height: 70px;
+  margin: 10px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.exercise-btn:hover {
+  background: #ffce00;
+  color: #00295f;
+  transform: translateY(-3px);
+}
+
+#exerciseListEnglish, 
+#exerciseListPunjabi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .exercise-btn {
+    width: 100%;
+    margin: 6px 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<!-- SECURITY BLOCK -->
+<script>
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+document.addEventListener('paste', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    if (e.key === 'F12') e.preventDefault();
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') e.preventDefault();
+    if (e.ctrlKey && e.key === 'u') e.preventDefault();
+    if (e.ctrlKey && e.key === 's') e.preventDefault();
+});
+</script>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <img src="Smartech Educatation Computer Centre.png" alt="Smartech Logo">
+  <img src="Typing Boy.png" alt="Typing Boy" height="80">
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="exercises.html">Exercises</a></li>
+    <li><a href="english_tutor.html">Speed Test</a></li>
+    <li><a href="engtutor.html">English Typing Tutor</a></li>
+    <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- DEMO SECTION -->
+<section id="exercises-intro">
+
+<div style="
+    width:90%;
+    margin:20px auto;
+    background:white;
+	
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    padding:25px;
+    text-align:center;
+">
+    <h2 style="color:#00295f;">Try Demo Typing Tests</h2>
+    <p>Choose a demo test to experience the typing tutor before starting real exercises.</p>
+
+    <button onclick="window.location.href='englishdemo.html';" 
+        class="exercise-btn" 
+        style="width:200px;height:60px;display:inline;">
+    English Test Demo
+</button>
+
+
+   <button onclick="window.location.href='punjabidemo.html';" 
+        class="exercise-btn" 
+        style="width:200px;height:60px;display:inline;">
+    Punjabi Test Demo
+</button>
+</div>
+
+<script>
+function startDemoTest(language) {
+    let demoText = "";
+
+    if (language === "English") {
+        demoText = "This is a demo English typing test designed by Smartech. The purpose is to help candidates understand how the typing engine works during a real examination.";
+    } else {
+        demoText = "ਇਹ ਇੱਕ ਡੈਮੋ ਪੰਜਾਬੀ ਟੈਸਟ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਟਾਈਪਿੰਗ ਟੈਸਟ ਦੇ ਅਸਲੀ ਤਰੀਕੇ ਨੂੰ ਸਮਝਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ ਅਤੇ ਤੁਹਾਨੂੰ ਸਹੀ ਅਭਿਆਸ ਦਿੰਦਾ ਹੈ।";
+    }
+
+    localStorage.setItem("selectedExerciseText", demoText);
+    localStorage.setItem("selectedExerciseLanguage", language);
+
+    // Enable demo mode
+    localStorage.setItem("demoMode", "true");
+
+    // Clear old keys
+    localStorage.removeItem("selectedExerciseTitle");
+    localStorage.removeItem("selectedExerciseNumber");
+
+    window.location.href = "testpage.html";
+}
+</script>
+
+<!--
+<h1><span class="highlight">Typing Practice Exercises</span></h1>
+<p>Strengthen your English and Punjabi typing skills with real-world passages.</p>
+-->
+</section>
+
+<!-- EXERCISES SECTION -->
+<div class="exercise-container">
+  <div class="exercise-box">
+    <h2>English Exercises</h2>
+    <div id="exerciseListEnglish"></div>
+  </div>
+
+  <div class="exercise-box">
+    <h2>Punjabi Exercises</h2>
+    <div id="exerciseListPunjabi"></div>
+  </div>
+</div>
+
+<!-- SCRIPT: LOAD EXERCISES -->
+<script>
+let exercisesEnglish = JSON.parse(localStorage.getItem('exercisesEnglish')) || [];
+let exercisesPunjabi = JSON.parse(localStorage.getItem('exercisesPunjabi')) || [];
+
+function renderExercises(language) {
+    const container = language === 'English'
+        ? document.getElementById("exerciseListEnglish")
+        : document.getElementById("exerciseListPunjabi");
+
+    const list = language === 'English' ? exercisesEnglish : exercisesPunjabi;
+
+    container.innerHTML = list.length === 0
+        ? "<p style='text-align:center;color:#555;'>No exercises found.</p>"
+        : list.map((ex, i) => `
+            <button class='exercise-btn' onclick="startTypingTest('${encodeURIComponent(ex.text)}', '${language}')">
+                ${i + 1}. ${ex.title}
+            </button>
+        `).join("");
+}
+
+function startTypingTest(text, language) {
+    localStorage.setItem("selectedExerciseText", decodeURIComponent(text));
+    localStorage.setItem("selectedExerciseLanguage", language);
+    localStorage.removeItem("demoMode");
+    window.location.href = "testpage.html";
+}
+
+renderExercises('English');
+renderExercises('Punjabi');
+
+
+</script>
+
+<!-- FOOTER -->
+<footer style="
+  background:#00295f;
+  color:white;
+  text-align:center;
+  padding:15px 10px;
+  margin-top:auto;
+  font-size:14px;
+">
+  © 2025 Smartech Education Computer Institute — All Rights Reserved.<br>
+  Designed & Developed by Sahil Kumar
+</footer>
+
+</body>
+</html>
