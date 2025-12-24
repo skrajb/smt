@@ -10,23 +10,110 @@
    - Result UI updates and saved test history (localStorage)
    - Defensive checks for missing DOM elements
 */
+// Disable right click
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
 
+// Disable keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable copy / paste / cut
+["copy", "paste", "cut"].forEach(evt => {
+    document.addEventListener(evt, e => e.preventDefault());
+});
 // -------------------- Helper: Load paragraph from URL param --------------------
-// -------------------- Helper: Load paragraph --------------------
+
+ // ensure previous/next by keyboard: PageUp/PageDown
+  document.addEventListener('keydown', (e) => {
+
+    if (e.code === 'PageDown' || e.key === 'PageDown') { e.preventDefault(); if (currentChunkIndex < chunks.length-1) { currentChunkIndex++; renderChunk(); } }
+    if (e.code === 'PageUp' || e.key === 'PageUp') { e.preventDefault(); if (currentChunkIndex > 0) { currentChunkIndex--; renderChunk(); }
+	}
+  });
+      
+document.getElementById('typing-input').addEventListener('keydown', function(e) {
+    if (e.key === "Tab") {
+        e.preventDefault();
+    }
+});
+// Disable right click
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+// Disable keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable copy / paste / cut
+["copy", "paste", "cut"].forEach(evt => {
+    document.addEventListener(evt, e => e.preventDefault());
+});
+
+
 async function loadTestParagraph() {
   try {
-    // ✅ Try to load from localStorage
+    // ✅ First try to load from localStorage (safest path)
     const savedText = localStorage.getItem("selectedExerciseText");
     if (savedText) {
       localStorage.removeItem("selectedExerciseText");
-      localStorage.removeItem("selectedExerciseLanguage");
+  //   localStorage.removeItem("selectedExerciseLanguage");
       return savedText;
     }
 
-    // ✅ Fallback (old system)
+    // ✅ Otherwise, load from URL (?exercise=...)
     const urlParams = new URLSearchParams(window.location.search);
     const encodedExercise = urlParams.get("exercise");
-    if (encodedExercise) return decodeURIComponent(encodedExercise);
+
+    if (encodedExercise) {
+  try {
+    // Safely decode URI component
+    let decoded = decodeURIComponent(encodedExercise);
+
+    // Normalize HTML entities to actual characters
+    decoded = decoded
+      .replace(/&quot;|&#34;/g, '"')
+      .replace(/&#39;|&apos;/g, "'")
+      .replace(/&amp;/g, "&");
+
+    // Handle over-escaped double quotes (e.g., \" or \')
+    decoded = decoded
+      .replace(/\\"/g, '"')
+      .replace(/\\'/g, "'");
+
+    return decoded.trim();
+  } catch (decodeError) {
+    console.warn("⚠️ Decode error, returning raw exercise text:", decodeError);
+    let fallback = encodedExercise
+      .replace(/&quot;|&#34;/g, '"')
+      .replace(/&#39;|&apos;/g, "'")
+      .replace(/&amp;/g, "&")
+      .replace(/\\"/g, '"')
+      .replace(/\\'/g, "'");
+    return fallback.trim();
+  }
+}
+
 
     console.warn("No exercise found.");
     return "";
@@ -35,6 +122,7 @@ async function loadTestParagraph() {
     return "";
   }
 }
+
 
 
 // -------------------- Global state (from your engine) --------------------
@@ -56,11 +144,9 @@ window.state = {
 
 // Safe DOM helper
 function $(id) { return document.getElementById(id); }
-
 // -------------------- Initialize test and create chunks --------------------
 async function initializeTest() {
     fullParagraph = await loadTestParagraph();
-
     // If no paragraph provided, keep existing text in DOM (useful for testing)
     if (!fullParagraph || fullParagraph.trim().length === 0) {
         // If paragraph element exists and contains text, use that
@@ -74,6 +160,10 @@ async function initializeTest() {
 
     // Normalize whitespace & trim
     fullParagraph = fullParagraph.replace(/\s+/g, " ").trim();
+	fullParagraph = fullParagraph
+  .replace(/&apos;|&#39;|&amp;apos;/g, "'")
+  .replace(/&quot;|&#34;/g, '"')
+  .replace(/&amp;/g, "&");
 
     words = fullParagraph.length ? fullParagraph.split(" ") : [];
     chunkSize = Math.max(1, Math.ceil(words.length / 10)); // try to create 10 chunks
@@ -303,17 +393,17 @@ setTimeout(() => {
         const chunkTypedWords = chunkTypedText.split(/\s+/).filter(w => w.length > 0);
         const chunkErrors = highlightErrors(chunkDefaultWords, chunkTypedWords, chunkTypedText);
         errorTablesHTML += `
-            <table class="error-table" width="100%" style="border-collapse:collapse; text-align:justify;">
+            <table class="error-table" width="100%"border="2px" style="border-collapse:collapse;">
                 <thead>
                     <tr>
-                        <th>Original Chunk #${i + 1}</th>
-                        <th>Typed Chunk #${i + 1}</th>
+                        <th width="50%">Original Chunk #${i + 1}</th>
+                        <th width="50%">Typed Chunk #${i + 1}</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="given">${window.paragraphs[i]}</span></td>
-                        <td>${chunkErrors || "No errors"}</td>
+                        <td width="50%"><span class="given">${window.paragraphs[i]}</span></td>
+                        <td width="50%">${chunkErrors || "No errors"}</td>
                     </tr>
                 </tbody>
             </table>
@@ -427,6 +517,11 @@ setTimeout(() => {
 
     saveTestStats(stats);
 }
+
+
+
+
+
 
 // Expose submit
 window.submitResults = submitResults;
@@ -649,6 +744,40 @@ function highlightErrors(defaultWords, typedWords, originalInput) {
             continue;
         }
 
+
+// NEW RULE: If user typed the correct word later, ignore earlier wrong attempts
+let lookAheadIndex = typedWords.indexOf(currentDefaultWord, typedIndex);
+if (lookAheadIndex !== -1 && lookAheadIndex > typedIndex) {
+    // This current wrong word is a repeated wrong attempt
+    highlightedParagraph += `<span class="wrong"><u>[${currentTypedWord}]</u></span> `;
+    inputIndex += currentTypedWord.length;
+    typedIndex++;
+    continue;
+}
+
+{
+    let skipCount = 0;
+    let foundMatch = false;
+    for (let i = defaultIndex + 1; i < defaultWords.length; i++) {
+        if (currentTypedWord.toLowerCase() === defaultWords[i].toLowerCase()) {
+            skipCount = i - defaultIndex;
+            foundMatch = true;
+            break;
+        }
+    }
+    if (foundMatch) {
+        for (let i = 0; i < skipCount; i++) {
+            const skippedWord = defaultWords[defaultIndex + i];
+            highlightedParagraph += `<span class="given">${skippedWord}</span> `;
+        }
+        highlightedParagraph += `<span class="correct">${currentTypedWord}</span> `;
+        inputIndex += currentTypedWord.length;
+        defaultIndex += skipCount + 1;
+        typedIndex++;
+        continue;
+    }
+}
+
         // Otherwise regular wrong
         highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;
         inputIndex += currentTypedWord.length;
@@ -710,6 +839,12 @@ function saveTestStats(stats) {
         showLocalStorageError();
     }
 }
+
+
+
+
+
+
 
 function showLocalStorageError() {
     const container = $("saved-stats-container") || document.querySelector('.container') || document.body;
@@ -773,5 +908,135 @@ function displaySavedStats() {
 }
 
 // -------------------- Full-screen control binding is done in bindUI above --------------------
+// script.js — inside your test submission logic
+document.getElementById("submit-btn").addEventListener("click", () => {
+  const userName = localStorage.getItem("userName");
+  const userRefNo = localStorage.getItem("userRefNo");
 
+  // Use your actual computed values here:
+  const speed = calculatedSpeed;     
+  const accuracy = calculatedAccuracy;
+
+  // Save result to Google Sheet
+  saveResultToSheet(userName, userRefNo, speed, accuracy);
+});
 // End of file
+/******************************************************
+ * ✅ GOOGLE SHEET SAVE + TOP 10 LEADERBOARD (Smartech)
+ ******************************************************/
+/******************************************************
+ * ✅ GOOGLE SHEET SAVE + TOP 10 LEADERBOARD (Smartech)
+ * Matches columns: formatTimeStamp | Ref No | Name | Language | Speed | Accuracy | Backspace
+ ******************************************************/
+const GOOGLE_SHEET_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbxT0mhZ0q-QLkIbJIqG8uIasrjLvx3HuQynmxcYswu3e8r_osUPkCZG2neBTPlcX3Hcrg/exec";
+
+// ✅ Save one test result to the Sheet
+async function sendResultToGoogleSheet(refNo, name, language, speed, accuracy, backspace) {
+  const data = {
+    timeStamp: new Date().toLocaleString(),
+    refNo,
+    name,
+    language,
+    speed,
+    accuracy,
+    backspace,
+    action: "save"
+  };
+
+  try {
+    await fetch(GOOGLE_SHEET_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    console.log("✅ Result saved to Google Sheet:", data);
+  } catch (err) {
+    console.error("❌ Google Sheet save error:", err);
+  }
+}
+
+// ✅ Collect current test data and call saver
+function saveResultToSheet() {
+	
+  const refNo = document.getElementById("userRefNo")?.value?.trim() || "N/A";
+  const name = document.getElementById("userName")?.value?.trim() || "Unknown";
+  const language = document.getElementById("backspacecount");//localStorage.getItem("selectedExerciseText") || "English";
+  const speed = document.getElementById("actual-gross-speed-value")?.innerText?.replace("WPM", "").trim() || "0";
+  const accuracy = document.getElementById("accuracy-percentage-value")?.innerText?.replace("%", "").trim() || "0";
+  const backspace = document.getElementById("backspace-count-value")?.innerText || "0";
+  
+
+  if (refNo && name) {
+    sendResultToGoogleSheet(refNo, name, language, speed, accuracy, backspace);
+  } else {
+    console.warn("⚠️ Missing Name or Ref No");
+  }
+}
+
+/* ✅ Fetch and display Top 10 results
+async function loadTop10Results() {
+  try {
+    const response = await fetch(GOOGLE_SHEET_ENDPOINT);
+    const data = await response.json();
+
+    const leaderboardBody = document.getElementById("leaderboard-body");
+    leaderboardBody.innerHTML = "";
+
+    if (!data || data.length === 0) {
+      leaderboardBody.innerHTML = `<tr><td colspan="4">No results found.</td></tr>`;
+      return;
+    }
+
+    data.forEach(row => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${row.name}</td>
+        <td>${row.refNo}</td>
+        <td>${row.speed}</td>
+        <td>${row.accuracy}%</td>`;
+      leaderboardBody.appendChild(tr);
+    });
+  } catch (error) {
+    console.error("❌ Error loading leaderboard:", error);
+    document.getElementById("leaderboard-body").innerHTML =
+      `<tr><td colspan="4">Error loading data</td></tr>`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadTop10Results);
+*/
+/* === LOAD TOP 10 === */
+async function loadTop10Results() {
+  try {
+    const res = await fetch(`${GOOGLE_SHEET_URL}?action=top10`);
+    const data = await res.json();
+    const body = document.getElementById("leaderboard-body");
+    body.innerHTML = "";
+    if (!data.length) {
+      body.innerHTML = `<tr><td colspan="4">No results found</td></tr>`;
+      return;
+    }
+    data.forEach(row => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${row.name}</td>
+        <td>${row.refNo}</td>
+        <td>${row.speed}</td>
+        <td>${row.accuracy}%</td>`;
+      body.appendChild(tr);
+    });
+  } catch (e) {
+    console.error("❌ Load error:", e);
+    document.getElementById("leaderboard-body").innerHTML =
+      `<tr><td colspan="4">Error loading data</td></tr>`;
+  }
+}
+document.addEventListener("DOMContentLoaded", loadTop10Results);
+// ✅ Auto-save every test submission to Google Sheet
+const originalSubmit = window.submitResults;
+window.submitResults = async function() {
+  await originalSubmit(); // run core logic
+  saveResultToSheet();   // then save to Sheet
+};

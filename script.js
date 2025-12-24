@@ -9,11 +9,67 @@
    - PSSSB-style result calculation (gross/net chars, WPM, accuracy)
    - Result UI updates and saved test history (localStorage)
    - Defensive checks for missing DOM elements
+* Disable right click
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+// Disable keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable copy / paste / cut
+["copy", "paste", "cut"].forEach(evt => {
+    document.addEventListener(evt, e => e.preventDefault());
+});
+// -------------------- Helper: Load paragraph from URL param --------------------
+
+ // ensure previous/next by keyboard: PageUp/PageDown
+  document.addEventListener('keydown', (e) => {
+
+    if (e.code === 'PageDown' || e.key === 'PageDown') { e.preventDefault(); if (currentChunkIndex < chunks.length-1) { currentChunkIndex++; renderChunk(); } }
+    if (e.code === 'PageUp' || e.key === 'PageUp') { e.preventDefault(); if (currentChunkIndex > 0) { currentChunkIndex--; renderChunk(); }
+	}
+  });
+      
+document.getElementById('typing-input').addEventListener('keydown', function(e) {
+    if (e.key === "Tab") {
+        e.preventDefault();
+    }
+});
+// Disable right click
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+// Disable keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable copy / paste / cut
+["copy", "paste", "cut"].forEach(evt => {
+    document.addEventListener(evt, e => e.preventDefault());
+});
 */
 
-// -------------------- Helper: Load paragraph from URL param --------------------
-// -------------------- Helper: Load paragraph --------------------
-// -------------------- Helper: Load paragraph --------------------
 async function loadTestParagraph() {
   try {
     // ✅ First try to load from localStorage (safest path)
@@ -87,11 +143,9 @@ window.state = {
 
 // Safe DOM helper
 function $(id) { return document.getElementById(id); }
-
 // -------------------- Initialize test and create chunks --------------------
 async function initializeTest() {
     fullParagraph = await loadTestParagraph();
-
     // If no paragraph provided, keep existing text in DOM (useful for testing)
     if (!fullParagraph || fullParagraph.trim().length === 0) {
         // If paragraph element exists and contains text, use that
@@ -688,6 +742,40 @@ function highlightErrors(defaultWords, typedWords, originalInput) {
             typedIndex++;
             continue;
         }
+
+
+// NEW RULE: If user typed the correct word later, ignore earlier wrong attempts
+let lookAheadIndex = typedWords.indexOf(currentDefaultWord, typedIndex);
+if (lookAheadIndex !== -1 && lookAheadIndex > typedIndex) {
+    // This current wrong word is a repeated wrong attempt
+    highlightedParagraph += `<span class="wrong"><u>[${currentTypedWord}]</u></span> `;
+    inputIndex += currentTypedWord.length;
+    typedIndex++;
+    continue;
+}
+
+{
+    let skipCount = 0;
+    let foundMatch = false;
+    for (let i = defaultIndex + 1; i < defaultWords.length; i++) {
+        if (currentTypedWord.toLowerCase() === defaultWords[i].toLowerCase()) {
+            skipCount = i - defaultIndex;
+            foundMatch = true;
+            break;
+        }
+    }
+    if (foundMatch) {
+        for (let i = 0; i < skipCount; i++) {
+            const skippedWord = defaultWords[defaultIndex + i];
+            highlightedParagraph += `<span class="given">${skippedWord}</span> `;
+        }
+        highlightedParagraph += `<span class="correct">${currentTypedWord}</span> `;
+        inputIndex += currentTypedWord.length;
+        defaultIndex += skipCount + 1;
+        typedIndex++;
+        continue;
+    }
+}
 
         // Otherwise regular wrong
         highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;

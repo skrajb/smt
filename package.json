@@ -1,0 +1,26 @@
+{
+  "name": "smartech-typing-tutor",
+  "version": "1.0.0",
+    "author":"Sahil Kumar",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "electron": "^39.2.3",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.smartech.typingtutor",
+    "productName": "Smartech Typing Tutor",
+    "files": [
+      "**/*",
+      "!dist/**"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    }
+  }
+}

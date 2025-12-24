@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3468699928896150"
+     crossorigin="anonymous"></script>
 <meta charset="UTF-8">
+	<meta name="google-adsense-account" content="ca-pub-3468699928896150">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | Smartech Education</title>
-
+<title>Smartech Education</title>
+  <link rel="stylesheet" href="styles.css" />
 <style>
+	html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 body {
   font-family: 'Bookman Old Style', serif;
   background-color: #f8f9fa;
@@ -20,18 +33,8 @@ body {
   padding: 15px 40px;
   animation: fadeDown 1s ease forwards;
 }
-.header img { height: 80px; }
+.header img { height: 60px; }
 
-nav {
-  background: #00295f;
-  padding: 10px 20px;
-  animation: fadeDown 1s ease .3s forwards;
-}
-nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
-nav a {
-  color: white; text-decoration: none; font-weight: bold; transition: 0.3s;
-}
-nav a:hover { color: black; }
 
 /* ===== Hero Section ===== */
 .hero {
@@ -226,9 +229,11 @@ button:hover {
 <!-- ===== Navigation ===== -->
 <nav>
   <ul>
-    <li><a href="Home.html">Home</a></li>
-   <!--<li><a href="exercises.html">Exercises</a></li>-->
-    <!--<li><a href="english_tutor.html">English Tutor</a></li>-->
+    <li><a href="index.html">Home</a></li>
+     <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="english_tutor.html">Speed Test</a></li>
+	 <li><a href="engtutor.html">Eng. Typing Tutor</a></li>
+	  <li><a href="pbitutor.html">Pbi. Typing Tutor</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
@@ -244,10 +249,36 @@ button:hover {
 
 
 
-
+  </script>
+	<footer style="
+  background:#00295f;
+  color:white;
+  text-align:center;
+  padding:15px 10px;
+  margin-top:auto;
+  font-family:'Bookman Old Style', serif;
+  font-size:14px;
+">
+  © 2025 Smartech Education Computer Institute — All Rights Reserved.<br>
+  Designed & Developed by Sahil Kumar
+</footer>
 
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

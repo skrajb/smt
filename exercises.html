@@ -1,102 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3468699928896150"
+     crossorigin="anonymous"></script>
 <meta charset="UTF-8">
+	<meta name="google-adsense-account" content="ca-pub-3468699928896150">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Typing Exercises | Smartech Typing Tutor</title>
+<title>Smartech Education</title>
 <link rel="stylesheet" href="styles.css">
-		<script>
-// 🔒 Block access to the page if user is not logged in
-if (sessionStorage.getItem("isLoggedIn") !== "true") {
-    alert("Please login to access this page.");
-    window.location.href = "Home.html"; // redirect back to home/login page
-}
-</script>
-	<script>
-  
-        // Prevent right-click
-  
-        document.addEventListener('contextmenu', function(e) {
-  
-            e.preventDefault();
-  
-            return false;
-  
-        }, false);
-  
 
-  
-        // Prevent copy
-  
-        document.addEventListener('copy', function(e) {
-  
-            e.preventDefault();
-  
-            return false;
-  
-        }, false);
-  
-
-  
-        // Prevent paste (except in typing-input)
-  
-        document.addEventListener('paste', function(e) {
-  
-            e.preventDefault();
-  
-            return false;
-  
-        }, false);
-  
-
-  
-        // Prevent developer tools and view source shortcuts
-  
-        document.addEventListener('keydown', function(e) {
-  
-            // Block F12 (Dev Tools)
-  
-            if (e.key === 'F12') {
-  
-                e.preventDefault();
-  
-                return false;
-  
-            }
-  
-            // Block Ctrl+Shift+I (Dev Tools)
-  
-            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-  
-                e.preventDefault();
-  
-                return false;
-  
-            }
-  
-            // Block Ctrl+U (View Source)
-  
-            if (e.ctrlKey && e.key === 'u') {
-  
-                e.preventDefault();
-  
-                return false;
-  
-            }
-  
-            // Block Ctrl+S (Save Page)
-  
-            if (e.ctrlKey && e.key === 's') {
-  
-                e.preventDefault();
-  
-                return false;
-  
-            }
-  
-        }, false);
-  
-    </script>
 <style>
 /* ====== PAGE LAYOUT ====== */
 body {
@@ -115,6 +27,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 nav {
   background: #00295f;
   padding: 10px 20px;
@@ -129,16 +42,20 @@ nav ul {
 nav ul li {
   margin-right: 8px;
 }
-nav ul li a, nav ul li button {   color: white;
-    text-decoration: none;
-    margin: 0 12px;
-    font-size: 16px;
-    transition: 0.3s;
-    padding: 6px 10px;
-    border-radius: 6px;
-	font-weight:bold;}
-nav ul li a:hover, nav ul li button:hover { background: white;
-    color: #00295f; }
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 16px;
+  padding: 6px 0px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+nav ul li a:hover {
+  background: white;
+  color: #00295f;
+}
 
 .header {
   display: flex;
@@ -171,7 +88,7 @@ nav ul li a:hover, nav ul li button:hover { background: white;
   color: #00295f;
 }
 
-/* ====== EXERCISES AREA ====== */
+/* ====== EXERCISES SECTION ====== */
 .exercise-container {
   display: flex;
   flex-wrap: wrap;
@@ -179,6 +96,16 @@ nav ul li a:hover, nav ul li button:hover { background: white;
   justify-content: center;
   width: 90%;
   margin: 40px auto;
+}
+.introduction {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease;
 }
 
 .exercise-box {
@@ -211,25 +138,21 @@ nav ul li a:hover, nav ul li button:hover { background: white;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: center;
-  width: 120px;            /* fixed width for grid look */
-  height: 70px;            /* consistent height */
-  margin: 10px;            /* spacing between buttons */
+  width: 120px;
+  height: 70px;
+  margin: 10px;
+  font-size: 0.95rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
-
 .exercise-btn:hover {
-  background: #ffce00;
-  color: #00295f;
+  background: black;
+  color: white;
   transform: translateY(-3px);
 }
 
-	#exerciseListEnglish, 
+#exerciseListEnglish, 
 #exerciseListPunjabi {
   display: flex;
   flex-wrap: wrap;
@@ -238,10 +161,9 @@ nav ul li a:hover, nav ul li button:hover { background: white;
   padding: 10px;
 }
 
-/* ====== ANIMATION ====== */
-	@media (max-width: 600px) {
+@media (max-width: 600px) {
   .exercise-btn {
-    width: 100%;  /* full width on mobile */
+    width: 100%;
     margin: 6px 0;
   }
 }
@@ -250,91 +172,109 @@ nav ul li a:hover, nav ul li button:hover { background: white;
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-/* ====== RESPONSIVE ====== */
-@media (max-width: 800px) {
-  #exercises-intro h1 {
-    font-size: 2rem;
-  }
-  #exercises-intro p {
-    font-size: 1rem;
-  }
-}
 </style>
+
+<!-- SECURITY BLOCK -->
 <script>
-        // Prevent right-click
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        }, false);
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+document.addEventListener('paste', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    if (e.key === 'F12') e.preventDefault();
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') e.preventDefault();
+    if (e.ctrlKey && e.key === 'u') e.preventDefault();
+    if (e.ctrlKey && e.key === 's') e.preventDefault();
+});
+</script>
 
-        // Prevent copy
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            return false;
-        }, false);
-
-        // Prevent paste (except in typing-input)
-        document.addEventListener('paste', function(e) {
-            e.preventDefault();
-            return false;
-        }, false);
-
-        // Prevent developer tools and view source shortcuts
-        document.addEventListener('keydown', function(e) {
-            // Block F12 (Dev Tools)
-            if (e.key === 'F12') {
-                e.preventDefault();
-                return false;
-            }
-            // Block Ctrl+Shift+I (Dev Tools)
-            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-                e.preventDefault();
-                return false;
-            }
-            // Block Ctrl+U (View Source)
-            if (e.ctrlKey && e.key === 'u') {
-                e.preventDefault();
-                return false;
-            }
-            // Block Ctrl+S (Save Page)
-            if (e.ctrlKey && e.key === 's') {
-                e.preventDefault();
-                return false;
-            }
-        }, false);
-    </script>
 </head>
 <body>
+<div id="header-container"></div>
+<script>
+fetch("header.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("header-container").innerHTML = data;
+  });
+</script>
 
-<!-- Header -->
-<div class="header">
-  <img src="Smartech Educatation Computer Centre.png" alt="Smartech Logo">
-  <img src="Typing Boy.png" alt="Typing Boy" height="80">
+<!-- DEMO SECTION 
+<section id="exercises-intro">
+
+<div style="
+    width:90%;
+    margin:20px auto;
+    background:white;
+	
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    padding:25px;
+    text-align:center;
+">
+    <h2 style="color:#00295f;">Try Demo Typing Tests</h2>
+    <p>Choose a demo test to experience the typing tutor before starting real exercises.</p>
+
+    <button onclick="window.location.href='englishdemo.html';" 
+        class="exercise-btn" 
+        style="width:200px;height:60px;display:inline;">
+    English Test Demo
+</button>
+
+
+   <button onclick="window.location.href='punjabidemo.html';" 
+        class="exercise-btn" 
+        style="width:200px;height:60px;display:inline;">
+    Punjabi Test Demo
+</button>
 </div>
 
-<!-- Navigation -->
-<nav>
+<script>
+function startDemoTest(language) {
+    let demoText = "";
+
+    if (language === "English") {
+        demoText = "This is a demo English typing test designed by Smartech. The purpose is to help candidates understand how the typing engine works during a real examination.";
+    } else {
+        demoText = "ਇਹ ਇੱਕ ਡੈਮੋ ਪੰਜਾਬੀ ਟੈਸਟ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਟਾਈਪਿੰਗ ਟੈਸਟ ਦੇ ਅਸਲੀ ਤਰੀਕੇ ਨੂੰ ਸਮਝਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ ਅਤੇ ਤੁਹਾਨੂੰ ਸਹੀ ਅਭਿਆਸ ਦਿੰਦਾ ਹੈ।";
+    }
+
+    localStorage.setItem("selectedExerciseText", demoText);
+    localStorage.setItem("selectedExerciseLanguage", language);
+
+    // Enable demo mode
+    localStorage.setItem("demoMode", "true");
+
+    // Clear old keys
+    localStorage.removeItem("selectedExerciseTitle");
+    localStorage.removeItem("selectedExerciseNumber");
+
+    window.location.href = "testpage.html";
+}
+</script>
+
+
+<h1><span class="highlight">Typing Practice Exercises</span></h1>
+<p>Strengthen your English and Punjabi typing skills with real-world passages.</p>
+</section>-->
+
+<div class="introduction">
+<h2 style="color:#4b3d6a; margin-top:0;">
+    Hello Friends, this Typing Practice System is specially developed for the PSSSB Typing Examination.
+  </h2>
+
+  <p>These mock tests are designed according to the latest Punjab SSSB typing guidelines.</p>
+
   <ul>
-    <li><a href="Home.html">Home</a></li>
-    <li><a href="exercises.html">Exercises</a></li>
-       <li><a href="english_tutor.html">Speed Test</a></li>
-	 <li><a href="engtutor.html">English Typing Tutor</a></li>
-	  <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
-	    <li><a href="contact.html">Contact</a></li>
+    <li>To qualify, you must type at least <b>1500 characters</b> with a minimum of <b>92% accuracy</b>.</li>
+    <li style="color:#b80000;"><b>Please use Google Chrome browser for the best performance.</b></li>
+    <li>Press <b>Enter</b> or the <b>Down Arrow key</b> to move to the next chunk (only after typing 80% of the current chunk).</li>
+    <li>Use the <b>Page Up</b> and <b>Page Down</b> keys to move between chunks.</li>
+    <li>If you face any issue, please email us with a screenshot for support.</li>
   </ul>
-</nav>
 
-<!-- Intro Section -->
-<section id="exercises-intro">
-  <h1><span class="highlight">Typing Practice Exercises</span></h1>
-  <p>
-    Strengthen your English and Punjabi typing skills with real-world passages,  
-    designed to boost speed, accuracy, and confidence.
-  </p>
-</section>
-
-<!-- Exercises Section -->
+  <p>Practice daily and improve your accuracy before the final examination.</p>
+</div>
+<!-- EXERCISES SECTION -->
 <div class="exercise-container">
   <div class="exercise-box">
     <h2>English Exercises</h2>
@@ -347,65 +287,43 @@ nav ul li a:hover, nav ul li button:hover { background: white;
   </div>
 </div>
 
-<!-- Script -->
+<!-- SCRIPT: LOAD EXERCISES -->
 <script>
 let exercisesEnglish = JSON.parse(localStorage.getItem('exercisesEnglish')) || [];
 let exercisesPunjabi = JSON.parse(localStorage.getItem('exercisesPunjabi')) || [];
 
 function renderExercises(language) {
-  const container = language === 'English'
-    ? document.getElementById("exerciseListEnglish")
-    : document.getElementById("exerciseListPunjabi");
-  const list = language === 'English' ? exercisesEnglish : exercisesPunjabi;
-  container.innerHTML = list.length === 0 
-    ? "<p style='text-align:center;color:#555;'>No exercises found.</p>"
-    : list.map((ex, i) => `
-        <button class='exercise-btn' onclick="startTypingTest('${encodeURIComponent(ex.text)}', '${language}')">
-          ${i + 1}. ${ex.title}
-        </button>
-      `).join("");
+    const container = language === 'English'
+        ? document.getElementById("exerciseListEnglish")
+        : document.getElementById("exerciseListPunjabi");
+
+    const list = language === 'English' ? exercisesEnglish : exercisesPunjabi;
+
+    container.innerHTML = list.length === 0
+        ? "<p style='text-align:center;color:#555;'>No exercises found.</p>"
+        : list.map((ex, i) => `
+            <button class='exercise-btn' onclick="startTypingTest('${encodeURIComponent(ex.text)}', '${language}')">
+                ${i + 1}. ${ex.title}
+            </button>
+        `).join("");
 }
 
 function startTypingTest(text, language) {
-  localStorage.setItem("selectedExerciseText", decodeURIComponent(text));
-  localStorage.setItem("selectedExerciseLanguage", language);
-  window.location.href = "index.html";
+    localStorage.setItem("selectedExerciseText", decodeURIComponent(text));
+    localStorage.setItem("selectedExerciseLanguage", language);
+    localStorage.removeItem("demoMode");
+    window.location.href = "testpage.html";
 }
 
 renderExercises('English');
 renderExercises('Punjabi');
-	loadExercisesFromUrl();  
-	 if (sessionStorage.getItem("isLoggedIn") !== "true") {
-    alert("You must log in as admin to access this page.");
-    window.location.href = "exercises.html"; // redirect to your homepage
-  }
+
+
 </script>
-  </script>
-	<footer style="
-  background:#00295f;
-  color:white;
-  text-align:center;
-  padding:15px 10px;
-  margin-top:auto;
-  font-family:'Bookman Old Style', serif;
-  font-size:14px;
-">
-  © 2025 Smartech Education Computer Institute — All Rights Reserved.<br>
-  Designed & Developed by Sahil Kumar
-</footer>
+
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

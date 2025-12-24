@@ -118,14 +118,23 @@ body {
 </head>
 
 <body>
-<div id="header-container"></div>
-<script>
-fetch("header.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("header-container").innerHTML = data;
-  });
-</script>
+<div class="header">
+  <img src="Smartech Educatation Computer Centre.png" alt="Logo">
+  <img src="Typing Boy.png" alt="Typing Boy">
+</div>
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="exercises.html">Exercises</a></li>
+    <li><a href="english_tutor.html">Speed Test</a></li>
+	 <li><a href="engtutor.html">Eng. Typing Tutor</a></li>
+	  <li><a href="pbitutor.html">Pbi. Typing Tutor</a></li>
+    <li><a href="contact.html">Contact</a></li>
+	        <li style="margin-left:auto;">
+        <!--<button id="fullscreenBtn">Full Screen</button>-->
+      </li>
+  </ul>
+</nav>
 
 <header>
   <div>

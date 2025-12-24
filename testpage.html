@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+	html, body {
+  height: 100%;
+  margin: 0;
+}
+nav { background: #00295f; padding: 10px 20px;}
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
+nav ul li { margin-right: 20px; }
+nav ul li a, nav ul li button { color: white; font-weight: bold; text-decoration: none; background: transparent; border: none; font-size: 16px; cursor: pointer; }
+nav ul li a:hover, nav ul li button:hover { color: #00295f; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Toggle Button Style */
+.toggle-btn {
+  background:#6c757d;
+  color:white;
+  border:none;
+  border-radius:6px;
+  padding:8px 14px;
+  cursor:pointer;
+  margin-top:10px;
+}
+.toggle-btn.active {
+  background:#b80000;
+}</style>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Smartech Education</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body style="font-family:'Bookman old Style',serif;">
+<div id="header-container"></div>
+<script>
+fetch("header.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("header-container").innerHTML = data;
+  });
+</script>
+<!-- ✅ RESULTS SECTION -->
+<section id="results" style="display:none;">
+ 
+
+    <!-- RIGHT: Test Results -->
+    <div style="flex:2; min-width:400px;">
+      <h2>Results</h2>
+      <table id="results-table" 
+             style="display:none; width:100%; border-collapse:collapse;">
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Gross Characters</td><td id="gross-characters-value"></td></tr>
+          <tr><td>Wrong / Extra / Skipped Words</td><td id="wrong-extra-words-value"></td></tr>
+          <tr><td>Space Errors</td><td id="space-errors-value"></td></tr>
+          <tr><td>Error Characters</td><td id="error-characters-value"></td></tr>
+          <tr><td>Net Characters</td><td id="net-characters-value"></td></tr>
+          <tr><td>Gross Speed</td><td id="gross-speed-value"></td></tr>
+          <tr><td>Actual Gross Speed</td><td id="actual-gross-speed-value"></td></tr>
+          <tr><td>Time Taken</td><td id="time-spent-value"></td></tr>
+          <tr><td>Accuracy</td><td id="accuracy-percentage-value"></td></tr>
+          <tr><td>Backspace Count</td><td id="backspace-count-value"></td></tr>
+          <tr><td>Result</td><td id="result-value"></td></tr>
+          <tr id="notes-section" style="display:none;">
+            <td colspan="2">
+              <div id="results-notes" style="display:none;">
+                <div id="exam-note" style="margin-bottom:5px; color:#b80000;"></div>
+                <div id="pass-note" style="color:#0055b8;"></div>
+              </div>
+            </td>
+          </tr>
+          <tr id="button-row" style="display:none;">
+            <td colspan="2" style="text-align:center; padding-top:10px;">
+              <button id="practice-another-btn-2" class="primary-btn">
+                Practice Another
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="error-section" style="margin-top:15px; display:none;">
+        <div id="error-highlight"></div>
+      </div>
+      <div id="saved-stats-container" style="margin-top:20px;"></div>
+    </div>
+  </div>
+</section>
+<!-- ✅ END RESULTS -->
+
+
+
+<!-- ✅ USER DETAILS 
+<div id="user-info" style="text-align:center; margin-bottom:20px;">
+  <h3 style="color:#00295f; margin-bottom:10px;">Candidate Details</h3>
+  <input type="text" id="userName" placeholder="Enter your name (Test Language: E/P)" 
+         pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" required
+         style="padding:10px; width:260px; border:1px solid #00295f;
+                border-radius:6px; margin-right:10px; color:black;">
+  <input type="number" id="userRefNo" placeholder="Enter reference number"
+         required oninput="if(this.value.length>10)this.value=this.value.slice(0,10);"
+         style="padding:10px; width:260px; border:1px solid #00295f;
+                border-radius:6px; color:black;">
+</div>
+
+-->
+<main class="container">
+<section class="test-section" id="test-section">
+
+
+  <div>
+    <div id="timer">Time: 10:00</div>
+    <div id="current-chunk"><center>Current Chunk - 1</center></div>
+  </div>
+
+  <div id="test-area">
+	  <b>Reference Text</b>
+    <div id="reference-text" class="reference-outer">
+      <div id="paragraph" class="paragraph">Loading...</div>
+    </div>
+<b>Typing Text</b>
+    <textarea id="typing-input" placeholder="Start typing here..."
+              rows="4" class="typing-input" spellcheck="false" autofocus></textarea>
+  <!-- Backspace Toggle Button -->
+  <button id="disable-toggle" class="toggle-btn">
+    Disable Backspace: OFF
+  </button>
+   <div style="text-align:right;">
+  <button id="submit-btn" class="primary-btn">Submit Test</button>
+</div>
+  </div>
+  
+</section>
+</main>
+
+
+<!-- POPUPS -->
+<div id="time-over-popup" class="popup" style="display:none;">
+  <div class="popup-inner">
+    <p>Time is over. View results?</p>
+    <button id="popup-ok-btn" class="primary-btn">Yes</button>
+  </div>
+</div>
+
+<div id="no-input-popup" class="popup" style="display:none;">
+  <div class="popup-inner">
+    <p>No typed input detected.</p>
+    <button id="no-input-ok-btn" class="primary-btn">OK</button>
+  </div>
+</div>
+
+<script src="script.js">
+</script><script>
+/* Demo text */
+document.getElementById("paragraph").innerText =
+"Typing practice improves speed and accuracy. Keep your eyes on the screen and maintain proper hand placement.";
+
+/* Elements */
+const typingInput = document.getElementById("typing-input");
+const toggleBtn = document.getElementById("disable-toggle");
+
+let backspaceDisabled = false;
+
+/* Toggle Button Click */
+toggleBtn.addEventListener("click", () => {
+  backspaceDisabled = !backspaceDisabled;
+
+  if (backspaceDisabled) {
+    toggleBtn.classList.add("active");
+    toggleBtn.textContent = "Disable Backspace: ON";
+  } else {
+    toggleBtn.classList.remove("active");
+    toggleBtn.textContent = "Disable Backspace: OFF";
+  }
+});
+
+/* Disable Backspace Logic */
+typingInput.addEventListener("keydown", function(e) {
+  if (backspaceDisabled && e.key === "Backspace") {
+    e.preventDefault();
+  }
+});
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

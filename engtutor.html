@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3468699928896150"
+     crossorigin="anonymous"></script>
 <meta charset="utf-8" />
+	<meta name="google-adsense-account" content="ca-pub-3468699928896150">
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>English Typing Tutor — Smartech Education</title>
+<title>Smartech Education</title>
 	  <link rel="stylesheet" href="styles.css" />
-	<script>
-// 🔒 Block access to the page if user is not logged in
-if (sessionStorage.getItem("isLoggedIn") !== "true") {
-    alert("Please login to access this page.");
-    window.location.href = "Home.html"; // redirect back to home/login page
-}
 
-  
-     
-    </script>
 <style>
   :root{
     --bg:#f7f8fb; --card:#fff; --accent:#00295f; --muted:#6b7280;
@@ -67,7 +61,7 @@ if (sessionStorage.getItem("isLoggedIn") !== "true") {
 
   /* character spans */
   #textDisplay .ch{border-radius:2px;}
- #textDisplay .current{background-color:Yellow;font-weight:bold; box-shadow:0 2px 0 rgba(0,0,0,0.06); font-size:20px;}
+ #textDisplay .current{background-color:Yellow;font-weight:; box-shadow:0 2px 0 rgba(0,0,0,0.06); font-size:20px;}
   #textDisplay .correct{background:transparent; color:var(--green); font-weight:600}
   #textDisplay .incorrect{background:transparent; color:var(--red); font-weight:600}
   #textDisplay .space{display:inline-block; min-width:8px; border-bottom:1px dashed rgba(0,0,0,0.03)}
@@ -128,23 +122,14 @@ html, body {
 </head>
 
 <body>
-<div class="header">
-  <img src="Smartech Educatation Computer Centre.png" alt="Logo">
-  <img src="Typing Boy.png" alt="Typing Boy">
-</div>
-<nav>
-  <ul>
-    <li><a href="Home.html">Home</a></li>
-    <li><a href="exercises.html">Exercises</a></li>
-    <li><a href="english_tutor.html">Speed Test</a></li>
-	 <li><a href="engtutor.html">Eng. Typing Tutor</a></li>
-	  <li><a href="pbitutor.html">Pbi. Typing Tutor</a></li>
-    <li><a href="contact.html">Contact</a></li>
-	        <li style="margin-left:auto;">
-   <button id="fullscreenBtn">Full Screen</button>
-      </li>
-  </ul>
-</nav>
+<div id="header-container"></div>
+<script>
+fetch("header.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("header-container").innerHTML = data;
+  });
+</script>
 
 <header>
   <div>
@@ -591,21 +576,12 @@ fullscreenBtn.addEventListener('click', () => {
 
 
 </script>
-	  </script>
-	<footer style="
-  background:#00295f;
-  color:white;
-  text-align:center;
-  padding:15px 10px;
-  margin-top:top;
-  font-family:'Bookman Old Style', serif;
-  font-size:14px;
-">
-  © 2025 Smartech Education Computer Institute — All Rights Reserved.<br>
-  Designed & Developed by Sahil Kumar
-</footer>
+	 
+
 </body>
 </html>
+
+
 
 
 
