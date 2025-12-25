@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us</title>
+
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: #f7f8fc;
+    color: #333;
+    line-height: 1.7;
+  }
+
+  header {
+    background: #1f4fc1;
+    color: white;
+    padding: 20px 40px;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 28px;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 25px auto;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  }
+
+  h2 {
+    color: #1f4fc1;
+    border-left: 4px solid #1f4fc1;
+    padding-left: 10px;
+  }
+
+  ul, ol {
+    margin-left: 18px;
+  }
+
+  footer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: #1f4fc1;
+    color: white;
+  }
+</style>
+</head>
+
+<body>
+<div id="header-container"></div>
+<script>
+fetch("header.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("header-container").innerHTML = data;
+  });
+</script>
+<header>
+  <h1>About Us</h1>
+</header>
+
+<div class="container">
+
+  <h2>Who We Are</h2>
+  <p>
+    We are an education-focused online learning and practice platform designed to help
+    students, job seekers, and professionals improve their knowledge and skills through
+    structured exercises, guided practice content, and user-friendly learning tools.
+    Our platform is built for learners who want real improvement, not just information.
+  </p>
+
+  <h2>What We Offer</h2>
+  <p>
+    Our learning environment focuses on practical knowledge, step-by-step practice,
+    and skill-development through real-world style exercises. Users learn in a simple,
+    interactive, and stress-free way.
+  </p>
+
+  <ul>
+    <li>Practice-based learning activities</li>
+    <li>Simple and easy-to-follow explanations</li>
+    <li>Exercises useful for exams, interviews, and professional work</li>
+    <li>Self-learning tools designed for accuracy and speed improvement</li>
+    <li>Clear progress-oriented approach</li>
+  </ul>
+
+  <h2>Our Mission</h2>
+  <p>
+    Our mission is to deliver meaningful learning opportunities that help users build
+    confidence, accuracy, and clarity in their skills. We believe that practice-driven
+    learning leads to lasting improvement.
+  </p>
+
+  <ul>
+    <li>Support every learner regardless of experience level</li>
+    <li>Encourage regular practice habits</li>
+    <li>Provide structured learning paths</li>
+    <li>Help users track and improve performance</li>
+  </ul>
+
+  <h2>Our Vision</h2>
+  <p>
+    We aim to become a trusted online platform where learners can practice anytime,
+    anywhere, and achieve measurable progress. Our long-term vision is to make high-quality
+    learning tools accessible to everyone.
+  </p>
+
+  <h2>How Users Benefit from Our Platform</h2>
+  <ol>
+    <li>
+      <strong>Real-world and exam-oriented practice</strong><br />
+      Users gain exposure to formats and challenges that reflect real exam and
+      workplace requirements.
+    </li>
+
+    <li>
+      <strong>Guided improvement through feedback</strong><br />
+      Regular practice helps identify weak areas, strengths, and improvement trends.
+    </li>
+
+    <li>
+      <strong>Beginner-friendly learning approach</strong><br />
+      Concepts are presented in simple terms so that users feel comfortable and confident.
+    </li>
+
+    <li>
+      <strong>Access anywhere, anytime</strong><br />
+      Users can learn and practice at home, while traveling, or during free time.
+    </li>
+
+    <li>
+      <strong>Confidence-building environment</strong><br />
+      Structured learning helps users improve speed, accuracy, and concentration.
+    </li>
+
+    <li>
+      <strong>Supportive and motivating experience</strong><br />
+      We believe learning should encourage growth, not pressure.
+    </li>
+
+    <li>
+      <strong>Consistent progress through regular practice</strong><br />
+      Habit-based learning leads to lasting improvement.
+    </li>
+  </ol>
+
+  <h2>Our Commitment</h2>
+  <p>
+    We are committed to continuously improving our platform and adding new features,
+    exercises, and learning tools. User feedback is always welcome and helps us
+    shape the platform for better learning outcomes.
+  </p>
+
+  <h2>Conclusion</h2>
+  <p>
+    Whether you are preparing for exams, developing professional skills, or simply
+    improving personal knowledge, our platform is here to support your journey.
+    We believe that every learner deserves the right tools, right guidance, and
+    right opportunities to grow.
+  </p>
+
+</div>
+
+<footer>
+  © 2025 Your Website Name — All Rights Reserved
+</footer>
+
+</body>
+</html>
