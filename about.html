@@ -8,17 +8,81 @@
 <style>
   
   body {
-    font-family: Times New Roman;
-    margin: 0;
-    background: #f8f9fa;
-    color: #333;
-    line-height: 1.7;
-  }
-nav { background: #00295f; padding: 10px 20px;}
-nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
-nav ul li { margin-right: 20px; }
-nav ul li a, nav ul li button { color: white; font-weight: bold; text-decoration: none; background: transparent; border: none; font-size: 16px; cursor: pointer; }
-nav ul li a:hover, nav ul li button:hover { background: white;color: #00295f; }
+  font-family: 'Bookman Old Style', serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  color: #222;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+nav {
+  background: #00295f;
+  padding: 10px 20px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  margin-right: 8px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 16px;
+  padding: 6px 0px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+nav ul li a:hover {
+  background: white;
+  color: #00295f;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+.header img {
+  height: 60px;
+}
+
+/* ====== INTRO SECTION ====== */
+#exercises-intro {
+  text-align: center;
+  padding: 10px 10% 30px;
+  background: linear-gradient(to right, #fff, #f9f8f6);
+}
+#exercises-intro h1 {
+  font-size: 2.5rem;
+  color: #000;
+}
+#exercises-intro p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 700px;
+  margin: 10px auto;
+  line-height: 1.6;
+}
+.highlight {
+  color: #00295f;
+}
   header {
   
     color: white;
