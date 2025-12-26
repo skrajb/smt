@@ -194,27 +194,14 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="letters-container"></div>
   </div>
 
-  <div class="header">
-    <img src="Smartech Educatation Computer Centre3.png" alt="Smartech" class="logo">
-    <img src="Typing Boy.png" height="60" alt="Typing Boy">
-  </div>
-
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-		<li><a href="about.html">About</a></li>	
-     <li><a href="exercises.html">Exercises</a></li>
-
-	 <li><a href="english_tutor.html">Speed Test</a></li>
-	 <li><a href="engtutor.html">English Typing Tutor</a></li>
-	  <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li style="margin-left:auto;">
-     <!-- <button id="statusBtn">Show Activation Status</button>
-  <pre id="out"></pre>-->
-      </li>
-    </ul>
-  </nav>
+<div id="header-container" style="background-color:white;"></div>
+<script>
+fetch("header.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("header-container").innerHTML = data;
+  });
+</script>
 
   <!-- ================== INTRO SECTION ================== -->
   <section id="intro">
