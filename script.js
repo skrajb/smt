@@ -1,1 +1,1041 @@
-const _0x86488a=_0x400b;function _0x400b(_0x1a4a9c,_0x1caa18){_0x1a4a9c=_0x1a4a9c-0x1bf;const _0x301d3b=_0x301d();let _0x400b6e=_0x301d3b[_0x1a4a9c];return _0x400b6e;}(function(_0x107f06,_0x4d9b3c){const _0xcc92a4=_0x400b,_0x3b3c55=_0x107f06();while(!![]){try{const _0x12a4bb=-parseInt(_0xcc92a4(0x20b))/0x1*(-parseInt(_0xcc92a4(0x285))/0x2)+parseInt(_0xcc92a4(0x228))/0x3+-parseInt(_0xcc92a4(0x23d))/0x4+-parseInt(_0xcc92a4(0x28d))/0x5+-parseInt(_0xcc92a4(0x1f8))/0x6*(parseInt(_0xcc92a4(0x1fe))/0x7)+-parseInt(_0xcc92a4(0x284))/0x8*(parseInt(_0xcc92a4(0x20a))/0x9)+parseInt(_0xcc92a4(0x24a))/0xa;if(_0x12a4bb===_0x4d9b3c)break;else _0x3b3c55['push'](_0x3b3c55['shift']());}catch(_0x2c3da8){_0x3b3c55['push'](_0x3b3c55['shift']());}}}(_0x301d,0x1d468),document[_0x86488a(0x253)]('contextmenu',function(_0x1c20f1){const _0x443989=_0x86488a;_0x1c20f1[_0x443989(0x259)]();}),document[_0x86488a(0x253)](_0x86488a(0x1ff),function(_0x3b097b){const _0x30b74c=_0x86488a;if(_0x3b097b['key']===_0x30b74c(0x257)||_0x3b097b[_0x30b74c(0x272)]&&_0x3b097b[_0x30b74c(0x25f)]&&['I','J','C'][_0x30b74c(0x26b)](_0x3b097b[_0x30b74c(0x1e7)][_0x30b74c(0x1ef)]())||_0x3b097b[_0x30b74c(0x272)]&&['U','S','C','V','X','A','P'][_0x30b74c(0x26b)](_0x3b097b[_0x30b74c(0x1e7)][_0x30b74c(0x1ef)]()))return _0x3b097b['preventDefault'](),![];}),['copy',_0x86488a(0x267),_0x86488a(0x1de)]['forEach'](_0x5267c4=>{const _0x47672d=_0x86488a;document[_0x47672d(0x253)](_0x5267c4,_0x5a151b=>_0x5a151b[_0x47672d(0x259)]());}),document[_0x86488a(0x253)](_0x86488a(0x1ff),_0x2d3d87=>{const _0x494068=_0x86488a;(_0x2d3d87['code']===_0x494068(0x1d3)||_0x2d3d87[_0x494068(0x1e7)]===_0x494068(0x1d3))&&(_0x2d3d87[_0x494068(0x259)](),currentChunkIndex<chunks['length']-0x1&&(currentChunkIndex++,renderChunk())),(_0x2d3d87['code']===_0x494068(0x22a)||_0x2d3d87[_0x494068(0x1e7)]===_0x494068(0x22a))&&(_0x2d3d87[_0x494068(0x259)](),currentChunkIndex>0x0&&(currentChunkIndex--,renderChunk()));}),document[_0x86488a(0x289)](_0x86488a(0x1c5))[_0x86488a(0x253)]('keydown',function(_0x5db445){const _0x14c192=_0x86488a;_0x5db445[_0x14c192(0x1e7)]===_0x14c192(0x299)&&_0x5db445['preventDefault']();}),document[_0x86488a(0x253)](_0x86488a(0x292),function(_0x570f82){_0x570f82['preventDefault']();}),document[_0x86488a(0x253)](_0x86488a(0x1ff),function(_0x16ced0){const _0x1095d7=_0x86488a;if(_0x16ced0[_0x1095d7(0x1e7)]===_0x1095d7(0x257)||_0x16ced0[_0x1095d7(0x272)]&&_0x16ced0[_0x1095d7(0x25f)]&&['I','J','C']['includes'](_0x16ced0['key'][_0x1095d7(0x1ef)]())||_0x16ced0['ctrlKey']&&['U','S','C','V','X','A','P'][_0x1095d7(0x26b)](_0x16ced0[_0x1095d7(0x1e7)][_0x1095d7(0x1ef)]()))return _0x16ced0[_0x1095d7(0x259)](),![];}),[_0x86488a(0x28c),'paste','cut'][_0x86488a(0x1ee)](_0x9e6599=>{const _0x209d3d=_0x86488a;document[_0x209d3d(0x253)](_0x9e6599,_0x49799b=>_0x49799b[_0x209d3d(0x259)]());}));async function loadTestParagraph(){const _0x203e42=_0x86488a;try{const _0x51e182=localStorage[_0x203e42(0x24c)](_0x203e42(0x24e));if(_0x51e182)return localStorage['removeItem']('selectedExerciseText'),_0x51e182;const _0x432d64=new URLSearchParams(window[_0x203e42(0x265)][_0x203e42(0x232)]),_0x4d4da3=_0x432d64[_0x203e42(0x261)](_0x203e42(0x2a0));if(_0x4d4da3)try{let _0x165a1f=decodeURIComponent(_0x4d4da3);return _0x165a1f=_0x165a1f[_0x203e42(0x1c2)](/&quot;|&#34;/g,'\x22')['replace'](/&#39;|&apos;/g,'\x27')[_0x203e42(0x1c2)](/&amp;/g,'&'),_0x165a1f=_0x165a1f[_0x203e42(0x1c2)](/\\"/g,'\x22')[_0x203e42(0x1c2)](/\\'/g,'\x27'),_0x165a1f[_0x203e42(0x1e5)]();}catch(_0x10de6b){console[_0x203e42(0x1cd)](_0x203e42(0x1e1),_0x10de6b);let _0x148e19=_0x4d4da3[_0x203e42(0x1c2)](/&quot;|&#34;/g,'\x22')['replace'](/&#39;|&apos;/g,'\x27')[_0x203e42(0x1c2)](/&amp;/g,'&')[_0x203e42(0x1c2)](/\\"/g,'\x22')[_0x203e42(0x1c2)](/\\'/g,'\x27');return _0x148e19[_0x203e42(0x1e5)]();}return console[_0x203e42(0x1cd)]('No\x20exercise\x20found.'),'';}catch(_0x5b98c3){return console[_0x203e42(0x25d)]('Error\x20loading\x20exercise:',_0x5b98c3),'';}}let fullParagraph='',words=[],chunkSize=0x0;window['paragraphs']=[],window[_0x86488a(0x22e)]={'currentParagraphIndex':0x0,'paragraph':'','defaultWords':[],'typedWords':[],'startTime':null,'totalTime':0x258,'isTestRunning':![],'totalTypedInput':'|','backspaceCount':0x0};function $(_0x556354){const _0x11f245=_0x86488a;return document[_0x11f245(0x289)](_0x556354);}async function initializeTest(){const _0x46e6e9=_0x86488a;fullParagraph=await loadTestParagraph();if(!fullParagraph||fullParagraph[_0x46e6e9(0x1e5)]()[_0x46e6e9(0x208)]===0x0){const _0x11c5c8=$(_0x46e6e9(0x24d));_0x11c5c8&&_0x11c5c8[_0x46e6e9(0x2a1)][_0x46e6e9(0x1e5)]()[_0x46e6e9(0x208)]>0x0?fullParagraph=_0x11c5c8['textContent']['trim']():fullParagraph='';}fullParagraph=fullParagraph['replace'](/\s+/g,'\x20')['trim'](),fullParagraph=fullParagraph['replace'](/&apos;|&#39;|&amp;apos;/g,'\x27')['replace'](/&quot;|&#34;/g,'\x22')[_0x46e6e9(0x1c2)](/&amp;/g,'&'),words=fullParagraph['length']?fullParagraph[_0x46e6e9(0x25a)]('\x20'):[],chunkSize=Math[_0x46e6e9(0x2a3)](0x1,Math[_0x46e6e9(0x271)](words[_0x46e6e9(0x208)]/0xa)),window[_0x46e6e9(0x1cb)]['length']=0x0;for(let _0x39ef8c=0x0;_0x39ef8c<words[_0x46e6e9(0x208)];_0x39ef8c+=chunkSize){window[_0x46e6e9(0x1cb)]['push'](words[_0x46e6e9(0x205)](_0x39ef8c,_0x39ef8c+chunkSize)[_0x46e6e9(0x213)]('\x20'));}window[_0x46e6e9(0x1cb)][_0x46e6e9(0x208)]===0x0&&window[_0x46e6e9(0x1cb)][_0x46e6e9(0x243)](''),window[_0x46e6e9(0x22e)]['currentParagraphIndex']=0x0,window[_0x46e6e9(0x22e)][_0x46e6e9(0x24d)]=window[_0x46e6e9(0x1cb)][0x0],window[_0x46e6e9(0x22e)][_0x46e6e9(0x1fb)]=window[_0x46e6e9(0x22e)][_0x46e6e9(0x24d)]['split']('\x20');}document['addEventListener'](_0x86488a(0x221),async()=>{const _0x2e5b0a=_0x86488a;await initializeTest(),$(_0x2e5b0a(0x24d))&&($('paragraph')[_0x2e5b0a(0x274)]=window['state'][_0x2e5b0a(0x24d)]||_0x2e5b0a(0x23a)),document[_0x2e5b0a(0x250)](_0x2e5b0a(0x210))&&(document[_0x2e5b0a(0x250)](_0x2e5b0a(0x210))[_0x2e5b0a(0x2a1)]='Typing\x20Practice\x20Test'),document['title']='Typing\x20Test',bindUI(),refreshTest(),displaySavedStats();});function startTimer(){const _0x14e881=_0x86488a;if(!window['state']['isTestRunning'])return;const _0x2e06fb=performance['now'](),_0x536c11=(_0x2e06fb-window[_0x14e881(0x22e)]['startTime'])/0x3e8,_0x35599f=window['state'][_0x14e881(0x268)]-_0x536c11;if($('timer')){if(_0x35599f<=0x0)$(_0x14e881(0x29a))[_0x14e881(0x2a1)]=_0x14e881(0x1da);else{const _0x325d7e=Math[_0x14e881(0x1e2)](_0x35599f/0x3c),_0x30a4a3=Math['floor'](_0x35599f%0x3c);$(_0x14e881(0x29a))[_0x14e881(0x2a1)]=_0x14e881(0x1df)+_0x325d7e+':'+_0x30a4a3[_0x14e881(0x288)]()[_0x14e881(0x1e3)](0x2,'0');}}if(_0x35599f<=0x0){if($('time-over-popup'))$(_0x14e881(0x282))[_0x14e881(0x281)][_0x14e881(0x25c)]=_0x14e881(0x254);if($(_0x14e881(0x203)))$(_0x14e881(0x203))[_0x14e881(0x296)]();window[_0x14e881(0x22e)]['isTestRunning']=![];}else requestAnimationFrame(startTimer);}window[_0x86488a(0x246)]=startTimer;function bindUI(){const _0x547e17=_0x86488a,_0x1e895b=$(_0x547e17(0x1c5));_0x1e895b&&(_0x1e895b['addEventListener'](_0x547e17(0x1f1),_0x39fb63=>{const _0x54f23b=_0x547e17;!window[_0x54f23b(0x22e)][_0x54f23b(0x29d)]&&(window[_0x54f23b(0x22e)][_0x54f23b(0x2a7)]=performance[_0x54f23b(0x1ca)](),window[_0x54f23b(0x22e)][_0x54f23b(0x29d)]=!![],requestAnimationFrame(window[_0x54f23b(0x246)]));}),_0x1e895b['addEventListener'](_0x547e17(0x1ff),_0x3d728f=>{const _0x6a20b6=_0x547e17;_0x3d728f[_0x6a20b6(0x1e7)]===_0x6a20b6(0x1e6)&&window[_0x6a20b6(0x22e)][_0x6a20b6(0x27c)]++;const _0x3d3c5c=_0x3d728f['target'],_0x20742e=_0x3d3c5c[_0x6a20b6(0x202)],_0x16bb59=_0x20742e[_0x6a20b6(0x1e5)]()[_0x6a20b6(0x25a)](/\s+/)[_0x6a20b6(0x1c0)](_0x51e04b=>_0x51e04b[_0x6a20b6(0x208)]>0x0)['length'],_0x4bcb03=window['state'][_0x6a20b6(0x1fb)][_0x6a20b6(0x208)]||0x1,_0x20b711=Math[_0x6a20b6(0x1e2)](0.8*_0x4bcb03);if(_0x3d728f['key']==='Enter'||_0x3d728f['key']===_0x6a20b6(0x1d2)||_0x3d728f[_0x6a20b6(0x1e7)]==='PageDown'){if(window[_0x6a20b6(0x22e)][_0x6a20b6(0x1fd)]===window[_0x6a20b6(0x1cb)][_0x6a20b6(0x208)]-0x1){_0x3d728f['preventDefault']();return;}if(_0x16bb59>=_0x20b711){if(window['state'][_0x6a20b6(0x1fd)]<window['paragraphs']['length']-0x1){const _0x32f0b=window['state'][_0x6a20b6(0x1db)][_0x6a20b6(0x25a)]('|')['filter'](_0x55a6ae=>_0x55a6ae[_0x6a20b6(0x208)]>0x0);_0x32f0b[window[_0x6a20b6(0x22e)][_0x6a20b6(0x1fd)]]=_0x20742e,window[_0x6a20b6(0x22e)][_0x6a20b6(0x1db)]='|'+_0x32f0b[_0x6a20b6(0x213)]('|')+'|',window[_0x6a20b6(0x22e)]['currentParagraphIndex']++,window[_0x6a20b6(0x22e)][_0x6a20b6(0x24d)]=window[_0x6a20b6(0x1cb)][window['state']['currentParagraphIndex']],window[_0x6a20b6(0x22e)]['defaultWords']=window['state'][_0x6a20b6(0x24d)][_0x6a20b6(0x25a)]('\x20');if($('paragraph'))$(_0x6a20b6(0x24d))[_0x6a20b6(0x274)]=window[_0x6a20b6(0x22e)][_0x6a20b6(0x24d)];if($(_0x6a20b6(0x21a)))$(_0x6a20b6(0x21a))[_0x6a20b6(0x2a1)]=_0x6a20b6(0x1dd)+(window[_0x6a20b6(0x22e)][_0x6a20b6(0x1fd)]+0x1);if($(_0x6a20b6(0x1c5)))$(_0x6a20b6(0x1c5))[_0x6a20b6(0x202)]=_0x32f0b[window[_0x6a20b6(0x22e)]['currentParagraphIndex']]||'';_0x3d728f[_0x6a20b6(0x259)]();}}else _0x3d728f[_0x6a20b6(0x259)]();}else{if((_0x3d728f['key']==='ArrowUp'||_0x3d728f[_0x6a20b6(0x1e7)]===_0x6a20b6(0x22a))&&window[_0x6a20b6(0x22e)][_0x6a20b6(0x1fd)]>0x0){const _0x3b5191=window[_0x6a20b6(0x22e)][_0x6a20b6(0x1db)][_0x6a20b6(0x25a)]('|')[_0x6a20b6(0x1c0)](_0x519cbb=>_0x519cbb[_0x6a20b6(0x208)]>0x0);_0x3b5191[window[_0x6a20b6(0x22e)][_0x6a20b6(0x1fd)]]=_0x20742e,window[_0x6a20b6(0x22e)]['totalTypedInput']='|'+_0x3b5191[_0x6a20b6(0x213)]('|')+'|',window['state'][_0x6a20b6(0x1fd)]--,window['state']['paragraph']=window['paragraphs'][window[_0x6a20b6(0x22e)][_0x6a20b6(0x1fd)]],window[_0x6a20b6(0x22e)]['defaultWords']=window[_0x6a20b6(0x22e)][_0x6a20b6(0x24d)][_0x6a20b6(0x25a)]('\x20');if($(_0x6a20b6(0x24d)))$(_0x6a20b6(0x24d))['innerHTML']=window[_0x6a20b6(0x22e)][_0x6a20b6(0x24d)];if($('current-chunk'))$(_0x6a20b6(0x21a))['textContent']=_0x6a20b6(0x1dd)+(window[_0x6a20b6(0x22e)][_0x6a20b6(0x1fd)]+0x1);if($('typing-input'))$(_0x6a20b6(0x1c5))[_0x6a20b6(0x202)]=_0x3b5191[window[_0x6a20b6(0x22e)][_0x6a20b6(0x1fd)]]||'';_0x3d728f[_0x6a20b6(0x259)]();}}}));if($(_0x547e17(0x1f4)))$(_0x547e17(0x1f4))[_0x547e17(0x253)]('click',submitResults);if($('refresh-btn'))$('refresh-btn')['addEventListener'](_0x547e17(0x21d),async()=>{await initializeTest(),refreshTest();});if($(_0x547e17(0x203)))$('popup-ok-btn')['addEventListener'](_0x547e17(0x21d),()=>{const _0x218e41=_0x547e17;if($(_0x218e41(0x282)))$(_0x218e41(0x282))[_0x218e41(0x281)]['display']='none';submitResults();});if($(_0x547e17(0x286)))$(_0x547e17(0x286))[_0x547e17(0x253)](_0x547e17(0x21d),()=>{const _0x152f27=_0x547e17;window[_0x152f27(0x265)][_0x152f27(0x242)]=_0x152f27(0x212);});if($(_0x547e17(0x1d6)))$('back-btn')[_0x547e17(0x253)]('click',()=>{const _0x2cf489=_0x547e17;window[_0x2cf489(0x265)][_0x2cf489(0x242)]=_0x2cf489(0x212);});if($(_0x547e17(0x263)))$(_0x547e17(0x263))[_0x547e17(0x253)]('click',()=>{const _0x557b4e=_0x547e17;if($(_0x557b4e(0x1e8)))$(_0x557b4e(0x1e8))[_0x557b4e(0x281)][_0x557b4e(0x25c)]='none';});if($(_0x547e17(0x206)))$(_0x547e17(0x206))[_0x547e17(0x253)](_0x547e17(0x21d),async()=>{await initializeTest(),refreshTest();});if($(_0x547e17(0x1f2)))$(_0x547e17(0x1f2))[_0x547e17(0x253)]('click',()=>{const _0x212919=_0x547e17;window['location'][_0x212919(0x242)]='exercises.html';});$('fullscreen-btn')&&$(_0x547e17(0x295))[_0x547e17(0x253)](_0x547e17(0x21d),()=>{const _0x290b2d=_0x547e17;!document[_0x290b2d(0x21c)]?document['documentElement']['requestFullscreen']()[_0x290b2d(0x27f)](()=>{const _0x8d426e=_0x290b2d;if($('fullscreen-btn'))$(_0x8d426e(0x295))[_0x8d426e(0x2a1)]='Exit\x20Full\x20Screen';})[_0x290b2d(0x1c4)](_0x5099f5=>console[_0x290b2d(0x25d)](_0x290b2d(0x278)+_0x5099f5[_0x290b2d(0x1f3)])):document[_0x290b2d(0x27d)]()[_0x290b2d(0x27f)](()=>{const _0x310298=_0x290b2d;if($(_0x310298(0x295)))$('fullscreen-btn')[_0x310298(0x2a1)]=_0x310298(0x27e);});});}function refreshTest(){const _0x47f679=_0x86488a;window[_0x47f679(0x22e)][_0x47f679(0x1fd)]=0x0,window[_0x47f679(0x22e)]['paragraph']=window[_0x47f679(0x1cb)][0x0],window[_0x47f679(0x22e)]['defaultWords']=window[_0x47f679(0x22e)][_0x47f679(0x24d)][_0x47f679(0x25a)]('\x20'),window['state'][_0x47f679(0x1db)]='|',window['state'][_0x47f679(0x268)]=0x258,window[_0x47f679(0x22e)][_0x47f679(0x29d)]=![],window[_0x47f679(0x22e)][_0x47f679(0x2a7)]=null,window[_0x47f679(0x22e)]['backspaceCount']=0x0;if($(_0x47f679(0x29a)))$(_0x47f679(0x29a))[_0x47f679(0x2a1)]=_0x47f679(0x273);if(document[_0x47f679(0x250)](_0x47f679(0x210)))document[_0x47f679(0x250)](_0x47f679(0x210))['style'][_0x47f679(0x25c)]='block';if(document[_0x47f679(0x250)](_0x47f679(0x1ed)))document[_0x47f679(0x250)](_0x47f679(0x1ed))[_0x47f679(0x281)][_0x47f679(0x25c)]='block';if($(_0x47f679(0x21a)))$(_0x47f679(0x21a))['textContent']=_0x47f679(0x1dd)+(window[_0x47f679(0x22e)][_0x47f679(0x1fd)]+0x1);if($(_0x47f679(0x21a)))$(_0x47f679(0x21a))[_0x47f679(0x281)][_0x47f679(0x25c)]=_0x47f679(0x27b);$(_0x47f679(0x24d))&&($(_0x47f679(0x24d))[_0x47f679(0x281)]['display']=_0x47f679(0x27b),$('paragraph')[_0x47f679(0x274)]=window[_0x47f679(0x22e)][_0x47f679(0x24d)]);$(_0x47f679(0x1c5))&&($('typing-input')[_0x47f679(0x281)][_0x47f679(0x25c)]=_0x47f679(0x27b),$(_0x47f679(0x1c5))['value']='',$(_0x47f679(0x1c5))['disabled']=![]);if(document[_0x47f679(0x250)](_0x47f679(0x1f9)))document[_0x47f679(0x250)](_0x47f679(0x1f9))[_0x47f679(0x281)]['display']='flex';if($(_0x47f679(0x29a)))$('timer')[_0x47f679(0x281)][_0x47f679(0x25c)]=_0x47f679(0x27b);if(document[_0x47f679(0x250)]('.reference-outer'))document[_0x47f679(0x250)](_0x47f679(0x29e))[_0x47f679(0x281)][_0x47f679(0x25c)]='block';if($(_0x47f679(0x21e)))$(_0x47f679(0x21e))['style'][_0x47f679(0x25c)]=_0x47f679(0x27b);if($(_0x47f679(0x1d7)))$(_0x47f679(0x1d7))[_0x47f679(0x281)][_0x47f679(0x25c)]=_0x47f679(0x27b);if($(_0x47f679(0x1f4)))$(_0x47f679(0x1f4))[_0x47f679(0x281)][_0x47f679(0x25c)]='inline-block';if($('back-btn'))$(_0x47f679(0x1d6))[_0x47f679(0x281)]['display']=_0x47f679(0x28a);if($('results'))$('results')[_0x47f679(0x281)]['display']=_0x47f679(0x29f);if($(_0x47f679(0x1d1)))$(_0x47f679(0x1d1))[_0x47f679(0x281)]['display']=_0x47f679(0x29f);if($('results-title-row'))$(_0x47f679(0x1d5))[_0x47f679(0x281)][_0x47f679(0x25c)]=_0x47f679(0x29f);try{document[_0x47f679(0x1c9)](_0x47f679(0x200))[_0x47f679(0x1ee)](_0x6d602a=>_0x6d602a[_0x47f679(0x281)]['display']=_0x47f679(0x29f));}catch(_0x38a961){}if($('saved-stats-container'))$(_0x47f679(0x26d))[_0x47f679(0x281)][_0x47f679(0x25c)]=_0x47f679(0x27b);if($('error-section'))$(_0x47f679(0x270))[_0x47f679(0x281)][_0x47f679(0x25c)]='none';if($(_0x47f679(0x22d)))$(_0x47f679(0x22d))['style'][_0x47f679(0x25c)]=_0x47f679(0x29f);}async function submitResults(){const _0xf36e75=_0x86488a;$(_0xf36e75(0x27a))[_0xf36e75(0x281)]['display']='block',$(_0xf36e75(0x1d1))['style'][_0xf36e75(0x25c)]='table',document[_0xf36e75(0x1c9)]('#results-table\x20tr')[_0xf36e75(0x1ee)](_0x340b29=>_0x340b29['style'][_0xf36e75(0x25c)]=_0xf36e75(0x234)),$(_0xf36e75(0x28f))[_0xf36e75(0x281)][_0xf36e75(0x25c)]=_0xf36e75(0x29f),setTimeout(()=>{const _0x1b5345=_0xf36e75;window[_0x1b5345(0x204)]({'top':0x0,'behavior':'smooth'});},0x12c),console[_0xf36e75(0x1eb)](_0xf36e75(0x240)),window['state'][_0xf36e75(0x29d)]=![];const _0x546e70=$(_0xf36e75(0x1c5)),_0x48ce11=_0x546e70?_0x546e70[_0xf36e75(0x202)][_0xf36e75(0x1e5)]():'',_0x24ae8b=window[_0xf36e75(0x22e)][_0xf36e75(0x1db)]['split']('|')[_0xf36e75(0x1c0)](_0x4425cd=>_0x4425cd[_0xf36e75(0x208)]>0x0);if(_0x48ce11)_0x24ae8b[window[_0xf36e75(0x22e)][_0xf36e75(0x1fd)]]=_0x48ce11;const _0x6e06af=_0x24ae8b[_0xf36e75(0x1c0)](_0x1042a0=>_0x1042a0['trim']()[_0xf36e75(0x208)]>0x0);if(_0x6e06af[_0xf36e75(0x208)]===0x0){if($(_0xf36e75(0x1e8)))$('no-input-popup')[_0xf36e75(0x281)][_0xf36e75(0x25c)]='flex';window[_0xf36e75(0x22e)][_0xf36e75(0x29d)]=!![];return;}const _0x4a6ad0=_0x6e06af[_0xf36e75(0x213)]('\x20')['trim']();window[_0xf36e75(0x22e)][_0xf36e75(0x2a2)]=_0x4a6ad0[_0xf36e75(0x25a)](/\s+/)[_0xf36e75(0x1c0)](_0x1efce9=>_0x1efce9[_0xf36e75(0x208)]>0x0);const _0x128c58=window[_0xf36e75(0x1cb)]['slice'](0x0,_0x6e06af[_0xf36e75(0x208)])[_0xf36e75(0x213)]('\x20')['split']('\x20');let _0x4448d5='';for(let _0x3e9667=0x0;_0x3e9667<_0x6e06af['length'];_0x3e9667++){const _0x17dc22=window[_0xf36e75(0x1cb)][_0x3e9667][_0xf36e75(0x25a)]('\x20'),_0x594216=_0x6e06af[_0x3e9667]||'',_0x165276=_0x594216[_0xf36e75(0x25a)](/\s+/)[_0xf36e75(0x1c0)](_0x5a0eb7=>_0x5a0eb7[_0xf36e75(0x208)]>0x0),_0x56ede5=highlightErrors(_0x17dc22,_0x165276,_0x594216);_0x4448d5+=_0xf36e75(0x29c)+(_0x3e9667+0x1)+'</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th\x20width=\x2250%\x22>Typed\x20Chunk\x20#'+(_0x3e9667+0x1)+'</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20width=\x2250%\x22><span\x20class=\x22given\x22>'+window[_0xf36e75(0x1cb)][_0x3e9667]+_0xf36e75(0x252)+(_0x56ede5||'No\x20errors')+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20';}if(document['querySelector'](_0xf36e75(0x210)))document[_0xf36e75(0x250)]('.main-title')[_0xf36e75(0x281)][_0xf36e75(0x25c)]=_0xf36e75(0x29f);if(document[_0xf36e75(0x250)](_0xf36e75(0x1ed)))document[_0xf36e75(0x250)](_0xf36e75(0x1ed))['style']['display']='none';if($(_0xf36e75(0x27a)))$(_0xf36e75(0x27a))[_0xf36e75(0x281)][_0xf36e75(0x25c)]=_0xf36e75(0x27b);if($(_0xf36e75(0x1d1)))$(_0xf36e75(0x1d1))[_0xf36e75(0x281)]['display']=_0xf36e75(0x247);if($(_0xf36e75(0x1d5)))$(_0xf36e75(0x1d5))['style'][_0xf36e75(0x25c)]='table-row';if($(_0xf36e75(0x224)))$(_0xf36e75(0x224))['style'][_0xf36e75(0x25c)]=_0xf36e75(0x27b);$(_0xf36e75(0x297))&&($(_0xf36e75(0x297))[_0xf36e75(0x281)][_0xf36e75(0x25c)]=_0xf36e75(0x27b),$('exam-note')[_0xf36e75(0x274)]=_0xf36e75(0x23c));$(_0xf36e75(0x1f5))&&($('pass-note')[_0xf36e75(0x281)][_0xf36e75(0x25c)]=_0xf36e75(0x27b),$(_0xf36e75(0x1f5))[_0xf36e75(0x274)]=_0xf36e75(0x1f7));if($('button-row'))$('button-row')['style'][_0xf36e75(0x25c)]='table-row';if($('error-section'))$('error-section')[_0xf36e75(0x281)][_0xf36e75(0x25c)]=_0xf36e75(0x27b);$(_0xf36e75(0x22d))&&($(_0xf36e75(0x22d))[_0xf36e75(0x281)][_0xf36e75(0x25c)]=_0xf36e75(0x27b),$(_0xf36e75(0x22d))['innerHTML']=_0x4448d5);if($('refresh-btn-2'))$(_0xf36e75(0x206))[_0xf36e75(0x281)][_0xf36e75(0x25c)]=_0xf36e75(0x28a);if($(_0xf36e75(0x1f2)))$(_0xf36e75(0x1f2))['style'][_0xf36e75(0x25c)]=_0xf36e75(0x28a);const _0x6b46e=performance[_0xf36e75(0x1ca)](),_0x3d2737=window[_0xf36e75(0x22e)][_0xf36e75(0x2a7)]?(_0x6b46e-window[_0xf36e75(0x22e)]['startTime'])/0x3e8:0x0,_0x1260b8=Math[_0xf36e75(0x1e2)](_0x3d2737/0x3c),_0x3182cb=Math[_0xf36e75(0x1e2)](_0x3d2737%0x3c);let _0x488a65=0x0;const _0x9d4896=document[_0xf36e75(0x1fc)](_0xf36e75(0x1ce));_0x9d4896[_0xf36e75(0x274)]=_0x4448d5;const _0x16cbaa=_0x9d4896['querySelectorAll'](_0xf36e75(0x1c7));for(const _0x4f3672 of _0x16cbaa){!_0x4f3672[_0xf36e75(0x2a1)][_0xf36e75(0x26b)]('[')&&(_0x488a65+=_0x4f3672[_0xf36e75(0x2a1)][_0xf36e75(0x208)]);}const _0x34ce6d=_0x9d4896[_0xf36e75(0x1c9)](_0xf36e75(0x231));for(const _0x557eeb of _0x34ce6d){const _0x4fe6ba=_0x557eeb[_0xf36e75(0x2a1)]||'';if(_0x4fe6ba[_0xf36e75(0x26b)]('[Extra:')){const _0x2433e2=_0x4fe6ba[_0xf36e75(0x269)](/\[Extra:\s*(.*?)\]/);if(_0x2433e2&&_0x2433e2[0x1])_0x488a65+=_0x2433e2[0x1][_0xf36e75(0x208)];}else{if(_0x4fe6ba[_0xf36e75(0x26b)](_0xf36e75(0x1e0))||_0x4fe6ba['includes'](_0xf36e75(0x21b)))continue;else{if(_0x4fe6ba[_0xf36e75(0x26b)](_0xf36e75(0x290)))continue;else{if(!_0x4fe6ba['includes']('[')){const _0x5da9bd=_0x557eeb[_0xf36e75(0x1d8)];if(_0x5da9bd&&_0x5da9bd[_0xf36e75(0x241)]&&_0x5da9bd[_0xf36e75(0x241)]['contains']('given')){const _0x2b538a=_0x557eeb['textContent'][_0xf36e75(0x208)],_0x5936df=_0x5da9bd['textContent'][_0xf36e75(0x208)];_0x488a65+=Math[_0xf36e75(0x1c1)](_0x2b538a,_0x5936df);}else _0x488a65+=_0x557eeb[_0xf36e75(0x2a1)]['length'];}}}}}const _0x434af4=_0x4a6ad0['split'](/\s+/)[_0xf36e75(0x1c0)](_0x240ae3=>_0x240ae3[_0xf36e75(0x208)]>0x0)[_0xf36e75(0x208)];_0x434af4>0x1&&(_0x488a65+=_0x434af4-0x1);const _0x50d070=(_0x488a65/0x5)[_0xf36e75(0x21f)](0x1),_0x12684a=(_0x4448d5[_0xf36e75(0x269)](/\[Skipped:/g)||[])[_0xf36e75(0x208)],_0x45e38c=(_0x4448d5[_0xf36e75(0x269)](/<span class="wrong">(?!\[Skipped:|\[Missing Space\]|\[Extra Space\])/g)||[])[_0xf36e75(0x208)],_0x405f35=(_0x4448d5[_0xf36e75(0x269)](/\[Extra Space\]|\[Missing Space\]/g)||[])['length'],_0x38a8bb=(_0x12684a+_0x45e38c)*0x5+_0x405f35*2.5,_0x4e5f5e=(_0x488a65-_0x38a8bb)[_0xf36e75(0x21f)](0x1),_0x4bd6b1=(_0x488a65/(0x5*0xa))['toFixed'](0x1),_0x7c592e=_0x3d2737>0x0?_0x3d2737/0x3c:0.0001,_0x4fe16e=(_0x488a65/(0x5*_0x7c592e))[_0xf36e75(0x21f)](0x1),_0x321e81=_0x488a65>0x0?(0x64*_0x4e5f5e/_0x488a65)['toFixed'](0x1):0x0,_0x101f21=_0x488a65>=0x5dc&&_0x321e81>=0x5c?'Pass':_0xf36e75(0x225);if($('gross-characters-value'))$(_0xf36e75(0x248))[_0xf36e75(0x2a1)]=_0x488a65+_0xf36e75(0x219)+_0x50d070+')';if($(_0xf36e75(0x201)))$(_0xf36e75(0x201))[_0xf36e75(0x2a1)]=''+_0x12684a;if($('wrong-extra-words-value'))$('wrong-extra-words-value')['textContent']=''+_0x45e38c;if($(_0xf36e75(0x26f)))$('space-errors-value')[_0xf36e75(0x2a1)]=''+_0x405f35;if($(_0xf36e75(0x23b)))$('error-characters-value')[_0xf36e75(0x2a1)]=''+_0x38a8bb[_0xf36e75(0x21f)](0x1);if($(_0xf36e75(0x291)))$(_0xf36e75(0x291))[_0xf36e75(0x2a1)]=''+_0x4e5f5e;if($(_0xf36e75(0x211)))$('gross-speed-value')['textContent']=_0x4bd6b1+_0xf36e75(0x1f0);if($(_0xf36e75(0x276)))$(_0xf36e75(0x276))[_0xf36e75(0x2a1)]=_0x4fe16e+'\x20WPM';if($(_0xf36e75(0x280)))$('time-spent-value')[_0xf36e75(0x2a1)]=_0x1260b8+_0xf36e75(0x277)+_0x3182cb['toString']()[_0xf36e75(0x1e3)](0x2,'0')+'\x20sec';if($('accuracy-percentage-value'))$(_0xf36e75(0x223))[_0xf36e75(0x2a1)]=_0x321e81+'%';if($(_0xf36e75(0x1ea)))$(_0xf36e75(0x1ea))[_0xf36e75(0x2a1)]=''+window[_0xf36e75(0x22e)][_0xf36e75(0x27c)];if($(_0xf36e75(0x255)))$(_0xf36e75(0x255))[_0xf36e75(0x2a1)]=_0x101f21+'\x20(Typed\x20'+_0x488a65+'\x20characters\x20with\x20'+_0x321e81+'%\x20accuracy)';const _0x14310b={'grossCharacters':parseInt(_0x488a65),'accuracy':parseFloat(_0x321e81),'grossSpeed':parseFloat(_0x4bd6b1),'actualSpeed':parseFloat(_0x4fe16e),'timeSpent':_0x1260b8+'m\x20'+_0x3182cb+'s','result':_0x101f21,'timestamp':new Date()['toISOString']()};saveTestStats(_0x14310b);}window[_0x86488a(0x264)]=submitResults;function highlightErrors(_0x256bcb,_0x285fb9,_0x24e8d8){const _0x368b44=_0x86488a;let _0x423d01='',_0x40513f=0x0,_0x36859e=0x0,_0x38fc76=0x0;while(_0x40513f<_0x256bcb[_0x368b44(0x208)]&&_0x36859e<_0x285fb9[_0x368b44(0x208)]){let _0x41a090=_0x285fb9[_0x36859e],_0x471efb=_0x256bcb[_0x40513f];if(_0x36859e+0x1<_0x285fb9['length']){const _0x33c9bd=_0x285fb9[_0x36859e+0x1],_0x4b2c00=_0x41a090+_0x33c9bd;if(_0x4b2c00===_0x471efb||_0x4b2c00[_0x368b44(0x1d4)]()===_0x471efb[_0x368b44(0x1d4)]()){_0x38fc76+=_0x41a090[_0x368b44(0x208)];let _0x435671=0x0;while(_0x38fc76<_0x24e8d8[_0x368b44(0x208)]&&/\s/[_0x368b44(0x24f)](_0x24e8d8[_0x38fc76])){_0x435671++,_0x38fc76++;}if(_0x435671>0x0){_0x423d01+=_0x368b44(0x1e4)+_0x41a090+_0x368b44(0x227);for(let _0x288efd=0x0;_0x288efd<_0x435671-0x1;_0x288efd++)_0x423d01+=_0x368b44(0x20c);_0x423d01+=_0x368b44(0x1e4)+_0x33c9bd+_0x368b44(0x1cf);if(_0x4b2c00!==_0x471efb)_0x423d01+='<span\x20class=\x22given\x22>'+_0x471efb+_0x368b44(0x1cf);}_0x38fc76+=_0x33c9bd[_0x368b44(0x208)];let _0x41edab=0x0;while(_0x38fc76<_0x24e8d8[_0x368b44(0x208)]&&/\s/[_0x368b44(0x24f)](_0x24e8d8[_0x38fc76])){_0x41edab++,_0x38fc76++;}if(_0x41edab>0x1){for(let _0x44af84=0x0;_0x44af84<_0x41edab-0x1;_0x44af84++)_0x423d01+=_0x368b44(0x20c);}_0x40513f++,_0x36859e+=0x2;continue;}}if(_0x40513f+0x1<_0x256bcb[_0x368b44(0x208)]){const _0x3d4b3c=_0x256bcb[_0x40513f+0x1],_0x5c638e=_0x471efb+_0x3d4b3c;if(_0x41a090===_0x5c638e){_0x423d01+=_0x368b44(0x1e4)+_0x471efb+_0x368b44(0x251)+_0x3d4b3c+_0x368b44(0x1cf),_0x38fc76+=_0x41a090[_0x368b44(0x208)],_0x40513f+=0x2,_0x36859e++;let _0x20523c=0x0;while(_0x38fc76<_0x24e8d8[_0x368b44(0x208)]&&/\s/['test'](_0x24e8d8[_0x38fc76])){_0x20523c++,_0x38fc76++;}if(_0x20523c>0x1){for(let _0x448b50=0x0;_0x448b50<_0x20523c-0x1;_0x448b50++)_0x423d01+='<span\x20class=\x22wrong\x22>[Extra\x20Space]</span>\x20';}continue;}if(_0x41a090!==_0x471efb&&_0x41a090['startsWith'](_0x471efb)&&_0x41a090[_0x368b44(0x208)]>_0x471efb['length']&&!_0x471efb[_0x368b44(0x235)](_0x41a090)&&(_0x36859e+0x1>=_0x285fb9[_0x368b44(0x208)]||_0x285fb9[_0x36859e+0x1]!==_0x3d4b3c)){const _0x140fe1=_0x41a090['slice'](_0x471efb[_0x368b44(0x208)]);if(_0x140fe1[_0x368b44(0x208)]>0x0){_0x423d01+='<span\x20class=\x22correct\x22>'+_0x471efb+_0x368b44(0x227);_0x140fe1===_0x3d4b3c?_0x423d01+=_0x368b44(0x1e4)+_0x140fe1+'</span>\x20':_0x423d01+=_0x368b44(0x1c6)+_0x140fe1+_0x368b44(0x266)+_0x3d4b3c+_0x368b44(0x1cf);_0x38fc76+=_0x41a090['length'],_0x40513f+=0x2,_0x36859e++;let _0x10b735=0x0;while(_0x38fc76<_0x24e8d8[_0x368b44(0x208)]&&/\s/[_0x368b44(0x24f)](_0x24e8d8[_0x38fc76])){_0x10b735++,_0x38fc76++;}if(_0x10b735>0x1){for(let _0x475788=0x0;_0x475788<_0x10b735-0x1;_0x475788++)_0x423d01+=_0x368b44(0x20c);}continue;}}if(_0x41a090!==_0x471efb&&_0x41a090[_0x368b44(0x245)](_0x3d4b3c)&&_0x41a090[_0x368b44(0x208)]>_0x3d4b3c[_0x368b44(0x208)]&&!_0x3d4b3c[_0x368b44(0x235)](_0x41a090)){const _0x380cbc=_0x41a090[_0x368b44(0x205)](0x0,_0x41a090[_0x368b44(0x208)]-_0x3d4b3c[_0x368b44(0x208)]);if(_0x380cbc[_0x368b44(0x208)]>0x0){_0x423d01+=_0x368b44(0x1c6)+_0x380cbc+_0x368b44(0x266)+_0x471efb+'</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span><span\x20class=\x22correct\x22>'+_0x3d4b3c+'</span>\x20',_0x38fc76+=_0x41a090[_0x368b44(0x208)],_0x40513f+=0x2,_0x36859e++;let _0x2c71d8=0x0;while(_0x38fc76<_0x24e8d8[_0x368b44(0x208)]&&/\s/[_0x368b44(0x24f)](_0x24e8d8[_0x38fc76])){_0x2c71d8++,_0x38fc76++;}if(_0x2c71d8>0x1){for(let _0x3d43a5=0x0;_0x3d43a5<_0x2c71d8-0x1;_0x3d43a5++)_0x423d01+=_0x368b44(0x20c);}continue;}}if(_0x41a090[_0x368b44(0x269)](/^\w+\.\w+$/)){const _0x3e052d=_0x41a090[_0x368b44(0x25a)](/(\w+\.)/)[_0x368b44(0x1c0)](Boolean);if(_0x3e052d[_0x368b44(0x208)]===0x2){const _0x2ec651=_0x3e052d[0x0],_0x4ce854=_0x3e052d[0x1],_0x4be268=_0x471efb,_0x4a60c3=_0x3d4b3c;if(_0x2ec651===_0x4be268){if(_0x4ce854===_0x4a60c3)_0x423d01+='<span\x20class=\x22correct\x22>'+_0x2ec651+_0x368b44(0x251)+_0x4ce854+_0x368b44(0x1cf);else{if(_0x4ce854[_0x368b44(0x1d4)]()===_0x4a60c3[_0x368b44(0x1d4)]())_0x423d01+=_0x368b44(0x1e4)+_0x2ec651+'</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span><span\x20class=\x22wrong\x22>'+_0x4ce854+_0x368b44(0x266)+_0x4a60c3+_0x368b44(0x1cf);else{_0x423d01+=_0x368b44(0x1c6)+_0x41a090+_0x368b44(0x266)+_0x4be268+'</span>\x20',_0x38fc76+=_0x41a090['length'],_0x36859e++;continue;}}_0x38fc76+=_0x41a090[_0x368b44(0x208)],_0x40513f+=0x2,_0x36859e++;continue;}}}else{if(_0x41a090===_0x5c638e||_0x41a090['toLowerCase']()===_0x5c638e[_0x368b44(0x1d4)]()){const _0x1fd9c5=_0x471efb,_0x4c62bd=_0x41a090[_0x368b44(0x205)](_0x1fd9c5[_0x368b44(0x208)]);if(_0x4c62bd===_0x3d4b3c)_0x423d01+=_0x368b44(0x1e4)+_0x1fd9c5+'</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span><span\x20class=\x22correct\x22>'+_0x4c62bd+_0x368b44(0x1cf);else{if(_0x4c62bd[_0x368b44(0x1d4)]()===_0x3d4b3c['toLowerCase']())_0x423d01+=_0x368b44(0x1e4)+_0x1fd9c5+_0x368b44(0x298)+_0x4c62bd+'</span>\x20<span\x20class=\x22given\x22>'+_0x3d4b3c+_0x368b44(0x1cf);else{_0x423d01+='<span\x20class=\x22wrong\x22>'+_0x41a090+'</span>\x20<span\x20class=\x22given\x22>'+_0x1fd9c5+_0x368b44(0x1cf),_0x38fc76+=_0x41a090[_0x368b44(0x208)],_0x36859e++;continue;}}_0x38fc76+=_0x41a090[_0x368b44(0x208)],_0x40513f+=0x2,_0x36859e++;continue;}}}if(_0x41a090===_0x471efb){_0x423d01+=_0x368b44(0x1e4)+_0x41a090+_0x368b44(0x1cf),_0x38fc76+=_0x41a090['length'],_0x40513f++,_0x36859e++;let _0x29d253=0x0;while(_0x38fc76<_0x24e8d8[_0x368b44(0x208)]&&/\s/[_0x368b44(0x24f)](_0x24e8d8[_0x38fc76])){_0x29d253++,_0x38fc76++;}if(_0x29d253>0x1){for(let _0x2cf04b=0x0;_0x2cf04b<_0x29d253-0x1;_0x2cf04b++)_0x423d01+=_0x368b44(0x20c);}continue;}if(_0x41a090['toLowerCase']()===_0x471efb[_0x368b44(0x1d4)]()){_0x423d01+=_0x368b44(0x1c6)+_0x41a090+'</span>\x20<span\x20class=\x22given\x22>'+_0x471efb+_0x368b44(0x1cf),_0x38fc76+=_0x41a090['length'],_0x40513f++,_0x36859e++;let _0x3d784e=0x0;while(_0x38fc76<_0x24e8d8[_0x368b44(0x208)]&&/\s/[_0x368b44(0x24f)](_0x24e8d8[_0x38fc76])){_0x3d784e++,_0x38fc76++;}if(_0x3d784e>0x1){for(let _0x277524=0x0;_0x277524<_0x3d784e-0x1;_0x277524++)_0x423d01+=_0x368b44(0x20c);}continue;}if(_0x36859e+0x1<_0x285fb9['length']&&(_0x285fb9[_0x36859e+0x1]===_0x471efb||_0x285fb9[_0x36859e+0x1][_0x368b44(0x1d4)]()===_0x471efb['toLowerCase']())){_0x423d01+=_0x368b44(0x2a4)+_0x41a090+']</u></span>\x20',_0x38fc76+=_0x41a090[_0x368b44(0x208)],_0x36859e++;let _0x27346c=0x0;while(_0x38fc76<_0x24e8d8['length']&&/\s/[_0x368b44(0x24f)](_0x24e8d8[_0x38fc76])){_0x27346c++,_0x38fc76++;}if(_0x27346c>0x1){for(let _0x2ce2d0=0x0;_0x2ce2d0<_0x27346c-0x1;_0x2ce2d0++)_0x423d01+='<span\x20class=\x22wrong\x22>[Extra\x20Space]</span>\x20';}continue;}let _0x15b673=0x0,_0x1f3edc=![];for(let _0x3f840e=_0x40513f+0x1;_0x3f840e<_0x256bcb[_0x368b44(0x208)]&&_0x3f840e<_0x40513f+_0x285fb9[_0x368b44(0x208)]-_0x36859e;_0x3f840e++){if(_0x41a090[_0x368b44(0x1d4)]()===_0x256bcb[_0x3f840e][_0x368b44(0x1d4)]()){_0x15b673=_0x3f840e-_0x40513f,_0x1f3edc=!![];break;}}if(_0x1f3edc){for(let _0x336976=0x0;_0x336976<_0x15b673;_0x336976++){const _0x328b0d=_0x256bcb[_0x40513f+_0x336976];_0x423d01+=_0x368b44(0x217)+_0x328b0d+_0x368b44(0x1c8)+_0x328b0d+_0x368b44(0x236);}_0x41a090===_0x256bcb[_0x40513f+_0x15b673]?_0x423d01+=_0x368b44(0x1e4)+_0x41a090+_0x368b44(0x1cf):_0x423d01+=_0x368b44(0x1c6)+_0x41a090+_0x368b44(0x266)+_0x256bcb[_0x40513f+_0x15b673]+_0x368b44(0x1cf);_0x38fc76+=_0x41a090[_0x368b44(0x208)],_0x40513f+=_0x15b673+0x1,_0x36859e++;continue;}let _0x5d7b7b=_0x285fb9[_0x368b44(0x207)](_0x471efb,_0x36859e);if(_0x5d7b7b!==-0x1&&_0x5d7b7b>_0x36859e){_0x423d01+=_0x368b44(0x2a4)+_0x41a090+_0x368b44(0x293),_0x38fc76+=_0x41a090[_0x368b44(0x208)],_0x36859e++;continue;}{let _0x136bf8=0x0,_0x5af136=![];for(let _0xf3eb53=_0x40513f+0x1;_0xf3eb53<_0x256bcb[_0x368b44(0x208)];_0xf3eb53++){if(_0x41a090[_0x368b44(0x1d4)]()===_0x256bcb[_0xf3eb53]['toLowerCase']()){_0x136bf8=_0xf3eb53-_0x40513f,_0x5af136=!![];break;}}if(_0x5af136){for(let _0x34be32=0x0;_0x34be32<_0x136bf8;_0x34be32++){const _0x58aae6=_0x256bcb[_0x40513f+_0x34be32];_0x423d01+='<span\x20class=\x22given\x22>'+_0x58aae6+_0x368b44(0x1cf);}_0x423d01+='<span\x20class=\x22correct\x22>'+_0x41a090+'</span>\x20',_0x38fc76+=_0x41a090[_0x368b44(0x208)],_0x40513f+=_0x136bf8+0x1,_0x36859e++;continue;}}_0x423d01+=_0x368b44(0x1c6)+_0x41a090+_0x368b44(0x266)+_0x471efb+_0x368b44(0x1cf),_0x38fc76+=_0x41a090[_0x368b44(0x208)],_0x40513f++,_0x36859e++;let _0x569300=0x0;while(_0x38fc76<_0x24e8d8[_0x368b44(0x208)]&&/\s/[_0x368b44(0x24f)](_0x24e8d8[_0x38fc76])){_0x569300++,_0x38fc76++;}if(_0x569300>0x1){for(let _0x6c3b24=0x0;_0x6c3b24<_0x569300-0x1;_0x6c3b24++)_0x423d01+=_0x368b44(0x20c);}}while(_0x36859e<_0x285fb9['length']){_0x423d01+='<span\x20class=\x22wrong\x22><u>['+_0x285fb9[_0x36859e]+_0x368b44(0x293),_0x36859e++;}while(_0x40513f<_0x256bcb['length']){_0x423d01+=_0x368b44(0x217)+_0x256bcb[_0x40513f]+_0x368b44(0x1cf),_0x40513f++;}return _0x423d01[_0x368b44(0x1e5)]();}window['highlightErrors']=highlightErrors;function isLocalStorageAvailable(){const _0xa85703=_0x86488a;try{const _0x1aea93=_0xa85703(0x23e);localStorage[_0xa85703(0x1fa)](_0x1aea93,_0xa85703(0x24f));const _0x2acac0=localStorage[_0xa85703(0x24c)](_0x1aea93)===_0xa85703(0x24f);return localStorage[_0xa85703(0x1d0)](_0x1aea93),_0x2acac0;}catch(_0x4dca4b){return![];}}function saveTestStats(_0x33670a){const _0x406771=_0x86488a;try{if(!isLocalStorageAvailable()){showLocalStorageError();return;}let _0x743384=[];try{const _0x360628=localStorage[_0x406771(0x24c)](_0x406771(0x237));_0x743384=_0x360628?JSON[_0x406771(0x220)](_0x360628):[];if(!Array[_0x406771(0x22f)](_0x743384))_0x743384=[];}catch(_0x349d38){_0x743384=[];}_0x743384['push'](_0x33670a);if(_0x743384[_0x406771(0x208)]>0xa)_0x743384['shift']();localStorage[_0x406771(0x1fa)](_0x406771(0x237),JSON[_0x406771(0x1f6)](_0x743384)),displaySavedStats();}catch(_0x4fda2d){showLocalStorageError();}}function showLocalStorageError(){const _0x1944b1=_0x86488a,_0x449ed2=$('saved-stats-container')||document['querySelector'](_0x1944b1(0x28e))||document[_0x1944b1(0x214)],_0x23812f=document[_0x1944b1(0x1fc)]('div');_0x23812f[_0x1944b1(0x2a6)]=_0x1944b1(0x215),_0x23812f[_0x1944b1(0x274)]=_0x1944b1(0x244),_0x449ed2[_0x1944b1(0x218)](_0x23812f);}function displaySavedStats(){const _0x3ca689=_0x86488a;if(!isLocalStorageAvailable()){showLocalStorageError();return;}const _0x3d2243=localStorage['getItem'](_0x3ca689(0x237)),_0x3a10d0=_0x3d2243?JSON[_0x3ca689(0x220)](_0x3d2243):[],_0x5ba7d7=$('saved-stats-container');if(!_0x5ba7d7)return;if(!Array[_0x3ca689(0x22f)](_0x3a10d0)||_0x3a10d0[_0x3ca689(0x208)]===0x0){_0x5ba7d7[_0x3ca689(0x274)]='<p>No\x20previous\x20test\x20data\x20available.</p>';return;}let _0x4d2f7a=_0x3ca689(0x1dc);_0x3a10d0[_0x3ca689(0x205)]()['reverse']()[_0x3ca689(0x1ee)](_0x4b4689=>{const _0x3a58b5=_0x3ca689,_0x4bd283=new Date(_0x4b4689[_0x3a58b5(0x2a5)]),_0x38da59=_0x4bd283[_0x3a58b5(0x294)]()+'\x20'+_0x4bd283[_0x3a58b5(0x239)]([],{'hour':_0x3a58b5(0x1d9),'minute':_0x3a58b5(0x1d9)});_0x4d2f7a+=_0x3a58b5(0x26e)+_0x38da59+_0x3a58b5(0x1ec)+_0x4b4689['grossCharacters']+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>'+_0x4b4689[_0x3a58b5(0x233)]+_0x3a58b5(0x25e)+_0x4b4689[_0x3a58b5(0x22b)]+_0x3a58b5(0x20f)+_0x4b4689[_0x3a58b5(0x26c)]+_0x3a58b5(0x20f)+_0x4b4689[_0x3a58b5(0x28b)]+_0x3a58b5(0x209)+(_0x4b4689[_0x3a58b5(0x279)]==='Pass'?'pass-result':_0x3a58b5(0x226))+'\x22>'+_0x4b4689[_0x3a58b5(0x279)]+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</tr>';}),_0x4d2f7a+=_0x3ca689(0x26a),_0x5ba7d7[_0x3ca689(0x274)]=_0x4d2f7a;const _0x207c11=$(_0x3ca689(0x283));_0x207c11&&_0x207c11[_0x3ca689(0x253)](_0x3ca689(0x21d),()=>{const _0x20f157=_0x3ca689;confirm(_0x20f157(0x1bf))&&(localStorage[_0x20f157(0x1d0)](_0x20f157(0x237)),displaySavedStats());});}document[_0x86488a(0x289)](_0x86488a(0x1f4))[_0x86488a(0x253)]('click',()=>{const _0x30a209=_0x86488a,_0x41ca1a=localStorage[_0x30a209(0x24c)]('userName'),_0x24272e=localStorage['getItem'](_0x30a209(0x249)),_0x495573=calculatedSpeed,_0x14caf9=calculatedAccuracy;saveResultToSheet(_0x41ca1a,_0x24272e,_0x495573,_0x14caf9);});const GOOGLE_SHEET_ENDPOINT=_0x86488a(0x216);function _0x301d(){const _0xe3cca=['contextmenu',']</u></span>\x20','toLocaleDateString','fullscreen-btn','focus','exam-note','</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span><span\x20class=\x22wrong\x22>','Tab','timer','name','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table\x20class=\x22error-table\x22\x20width=\x22100%\x22border=\x222px\x22\x20style=\x22border-collapse:collapse;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th\x20width=\x2250%\x22>Original\x20Chunk\x20#','isTestRunning','.reference-outer','none','exercise','textContent','typedWords','max','<span\x20class=\x22wrong\x22><u>[','timestamp','className','startTime','Are\x20you\x20sure\x20you\x20want\x20to\x20clear\x20your\x20test\x20history?','filter','min','replace','Unknown','catch','typing-input','<span\x20class=\x22wrong\x22>','.correct','</span>\x20<span\x20class=\x22wrong\x22><del>[','querySelectorAll','now','paragraphs','N/A','warn','div','</span>\x20','removeItem','results-table','ArrowDown','PageDown','toLowerCase','results-title-row','back-btn','reference-text','nextElementSibling','2-digit','Time:\x200:00','totalTypedInput','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h3>Your\x20Test\x20History</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<table\x20class=\x22stats-history-table\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead><tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Date</th><th>Gross\x20Chars</th><th>Accuracy</th><th>Gross\x20Speed</th><th>Actual\x20Speed</th><th>Time</th><th>Result</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr></thead><tbody>\x0a\x20\x20\x20\x20','Current\x20Chunk\x20-\x20','cut','Time:\x20','[Extra\x20Space]','⚠️\x20Decode\x20error,\x20returning\x20raw\x20exercise\x20text:','floor','padStart','<span\x20class=\x22correct\x22>','trim','Backspace','key','no-input-popup','<tr><td\x20colspan=\x224\x22>Error\x20loading\x20data</td></tr>','backspace-count-value','log','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','.test-section','forEach','toUpperCase','\x20WPM\x20(According\x20to\x20PSSSB\x2010\x20Min\x20Rule)','input','practice-another-btn-2','message','submit-btn','pass-note','stringify','<span\x20class=\x22red-asterisk\x22>*</span>To\x20pass\x20the\x20test,\x20you\x20must\x20type\x20at\x20least\x201500\x20characters\x20with\x2092%\x20accuracy.','22194WZeUNF','.header-row','setItem','defaultWords','createElement','currentParagraphIndex','203lVpsbH','keydown','#results-table\x20tr:not(#results-title-row,\x20#notes-section,\x20#button-row)','skipped-words-value','value','popup-ok-btn','scrollTo','slice','refresh-btn-2','indexOf','length','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22','9TLDsMA','1bUmIKs','<span\x20class=\x22wrong\x22>[Extra\x20Space]</span>\x20','leaderboard-body','innerText','\x20WPM</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','.main-title','gross-speed-value','exercises.html','join','body','error-message','https://script.google.com/macros/s/AKfycbxT0mhZ0q-QLkIbJIqG8uIasrjLvx3HuQynmxcYswu3e8r_osUPkCZG2neBTPlcX3Hcrg/exec','<span\x20class=\x22given\x22>','prepend','\x20(Words\x20=\x20','current-chunk','[Missing\x20Space]','fullscreenElement','click','test-area','toFixed','parse','DOMContentLoaded','?action=top10','accuracy-percentage-value','results-notes','Fail','fail-result','</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span>','656655vgavlG','userName','PageUp','grossSpeed','backspacecount','error-highlight','state','isArray','❌\x20Google\x20Sheet\x20save\x20error:','.wrong','search','accuracy','table-row','startsWith',']</del></span>\x20','typingTestStats','application/json','toLocaleTimeString','No\x20paragraph\x20loaded.\x20Please\x20select\x20an\x20exercise.','error-characters-value','<span\x20class=\x22red-asterisk\x22>*</span>In\x20the\x20PSSSB\x20exam,\x20before\x20time\x20over\x20Test\x20Submisson\x20not\x20Allowed','872616KrMzAX','__testLocalStorage__','toLocaleString','submitResults\x20called','classList','href','push','<strong>Error:</strong>\x20Unable\x20to\x20save\x20test\x20history\x20locally.','endsWith','startTimer','table','gross-characters-value','userRefNo','5408890TEtwul','✅\x20Result\x20saved\x20to\x20Google\x20Sheet:','getItem','paragraph','selectedExerciseText','test','querySelector','</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span><span\x20class=\x22correct\x22>','</span></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20width=\x2250%\x22>','addEventListener','flex','result-value','POST','F12','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td>','preventDefault','split','speed','display','error','%</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','shiftKey','⚠️\x20Missing\x20Name\x20or\x20Ref\x20No','get','json','no-input-ok-btn','submitResults','location','</span>\x20<span\x20class=\x22given\x22>','paste','totalTime','match','</tbody></table>\x0a\x20\x20\x20\x20<div\x20class=\x22stats-note\x22><span\x20class=\x22red-asterisk\x22>*</span>The\x20test\x20history\x20is\x20saved\x20locally\x20in\x20your\x20browser.\x20Clearing\x20cache\x20will\x20remove\x20history.</div>\x0a\x20\x20\x20\x20<button\x20id=\x22clear-stats-btn\x22\x20class=\x22small-btn\x22>Clear\x20History</button>','includes','actualSpeed','saved-stats-container','<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','space-errors-value','error-section','ceil','ctrlKey','Time:\x2010:00','innerHTML','❌\x20Load\x20error:','actual-gross-speed-value','\x20min\x20','Fullscreen\x20error:\x20','result','results','block','backspaceCount','exitFullscreen','Full\x20Screen','then','time-spent-value','style','time-over-popup','clear-stats-btn','1662152qRiqkA','109418SssmWi','practice-another-btn','%</td>','toString','getElementById','inline-block','timeSpent','copy','806885lFyzoe','.container','test-section','[Skipped:','net-characters-value'];_0x301d=function(){return _0xe3cca;};return _0x301d();}async function sendResultToGoogleSheet(_0x331098,_0x55b704,_0xaec22c,_0x2e5e01,_0x2c3e42,_0x5ba402){const _0x3571cb=_0x86488a,_0x33878a={'timeStamp':new Date()[_0x3571cb(0x23f)](),'refNo':_0x331098,'name':_0x55b704,'language':_0xaec22c,'speed':_0x2e5e01,'accuracy':_0x2c3e42,'backspace':_0x5ba402,'action':'save'};try{await fetch(GOOGLE_SHEET_ENDPOINT,{'method':_0x3571cb(0x256),'mode':'no-cors','headers':{'Content-Type':_0x3571cb(0x238)},'body':JSON[_0x3571cb(0x1f6)](_0x33878a)}),console[_0x3571cb(0x1eb)](_0x3571cb(0x24b),_0x33878a);}catch(_0x586a09){console['error'](_0x3571cb(0x230),_0x586a09);}}function saveResultToSheet(){const _0x1f19f5=_0x86488a,_0x4b90c0=document['getElementById'](_0x1f19f5(0x249))?.[_0x1f19f5(0x202)]?.[_0x1f19f5(0x1e5)]()||_0x1f19f5(0x1cc),_0x3257c3=document[_0x1f19f5(0x289)](_0x1f19f5(0x229))?.[_0x1f19f5(0x202)]?.[_0x1f19f5(0x1e5)]()||_0x1f19f5(0x1c3),_0x8ad27=document[_0x1f19f5(0x289)](_0x1f19f5(0x22c)),_0x50c112=document[_0x1f19f5(0x289)](_0x1f19f5(0x276))?.[_0x1f19f5(0x20e)]?.[_0x1f19f5(0x1c2)]('WPM','')['trim']()||'0',_0x4dadd2=document[_0x1f19f5(0x289)](_0x1f19f5(0x223))?.[_0x1f19f5(0x20e)]?.['replace']('%','')[_0x1f19f5(0x1e5)]()||'0',_0x190909=document['getElementById']('backspace-count-value')?.[_0x1f19f5(0x20e)]||'0';_0x4b90c0&&_0x3257c3?sendResultToGoogleSheet(_0x4b90c0,_0x3257c3,_0x8ad27,_0x50c112,_0x4dadd2,_0x190909):console[_0x1f19f5(0x1cd)](_0x1f19f5(0x260));}async function loadTop10Results(){const _0xf5e1ff=_0x86488a;try{const _0x12f2e3=await fetch(GOOGLE_SHEET_URL+_0xf5e1ff(0x222)),_0xf3655=await _0x12f2e3[_0xf5e1ff(0x262)](),_0x5208e9=document[_0xf5e1ff(0x289)](_0xf5e1ff(0x20d));_0x5208e9[_0xf5e1ff(0x274)]='';if(!_0xf3655[_0xf5e1ff(0x208)]){_0x5208e9[_0xf5e1ff(0x274)]='<tr><td\x20colspan=\x224\x22>No\x20results\x20found</td></tr>';return;}_0xf3655[_0xf5e1ff(0x1ee)](_0x18f007=>{const _0x5331a4=_0xf5e1ff,_0x291c3b=document['createElement']('tr');_0x291c3b[_0x5331a4(0x274)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td>'+_0x18f007[_0x5331a4(0x29b)]+_0x5331a4(0x258)+_0x18f007['refNo']+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td>'+_0x18f007[_0x5331a4(0x25b)]+'</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<td>'+_0x18f007['accuracy']+_0x5331a4(0x287),_0x5208e9['appendChild'](_0x291c3b);});}catch(_0x45861b){console[_0xf5e1ff(0x25d)](_0xf5e1ff(0x275),_0x45861b),document['getElementById']('leaderboard-body')[_0xf5e1ff(0x274)]=_0xf5e1ff(0x1e9);}}document[_0x86488a(0x253)](_0x86488a(0x221),loadTop10Results);const originalSubmit=window[_0x86488a(0x264)];window['submitResults']=async function(){await originalSubmit(),saveResultToSheet();};
+/* script.js
+   Full typing engine:
+   - Loads exercise from URL (?exercise=...)
+   - Splits into 10 dynamic chunks
+   - Timer (10 minutes default)
+   - Input handling (navigate chunks with Enter/ArrowDown, back with ArrowUp)
+   - Backspace counting
+   - Full highlightErrors engine (handles missing/extra/merged/space/skipped)
+   - PSSSB-style result calculation (gross/net chars, WPM, accuracy)
+   - Result UI updates and saved test history (localStorage)
+   - Defensive checks for missing DOM elements
+* Disable right click
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+// Disable keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable copy / paste / cut
+["copy", "paste", "cut"].forEach(evt => {
+    document.addEventListener(evt, e => e.preventDefault());
+});
+// -------------------- Helper: Load paragraph from URL param --------------------
+
+ // ensure previous/next by keyboard: PageUp/PageDown
+  document.addEventListener('keydown', (e) => {
+
+    if (e.code === 'PageDown' || e.key === 'PageDown') { e.preventDefault(); if (currentChunkIndex < chunks.length-1) { currentChunkIndex++; renderChunk(); } }
+    if (e.code === 'PageUp' || e.key === 'PageUp') { e.preventDefault(); if (currentChunkIndex > 0) { currentChunkIndex--; renderChunk(); }
+	}
+  });
+      
+document.getElementById('typing-input').addEventListener('keydown', function(e) {
+    if (e.key === "Tab") {
+        e.preventDefault();
+    }
+});
+// Disable right click
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+// Disable keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable copy / paste / cut
+["copy", "paste", "cut"].forEach(evt => {
+    document.addEventListener(evt, e => e.preventDefault());
+});
+*/
+
+async function loadTestParagraph() {
+  try {
+    // ✅ First try to load from localStorage (safest path)
+    const savedText = localStorage.getItem("selectedExerciseText");
+    if (savedText) {
+      localStorage.removeItem("selectedExerciseText");
+  //   localStorage.removeItem("selectedExerciseLanguage");
+      return savedText;
+    }
+
+    // ✅ Otherwise, load from URL (?exercise=...)
+    const urlParams = new URLSearchParams(window.location.search);
+    const encodedExercise = urlParams.get("exercise");
+
+    if (encodedExercise) {
+  try {
+    // Safely decode URI component
+    let decoded = decodeURIComponent(encodedExercise);
+
+    // Normalize HTML entities to actual characters
+    decoded = decoded
+      .replace(/&quot;|&#34;/g, '"')
+      .replace(/&#39;|&apos;/g, "'")
+      .replace(/&amp;/g, "&");
+
+    // Handle over-escaped double quotes (e.g., \" or \')
+    decoded = decoded
+      .replace(/\\"/g, '"')
+      .replace(/\\'/g, "'");
+
+    return decoded.trim();
+  } catch (decodeError) {
+    console.warn("⚠️ Decode error, returning raw exercise text:", decodeError);
+    let fallback = encodedExercise
+      .replace(/&quot;|&#34;/g, '"')
+      .replace(/&#39;|&apos;/g, "'")
+      .replace(/&amp;/g, "&")
+      .replace(/\\"/g, '"')
+      .replace(/\\'/g, "'");
+    return fallback.trim();
+  }
+}
+
+
+    console.warn("No exercise found.");
+    return "";
+  } catch (err) {
+    console.error("Error loading exercise:", err);
+    return "";
+  }
+}
+
+
+
+// -------------------- Global state (from your engine) --------------------
+let fullParagraph = "";
+let words = [];
+let chunkSize = 0;
+window.paragraphs = [];
+window.state = {
+    currentParagraphIndex: 0,
+    paragraph: "",
+    defaultWords: [],
+    typedWords: [],
+    startTime: null,
+    totalTime: 600, // 10 minutes default
+    isTestRunning: false,
+    totalTypedInput: "|",
+    backspaceCount: 0
+};
+
+// Safe DOM helper
+function $(id) { return document.getElementById(id); }
+// -------------------- Initialize test and create chunks --------------------
+async function initializeTest() {
+    fullParagraph = await loadTestParagraph();
+    // If no paragraph provided, keep existing text in DOM (useful for testing)
+    if (!fullParagraph || fullParagraph.trim().length === 0) {
+        // If paragraph element exists and contains text, use that
+        const paragraphEl = $("paragraph");
+        if (paragraphEl && paragraphEl.textContent.trim().length > 0) {
+            fullParagraph = paragraphEl.textContent.trim();
+        } else {
+            fullParagraph = ""; // fallback empty
+        }
+    }
+
+    // Normalize whitespace & trim
+    fullParagraph = fullParagraph.replace(/\s+/g, " ").trim();
+	fullParagraph = fullParagraph
+  .replace(/&apos;|&#39;|&amp;apos;/g, "'")
+  .replace(/&quot;|&#34;/g, '"')
+  .replace(/&amp;/g, "&");
+
+    words = fullParagraph.length ? fullParagraph.split(" ") : [];
+    chunkSize = Math.max(1, Math.ceil(words.length / 10)); // try to create 10 chunks
+    window.paragraphs.length = 0;
+    for (let i = 0; i < words.length; i += chunkSize) {
+        window.paragraphs.push(words.slice(i, i + chunkSize).join(" "));
+    }
+    if (window.paragraphs.length === 0) {
+        window.paragraphs.push("");
+    }
+    window.state.currentParagraphIndex = 0;
+    window.state.paragraph = window.paragraphs[0];
+    window.state.defaultWords = window.state.paragraph.split(" ");
+}
+
+// -------------------- DOM ready setup --------------------
+document.addEventListener("DOMContentLoaded", async () => {
+    await initializeTest();
+
+    if ($("paragraph")) {
+        $("paragraph").innerHTML = window.state.paragraph || "No paragraph loaded. Please select an exercise.";
+    }
+
+    if (document.querySelector(".main-title")) {
+        document.querySelector(".main-title").textContent = "Typing Practice Test";
+    }
+    document.title = "Typing Test";
+
+    // Bind UI event listeners (some elements may not exist in minimal page)
+    bindUI();
+
+    // Prepare UI
+    refreshTest();
+    displaySavedStats();
+});
+
+// -------------------- Timer --------------------
+function startTimer() {
+    if (!window.state.isTestRunning) return;
+    const currentTime = performance.now();
+    const elapsed = (currentTime - window.state.startTime) / 1000;
+    const timeLeft = window.state.totalTime - elapsed;
+
+    if ($("timer")) {
+        if (timeLeft <= 0) {
+            $("timer").textContent = "Time: 0:00";
+        } else {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = Math.floor(timeLeft % 60);
+            $("timer").textContent = `Time: ${minutes}:${seconds.toString().padStart(2, "0")}`;
+        }
+    }
+
+    if (timeLeft <= 0) {
+        if ($("time-over-popup")) $("time-over-popup").style.display = "flex";
+        if ($("popup-ok-btn")) $("popup-ok-btn").focus();
+        window.state.isTestRunning = false;
+        // don't auto-submit until user confirms via popup (consistent with earlier behavior)
+    } else {
+        requestAnimationFrame(startTimer);
+    }
+}
+window.startTimer = startTimer;
+
+// -------------------- Input handling --------------------
+function bindUI() {
+    const typingInput = $("typing-input");
+    if (typingInput) {
+        typingInput.addEventListener("input", (event) => {
+            if (!window.state.isTestRunning) {
+                window.state.startTime = performance.now();
+                window.state.isTestRunning = true;
+                requestAnimationFrame(window.startTimer);
+            }
+        });
+
+        typingInput.addEventListener("keydown", (event) => {
+            // Count backspace keypresses
+            if (event.key === "Backspace") {
+                window.state.backspaceCount++;
+            }
+
+            const inputElement = event.target;
+            const input = inputElement.value;
+            const typedLength = input.trim().split(/\s+/).filter(word => word.length > 0).length;
+            const defaultLength = window.state.defaultWords.length || 1;
+            const minWordsRequired = Math.floor(0.8 * defaultLength);
+
+            if (event.key === "Enter" || event.key === "ArrowDown" || event.key === "PageDown") {
+                // Prevent any action on Enter/ArrowDown if this is the last chunk
+                if (window.state.currentParagraphIndex === window.paragraphs.length - 1) {
+                    event.preventDefault();
+                    return;
+                }
+
+                if (typedLength >= minWordsRequired) {
+                    if (window.state.currentParagraphIndex < window.paragraphs.length - 1) {
+                        const typedChunks = window.state.totalTypedInput.split("|").filter(chunk => chunk.length > 0);
+                        typedChunks[window.state.currentParagraphIndex] = input;
+                        window.state.totalTypedInput = "|" + typedChunks.join("|") + "|";
+                        window.state.currentParagraphIndex++;
+                        window.state.paragraph = window.paragraphs[window.state.currentParagraphIndex];
+                        window.state.defaultWords = window.state.paragraph.split(" ");
+                        if ($("paragraph")) $("paragraph").innerHTML = window.state.paragraph;
+                        if ($("current-chunk")) $("current-chunk").textContent = `Current Chunk - ${window.state.currentParagraphIndex + 1}`;
+                        if ($("typing-input")) $("typing-input").value = typedChunks[window.state.currentParagraphIndex] || "";
+                        event.preventDefault();
+                    }
+                } else {
+                    // If not enough typed words, block action (consistent)
+                    event.preventDefault();
+                }
+            } else if ((event.key === "ArrowUp" || event.key === "PageUp") && window.state.currentParagraphIndex > 0) {
+                const typedChunks = window.state.totalTypedInput.split("|").filter(chunk => chunk.length > 0);
+                typedChunks[window.state.currentParagraphIndex] = input;
+                window.state.totalTypedInput = "|" + typedChunks.join("|") + "|";
+                window.state.currentParagraphIndex--;
+                window.state.paragraph = window.paragraphs[window.state.currentParagraphIndex];
+                window.state.defaultWords = window.state.paragraph.split(" ");
+                if ($("paragraph")) $("paragraph").innerHTML = window.state.paragraph;
+                if ($("current-chunk")) $("current-chunk").textContent = `Current Chunk - ${window.state.currentParagraphIndex + 1}`;
+                if ($("typing-input")) $("typing-input").value = typedChunks[window.state.currentParagraphIndex] || "";
+                event.preventDefault();
+            }
+        });
+    }
+
+    // Buttons & popups
+    if ($("submit-btn")) $("submit-btn").addEventListener("click", submitResults);
+    if ($("refresh-btn")) $("refresh-btn").addEventListener("click", async () => { await initializeTest(); refreshTest(); });
+    if ($("popup-ok-btn")) $("popup-ok-btn").addEventListener("click", () => { if ($("time-over-popup")) $("time-over-popup").style.display = "none"; submitResults(); });
+    if ($("practice-another-btn")) $("practice-another-btn").addEventListener("click", () => { window.location.href = "exercises.html"; });
+    if ($("back-btn")) $("back-btn").addEventListener("click", () => { window.location.href = "exercises.html"; });
+    if ($("no-input-ok-btn")) $("no-input-ok-btn").addEventListener("click", () => { if ($("no-input-popup")) $("no-input-popup").style.display = "none"; });
+    if ($("refresh-btn-2")) $("refresh-btn-2").addEventListener("click", async () => { await initializeTest(); refreshTest(); });
+    if ($("practice-another-btn-2")) $("practice-another-btn-2").addEventListener("click", () => { window.location.href = "exercises.html"; });
+
+    // Fullscreen
+    if ($("fullscreen-btn")) {
+        $("fullscreen-btn").addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    if ($("fullscreen-btn")) $("fullscreen-btn").textContent = "Exit Full Screen";
+                }).catch(err => console.error(`Fullscreen error: ${err.message}`));
+            } else {
+                document.exitFullscreen().then(() => {
+                    if ($("fullscreen-btn")) $("fullscreen-btn").textContent = "Full Screen";
+                });
+            }
+        });
+    }
+}
+
+// -------------------- Refresh and submit --------------------
+function refreshTest() {
+    window.state.currentParagraphIndex = 0;
+    window.state.paragraph = window.paragraphs[0];
+    window.state.defaultWords = window.state.paragraph.split(" ");
+    window.state.totalTypedInput = "|";
+    window.state.totalTime = 600;
+    window.state.isTestRunning = false;
+    window.state.startTime = null;
+    window.state.backspaceCount = 0;
+
+    if ($("timer")) $("timer").textContent = "Time: 10:00";
+    if (document.querySelector(".main-title")) document.querySelector(".main-title").style.display = "block";
+    if (document.querySelector(".test-section")) document.querySelector(".test-section").style.display = "block";
+    if ($("current-chunk")) $("current-chunk").textContent = `Current Chunk - ${window.state.currentParagraphIndex + 1}`;
+    if ($("current-chunk")) $("current-chunk").style.display = "block";
+    if ($("paragraph")) { $("paragraph").style.display = "block"; $("paragraph").innerHTML = window.state.paragraph; }
+    if ($("typing-input")) { $("typing-input").style.display = "block"; $("typing-input").value = ""; $("typing-input").disabled = false; }
+    if (document.querySelector(".header-row")) document.querySelector(".header-row").style.display = "flex";
+    if ($("timer")) $("timer").style.display = "block";
+    if (document.querySelector(".reference-outer")) document.querySelector(".reference-outer").style.display = "block";
+    if ($("test-area")) $("test-area").style.display = "block";
+    if ($("reference-text")) $("reference-text").style.display = "block";
+    if ($("submit-btn")) $("submit-btn").style.display = "inline-block";
+    if ($("back-btn")) $("back-btn").style.display = "inline-block";
+
+    if ($("results")) $("results").style.display = "none";
+    if ($("results-table")) $("results-table").style.display = "none";
+    if ($("results-title-row")) $("results-title-row").style.display = "none";
+    // Hide other results rows if present
+    try {
+        document.querySelectorAll("#results-table tr:not(#results-title-row, #notes-section, #button-row)").forEach(row => row.style.display = "none");
+    } catch (e) {}
+    if ($("saved-stats-container")) $("saved-stats-container").style.display = "block";
+    if ($("error-section")) $("error-section").style.display = "none";
+    if ($("error-highlight")) $("error-highlight").style.display = "none";
+}
+
+// -------------------- Submit & Results --------------------
+async function submitResults() {
+	// ✅ Show results & hide typing UI
+$("results").style.display = "block";
+$("results-table").style.display = "table";
+document.querySelectorAll("#results-table tr").forEach(r => r.style.display = "table-row");
+$("test-section").style.display = "none";
+
+// ✅ Scroll to results at top
+setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}, 300);
+
+    console.log("submitResults called");
+    window.state.isTestRunning = false;
+    const typingInputEl = $("typing-input");
+    const currentInput = typingInputEl ? typingInputEl.value.trim() : "";
+    const typedChunks = window.state.totalTypedInput.split("|").filter(chunk => chunk.length > 0);
+    if (currentInput) typedChunks[window.state.currentParagraphIndex] = currentInput;
+    const validChunks = typedChunks.filter(chunk => chunk.trim().length > 0);
+    if (validChunks.length === 0) {
+        if ($("no-input-popup")) $("no-input-popup").style.display = "flex";
+        window.state.isTestRunning = true;
+        return;
+    }
+
+    const finalTypedText = validChunks.join(" ").trim();
+    window.state.typedWords = finalTypedText.split(/\s+/).filter(word => word.length > 0);
+    const allDefaultWords = window.paragraphs.slice(0, validChunks.length).join(" ").split(" ");
+
+    // Build error tables HTML using highlightErrors
+    let errorTablesHTML = "";
+    for (let i = 0; i < validChunks.length; i++) {
+        const chunkDefaultWords = window.paragraphs[i].split(" ");
+        const chunkTypedText = validChunks[i] || "";
+        const chunkTypedWords = chunkTypedText.split(/\s+/).filter(w => w.length > 0);
+        const chunkErrors = highlightErrors(chunkDefaultWords, chunkTypedWords, chunkTypedText);
+        errorTablesHTML += `
+            <table class="error-table" width="100%"border="2px" style="border-collapse:collapse;">
+                <thead>
+                    <tr>
+                        <th width="50%">Original Chunk #${i + 1}</th>
+                        <th width="50%">Typed Chunk #${i + 1}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td width="50%"><span class="given">${window.paragraphs[i]}</span></td>
+                        <td width="50%">${chunkErrors || "No errors"}</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+    }
+
+    // Show/hide UI elements
+    if (document.querySelector(".main-title")) document.querySelector(".main-title").style.display = "none";
+    if (document.querySelector(".test-section")) document.querySelector(".test-section").style.display = "none";
+    if ($("results")) $("results").style.display = "block";
+    if ($("results-table")) $("results-table").style.display = "table";
+    if ($("results-title-row")) $("results-title-row").style.display = "table-row";
+    if ($("results-notes")) $("results-notes").style.display = "block";
+    if ($("exam-note")) { $("exam-note").style.display = "block"; $("exam-note").innerHTML = '<span class="red-asterisk">*</span>In the PSSSB exam, before time over Test Submisson not Allowed'; }
+    if ($("pass-note")) { $("pass-note").style.display = "block"; $("pass-note").innerHTML = '<span class="red-asterisk">*</span>To pass the test, you must type at least 1500 characters with 92% accuracy.'; }
+    if ($("button-row")) $("button-row").style.display = "table-row";
+    if ($("error-section")) $("error-section").style.display = "block";
+    if ($("error-highlight")) { $("error-highlight").style.display = "block"; $("error-highlight").innerHTML = errorTablesHTML; }
+    if ($("refresh-btn-2")) $("refresh-btn-2").style.display = "inline-block";
+    if ($("practice-another-btn-2")) $("practice-another-btn-2").style.display = "inline-block";
+
+
+    // --- compute times ---
+    const endTime = performance.now();
+    const elapsedTimeSeconds = window.state.startTime ? (endTime - window.state.startTime) / 1000 : 0;
+    const minutesSpent = Math.floor(elapsedTimeSeconds / 60);
+    const secondsSpent = Math.floor(elapsedTimeSeconds % 60);
+
+    // --- gross characters calculation using the generated highlighted HTML ---
+    let grossCharacters = 0;
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = errorTablesHTML;
+
+    // Process correct spans
+    const correctSpans = tempDiv.querySelectorAll('.correct');
+    for (const span of correctSpans) {
+        if (!span.textContent.includes('[')) {
+            grossCharacters += span.textContent.length;
+        }
+    }
+
+    // Process wrong spans with rules
+    const wrongSpans = tempDiv.querySelectorAll('.wrong');
+    for (const span of wrongSpans) {
+        const txt = span.textContent || "";
+        if (txt.includes('[Extra:')) {
+            const m = txt.match(/\[Extra:\s*(.*?)\]/);
+            if (m && m[1]) grossCharacters += m[1].length;
+        } else if (txt.includes('[Extra Space]') || txt.includes('[Missing Space]')) {
+            // don't count these in gross characters
+            continue;
+        } else if (txt.includes('[Skipped:')) {
+            continue;
+        } else if (!txt.includes('[')) {
+            // regular wrong word — try to find next .given sibling to compare length
+            const next = span.nextElementSibling;
+            if (next && next.classList && next.classList.contains('given')) {
+                const wrongWordLength = span.textContent.length;
+                const givenWordLength = next.textContent.length;
+                grossCharacters += Math.min(wrongWordLength, givenWordLength);
+            } else {
+                grossCharacters += span.textContent.length;
+            }
+        }
+    }
+
+    // Add spaces between typed words (N-1)
+    const totalWords = finalTypedText.split(/\s+/).filter(w => w.length > 0).length;
+    if (totalWords > 1) {
+        grossCharacters += totalWords - 1;
+    }
+
+    const wordCount = (grossCharacters / 5).toFixed(1);
+    const skippedWordsCount = (errorTablesHTML.match(/\[Skipped:/g) || []).length;
+    const wrongExtraWordsCount = (errorTablesHTML.match(/<span class="wrong">(?!\[Skipped:|\[Missing Space\]|\[Extra Space\])/g) || []).length;
+    const spaceErrorsCount = (errorTablesHTML.match(/\[Extra Space\]|\[Missing Space\]/g) || []).length;
+
+    // error characters rule: 5 chars per wrong/extra word, 2.5 chars per space error
+    const errorCharacters = ((skippedWordsCount + wrongExtraWordsCount) * 5) + (spaceErrorsCount * 2.5);
+    const netCharacters = (grossCharacters - errorCharacters).toFixed(1);
+    const grossSpeed = (grossCharacters / (5 * 10)).toFixed(1); // PSSSB 10-min rule
+    const timeSpentInMinutes = elapsedTimeSeconds > 0 ? (elapsedTimeSeconds / 60) : 0.0001;
+    const actualGrossSpeed = (grossCharacters / (5 * timeSpentInMinutes)).toFixed(1);
+    const accuracyPercentage = grossCharacters > 0 ? ((100 * netCharacters) / grossCharacters).toFixed(1) : 0;
+    const result = (grossCharacters >= 1500 && accuracyPercentage >= 92) ? "Pass" : "Fail";
+
+    // Update UI values
+    if ($("gross-characters-value")) $("gross-characters-value").textContent = `${grossCharacters} (Words = ${wordCount})`;
+    if ($("skipped-words-value")) $("skipped-words-value").textContent = `${skippedWordsCount}`;
+    if ($("wrong-extra-words-value")) $("wrong-extra-words-value").textContent = `${wrongExtraWordsCount}`;
+    if ($("space-errors-value")) $("space-errors-value").textContent = `${spaceErrorsCount}`;
+    if ($("error-characters-value")) $("error-characters-value").textContent = `${errorCharacters.toFixed(1)}`;
+    if ($("net-characters-value")) $("net-characters-value").textContent = `${netCharacters}`;
+    if ($("gross-speed-value")) $("gross-speed-value").textContent = `${grossSpeed} WPM (According to PSSSB 10 Min Rule)`;
+    if ($("actual-gross-speed-value")) $("actual-gross-speed-value").textContent = `${actualGrossSpeed} WPM`;
+    if ($("time-spent-value")) $("time-spent-value").textContent = `${minutesSpent} min ${secondsSpent.toString().padStart(2, "0")} sec`;
+    if ($("accuracy-percentage-value")) $("accuracy-percentage-value").textContent = `${accuracyPercentage}%`;
+    if ($("backspace-count-value")) $("backspace-count-value").textContent = `${window.state.backspaceCount}`;
+    if ($("result-value")) $("result-value").textContent = `${result} (Typed ${grossCharacters} characters with ${accuracyPercentage}% accuracy)`;
+
+    // After results are displayed, save the stats
+    const stats = {
+        grossCharacters: parseInt(grossCharacters),
+        accuracy: parseFloat(accuracyPercentage),
+        grossSpeed: parseFloat(grossSpeed),
+        actualSpeed: parseFloat(actualGrossSpeed),
+        timeSpent: `${minutesSpent}m ${secondsSpent}s`,
+        result: result,
+        timestamp: new Date().toISOString()
+    };
+
+    saveTestStats(stats);
+}
+
+
+
+
+
+
+// Expose submit
+window.submitResults = submitResults;
+
+// -------------------- highlightErrors (your full engine) --------------------
+function highlightErrors(defaultWords, typedWords, originalInput) {
+    let highlightedParagraph = "";
+    let defaultIndex = 0;
+    let typedIndex = 0;
+    let inputIndex = 0;
+
+    while (defaultIndex < defaultWords.length && typedIndex < typedWords.length) {
+        let currentTypedWord = typedWords[typedIndex];
+        let currentDefaultWord = defaultWords[defaultIndex];
+
+        // Combined typed -> matches default (typed split across two typed words)
+        if (typedIndex + 1 < typedWords.length) {
+            const nextTypedWord = typedWords[typedIndex + 1];
+            const combinedTyped = currentTypedWord + nextTypedWord;
+            if (combinedTyped === currentDefaultWord || combinedTyped.toLowerCase() === currentDefaultWord.toLowerCase()) {
+                inputIndex += currentTypedWord.length;
+                let spaceCountBetween = 0;
+                while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+                    spaceCountBetween++;
+                    inputIndex++;
+                }
+                if (spaceCountBetween > 0) {
+                    highlightedParagraph += `<span class="correct">${currentTypedWord}</span><span class="wrong">[Missing Space]</span>`;
+                    for (let i = 0; i < spaceCountBetween - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+                    highlightedParagraph += `<span class="correct">${nextTypedWord}</span> `;
+                    if (combinedTyped !== currentDefaultWord) highlightedParagraph += `<span class="given">${currentDefaultWord}</span> `;
+                }
+                inputIndex += nextTypedWord.length;
+                let spaceCountAfter = 0;
+                while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+                    spaceCountAfter++;
+                    inputIndex++;
+                }
+                if (spaceCountAfter > 1) {
+                    for (let i = 0; i < spaceCountAfter - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+                }
+                defaultIndex++;
+                typedIndex += 2;
+                continue;
+            }
+        }
+
+        // Combined default words (missing space)
+        if (defaultIndex + 1 < defaultWords.length) {
+            const nextDefaultWord = defaultWords[defaultIndex + 1];
+            const combinedDefault = currentDefaultWord + nextDefaultWord;
+
+            if (currentTypedWord === combinedDefault) {
+                highlightedParagraph += `<span class="correct">${currentDefaultWord}</span><span class="wrong">[Missing Space]</span><span class="correct">${nextDefaultWord}</span> `;
+                inputIndex += currentTypedWord.length;
+                defaultIndex += 2;
+                typedIndex++;
+                let spaceCount = 0;
+                while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+                    spaceCount++; inputIndex++;
+                }
+                if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+                continue;
+            }
+
+            // Combined typed with correct first part, wrong second part
+            if (currentTypedWord !== currentDefaultWord &&
+                currentTypedWord.startsWith(currentDefaultWord) &&
+                currentTypedWord.length > currentDefaultWord.length &&
+                !currentDefaultWord.startsWith(currentTypedWord) &&
+                (typedIndex + 1 >= typedWords.length || typedWords[typedIndex + 1] !== nextDefaultWord)) {
+
+                const secondPart = currentTypedWord.slice(currentDefaultWord.length);
+                if (secondPart.length > 0) {
+                    highlightedParagraph += `<span class="correct">${currentDefaultWord}</span><span class="wrong">[Missing Space]</span>`;
+                    if (secondPart === nextDefaultWord) {
+                        highlightedParagraph += `<span class="correct">${secondPart}</span> `;
+                    } else {
+                        highlightedParagraph += `<span class="wrong">${secondPart}</span> <span class="given">${nextDefaultWord}</span> `;
+                    }
+                    inputIndex += currentTypedWord.length;
+                    defaultIndex += 2;
+                    typedIndex++;
+                    let spaceCount = 0;
+                    while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+                        spaceCount++; inputIndex++;
+                    }
+                    if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+                    continue;
+                }
+            }
+
+            // Combined typed with wrong first part, correct second part
+            if (currentTypedWord !== currentDefaultWord &&
+                currentTypedWord.endsWith(nextDefaultWord) &&
+                currentTypedWord.length > nextDefaultWord.length &&
+                !nextDefaultWord.startsWith(currentTypedWord)) {
+                const firstPart = currentTypedWord.slice(0, currentTypedWord.length - nextDefaultWord.length);
+                if (firstPart.length > 0) {
+                    highlightedParagraph += `<span class="wrong">${firstPart}</span> <span class="given">${currentDefaultWord}</span><span class="wrong">[Missing Space]</span><span class="correct">${nextDefaultWord}</span> `;
+                    inputIndex += currentTypedWord.length;
+                    defaultIndex += 2;
+                    typedIndex++;
+                    let spaceCount = 0;
+                    while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+                        spaceCount++; inputIndex++;
+                    }
+                    if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+                    continue;
+                }
+            }
+
+            // dotted tokens and similar cases
+            if (currentTypedWord.match(/^\w+\.\w+$/)) {
+                const splitWord = currentTypedWord.split(/(\w+\.)/).filter(Boolean);
+                if (splitWord.length === 2) {
+                    const firstPart = splitWord[0];
+                    const secondPart = splitWord[1];
+                    const expectedFirst = currentDefaultWord;
+                    const expectedSecond = nextDefaultWord;
+
+                    if (firstPart === expectedFirst) {
+                        if (secondPart === expectedSecond) {
+                            highlightedParagraph += `<span class="correct">${firstPart}</span><span class="wrong">[Missing Space]</span><span class="correct">${secondPart}</span> `;
+                        } else if (secondPart.toLowerCase() === expectedSecond.toLowerCase()) {
+                            highlightedParagraph += `<span class="correct">${firstPart}</span><span class="wrong">[Missing Space]</span><span class="wrong">${secondPart}</span> <span class="given">${expectedSecond}</span> `;
+                        } else {
+                            highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${expectedFirst}</span> `;
+                            inputIndex += currentTypedWord.length;
+                            typedIndex++;
+                            continue;
+                        }
+                        inputIndex += currentTypedWord.length;
+                        defaultIndex += 2;
+                        typedIndex++;
+                        continue;
+                    }
+                }
+            } else if (currentTypedWord === combinedDefault || currentTypedWord.toLowerCase() === combinedDefault.toLowerCase()) {
+                const firstPart = currentDefaultWord;
+                const secondPart = currentTypedWord.slice(firstPart.length);
+                if (secondPart === nextDefaultWord) {
+                    highlightedParagraph += `<span class="correct">${firstPart}</span><span class="wrong">[Missing Space]</span><span class="correct">${secondPart}</span> `;
+                } else if (secondPart.toLowerCase() === nextDefaultWord.toLowerCase()) {
+                    highlightedParagraph += `<span class="correct">${firstPart}</span><span class="wrong">[Missing Space]</span><span class="wrong">${secondPart}</span> <span class="given">${nextDefaultWord}</span> `;
+                } else {
+                    highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${firstPart}</span> `;
+                    inputIndex += currentTypedWord.length;
+                    typedIndex++;
+                    continue;
+                }
+                inputIndex += currentTypedWord.length;
+                defaultIndex += 2;
+                typedIndex++;
+                continue;
+            }
+        }
+
+        // Exact match
+        if (currentTypedWord === currentDefaultWord) {
+            highlightedParagraph += `<span class="correct">${currentTypedWord}</span> `;
+            inputIndex += currentTypedWord.length;
+            defaultIndex++;
+            typedIndex++;
+            let spaceCount = 0;
+            while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) { spaceCount++; inputIndex++; }
+            if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+            continue;
+        }
+
+        // Case-insensitive match but case wrong
+        if (currentTypedWord.toLowerCase() === currentDefaultWord.toLowerCase()) {
+            highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;
+            inputIndex += currentTypedWord.length;
+            defaultIndex++;
+            typedIndex++;
+            let spaceCount = 0;
+            while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) { spaceCount++; inputIndex++; }
+            if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+            continue;
+        }
+
+        // Extra typed word (followed by expected)
+        if (typedIndex + 1 < typedWords.length &&
+            (typedWords[typedIndex + 1] === currentDefaultWord ||
+             typedWords[typedIndex + 1].toLowerCase() === currentDefaultWord.toLowerCase())) {
+            highlightedParagraph += `<span class="wrong"><u>[${currentTypedWord}]</u></span> `;
+            inputIndex += currentTypedWord.length;
+            typedIndex++;
+            let spaceCount = 0;
+            while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) { spaceCount++; inputIndex++; }
+            if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+            continue;
+        }
+
+        // Try to find typed word later in defaultWords (skipped words)
+        let skipCount = 0;
+        let foundMatch = false;
+        for (let i = defaultIndex + 1; i < defaultWords.length && i < defaultIndex + typedWords.length - typedIndex; i++) {
+            if (currentTypedWord.toLowerCase() === defaultWords[i].toLowerCase()) {
+                skipCount = i - defaultIndex;
+                foundMatch = true;
+                break;
+            }
+        }
+        if (foundMatch) {
+            for (let i = 0; i < skipCount; i++) {
+                const skippedWord = defaultWords[defaultIndex + i];
+                highlightedParagraph += `<span class="given">${skippedWord}</span> <span class="wrong"><del>[${skippedWord}]</del></span> `;
+               
+            }
+            if (currentTypedWord === defaultWords[defaultIndex + skipCount]) {
+                highlightedParagraph += `<span class="correct">${currentTypedWord}</span> `;
+            } else {
+                highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${defaultWords[defaultIndex + skipCount]}</span> `;
+            }
+            inputIndex += currentTypedWord.length;
+            defaultIndex += skipCount + 1;
+            typedIndex++;
+            continue;
+        }
+
+
+// NEW RULE: If user typed the correct word later, ignore earlier wrong attempts
+let lookAheadIndex = typedWords.indexOf(currentDefaultWord, typedIndex);
+if (lookAheadIndex !== -1 && lookAheadIndex > typedIndex) {
+    // This current wrong word is a repeated wrong attempt
+    highlightedParagraph += `<span class="wrong"><u>[${currentTypedWord}]</u></span> `;
+    inputIndex += currentTypedWord.length;
+    typedIndex++;
+    continue;
+}
+
+{
+    let skipCount = 0;
+    let foundMatch = false;
+    for (let i = defaultIndex + 1; i < defaultWords.length; i++) {
+        if (currentTypedWord.toLowerCase() === defaultWords[i].toLowerCase()) {
+            skipCount = i - defaultIndex;
+            foundMatch = true;
+            break;
+        }
+    }
+    if (foundMatch) {
+        for (let i = 0; i < skipCount; i++) {
+            const skippedWord = defaultWords[defaultIndex + i];
+            highlightedParagraph += `<span class="given">${skippedWord}</span> `;
+        }
+        highlightedParagraph += `<span class="correct">${currentTypedWord}</span> `;
+        inputIndex += currentTypedWord.length;
+        defaultIndex += skipCount + 1;
+        typedIndex++;
+        continue;
+    }
+}
+
+        // Otherwise regular wrong
+        highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;
+        inputIndex += currentTypedWord.length;
+        defaultIndex++;
+        typedIndex++;
+        let spaceCount = 0;
+        while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) { spaceCount++; inputIndex++; }
+        if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+    }
+
+    // Remaining extra typed words
+    while (typedIndex < typedWords.length) {
+        highlightedParagraph += `<span class="wrong"><u>[${typedWords[typedIndex]}]</u></span> `;
+        typedIndex++;
+    }
+
+    // Remaining default words (not typed)
+    while (defaultIndex < defaultWords.length) {
+        highlightedParagraph += `<span class="given">${defaultWords[defaultIndex]}</span> `;
+        defaultIndex++;
+    }
+
+    return highlightedParagraph.trim();
+}
+window.highlightErrors = highlightErrors;
+
+// -------------------- Saved stats (localStorage) --------------------
+function isLocalStorageAvailable() {
+    try {
+        const testKey = '__testLocalStorage__';
+        localStorage.setItem(testKey, 'test');
+        const result = localStorage.getItem(testKey) === 'test';
+        localStorage.removeItem(testKey);
+        return result;
+    } catch (e) {
+        return false;
+    }
+}
+
+function saveTestStats(stats) {
+    try {
+        if (!isLocalStorageAvailable()) {
+            showLocalStorageError();
+            return;
+        }
+        let savedStats = [];
+        try {
+            const savedStatsJson = localStorage.getItem('typingTestStats');
+            savedStats = savedStatsJson ? JSON.parse(savedStatsJson) : [];
+            if (!Array.isArray(savedStats)) savedStats = [];
+        } catch (e) {
+            savedStats = [];
+        }
+        savedStats.push(stats);
+        if (savedStats.length > 10) savedStats.shift();
+        localStorage.setItem('typingTestStats', JSON.stringify(savedStats));
+        displaySavedStats();
+    } catch (error) {
+        showLocalStorageError();
+    }
+}
+
+
+
+
+
+
+
+function showLocalStorageError() {
+    const container = $("saved-stats-container") || document.querySelector('.container') || document.body;
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.innerHTML = '<strong>Error:</strong> Unable to save test history locally.';
+    container.prepend(errorDiv);
+}
+
+function displaySavedStats() {
+    if (!isLocalStorageAvailable()) {
+        showLocalStorageError();
+        return;
+    }
+    const statsJSON = localStorage.getItem('typingTestStats');
+    const savedStats = statsJSON ? JSON.parse(statsJSON) : [];
+    const statsContainer = $("saved-stats-container");
+
+    if (!statsContainer) return;
+    if (!Array.isArray(savedStats) || savedStats.length === 0) {
+        statsContainer.innerHTML = '<p>No previous test data available.</p>';
+        return;
+    }
+
+    let tableHTML = `
+        <h3>Your Test History</h3>
+        <table class="stats-history-table">
+            <thead><tr>
+                <th>Date</th><th>Gross Chars</th><th>Accuracy</th><th>Gross Speed</th><th>Actual Speed</th><th>Time</th><th>Result</th>
+            </tr></thead><tbody>
+    `;
+
+    savedStats.slice().reverse().forEach(stat => {
+        const date = new Date(stat.timestamp);
+        const formatted = `${date.toLocaleDateString()} ${date.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}`;
+        tableHTML += `<tr>
+            <td>${formatted}</td>
+            <td>${stat.grossCharacters}</td>
+            <td>${stat.accuracy}%</td>
+            <td>${stat.grossSpeed} WPM</td>
+            <td>${stat.actualSpeed} WPM</td>
+            <td>${stat.timeSpent}</td>
+            <td class="${stat.result === 'Pass' ? 'pass-result' : 'fail-result'}">${stat.result}</td>
+        </tr>`;
+    });
+
+    tableHTML += `</tbody></table>
+    <div class="stats-note"><span class="red-asterisk">*</span>The test history is saved locally in your browser. Clearing cache will remove history.</div>
+    <button id="clear-stats-btn" class="small-btn">Clear History</button>`;
+
+    statsContainer.innerHTML = tableHTML;
+    const clearBtn = $("clear-stats-btn");
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to clear your test history?')) {
+                localStorage.removeItem('typingTestStats');
+                displaySavedStats();
+            }
+        });
+    }
+}
+
+// -------------------- Full-screen control binding is done in bindUI above --------------------
+// script.js — inside your test submission logic
+document.getElementById("submit-btn").addEventListener("click", () => {
+  const userName = localStorage.getItem("userName");
+  const userRefNo = localStorage.getItem("userRefNo");
+
+  // Use your actual computed values here:
+  const speed = calculatedSpeed;     
+  const accuracy = calculatedAccuracy;
+
+  // Save result to Google Sheet
+  saveResultToSheet(userName, userRefNo, speed, accuracy);
+});
+// End of file
+/******************************************************
+ * ✅ GOOGLE SHEET SAVE + TOP 10 LEADERBOARD (Smartech)
+ ******************************************************/
+/******************************************************
+ * ✅ GOOGLE SHEET SAVE + TOP 10 LEADERBOARD (Smartech)
+ * Matches columns: formatTimeStamp | Ref No | Name | Language | Speed | Accuracy | Backspace
+ ******************************************************/
+const GOOGLE_SHEET_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbxT0mhZ0q-QLkIbJIqG8uIasrjLvx3HuQynmxcYswu3e8r_osUPkCZG2neBTPlcX3Hcrg/exec";
+
+// ✅ Save one test result to the Sheet
+async function sendResultToGoogleSheet(refNo, name, language, speed, accuracy, backspace) {
+  const data = {
+    timeStamp: new Date().toLocaleString(),
+    refNo,
+    name,
+    language,
+    speed,
+    accuracy,
+    backspace,
+    action: "save"
+  };
+
+  try {
+    await fetch(GOOGLE_SHEET_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    console.log("✅ Result saved to Google Sheet:", data);
+  } catch (err) {
+    console.error("❌ Google Sheet save error:", err);
+  }
+}
+
+// ✅ Collect current test data and call saver
+function saveResultToSheet() {
+	
+  const refNo = document.getElementById("userRefNo")?.value?.trim() || "N/A";
+  const name = document.getElementById("userName")?.value?.trim() || "Unknown";
+  const language = document.getElementById("backspacecount");//localStorage.getItem("selectedExerciseText") || "English";
+  const speed = document.getElementById("actual-gross-speed-value")?.innerText?.replace("WPM", "").trim() || "0";
+  const accuracy = document.getElementById("accuracy-percentage-value")?.innerText?.replace("%", "").trim() || "0";
+  const backspace = document.getElementById("backspace-count-value")?.innerText || "0";
+  
+
+  if (refNo && name) {
+    sendResultToGoogleSheet(refNo, name, language, speed, accuracy, backspace);
+  } else {
+    console.warn("⚠️ Missing Name or Ref No");
+  }
+}
+
+/* ✅ Fetch and display Top 10 results
+async function loadTop10Results() {
+  try {
+    const response = await fetch(GOOGLE_SHEET_ENDPOINT);
+    const data = await response.json();
+
+    const leaderboardBody = document.getElementById("leaderboard-body");
+    leaderboardBody.innerHTML = "";
+
+    if (!data || data.length === 0) {
+      leaderboardBody.innerHTML = `<tr><td colspan="4">No results found.</td></tr>`;
+      return;
+    }
+
+    data.forEach(row => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${row.name}</td>
+        <td>${row.refNo}</td>
+        <td>${row.speed}</td>
+        <td>${row.accuracy}%</td>`;
+      leaderboardBody.appendChild(tr);
+    });
+  } catch (error) {
+    console.error("❌ Error loading leaderboard:", error);
+    document.getElementById("leaderboard-body").innerHTML =
+      `<tr><td colspan="4">Error loading data</td></tr>`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadTop10Results);
+*/
+/* === LOAD TOP 10 === */
+async function loadTop10Results() {
+  try {
+    const res = await fetch(`${GOOGLE_SHEET_URL}?action=top10`);
+    const data = await res.json();
+    const body = document.getElementById("leaderboard-body");
+    body.innerHTML = "";
+    if (!data.length) {
+      body.innerHTML = `<tr><td colspan="4">No results found</td></tr>`;
+      return;
+    }
+    data.forEach(row => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${row.name}</td>
+        <td>${row.refNo}</td>
+        <td>${row.speed}</td>
+        <td>${row.accuracy}%</td>`;
+      body.appendChild(tr);
+    });
+  } catch (e) {
+    console.error("❌ Load error:", e);
+    document.getElementById("leaderboard-body").innerHTML =
+      `<tr><td colspan="4">Error loading data</td></tr>`;
+  }
+}
+document.addEventListener("DOMContentLoaded", loadTop10Results);
+// ✅ Auto-save every test submission to Google Sheet
+const originalSubmit = window.submitResults;
+window.submitResults = async function() {
+  await originalSubmit(); // run core logic
+  saveResultToSheet();   // then save to Sheet
+};
