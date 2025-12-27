@@ -3,134 +3,135 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Smartech Education - English Demo Test</title>
-
-<!-- Shared Theme -->
+    <meta name="google-adsense-account" content="ca-pub-3468699928896150">
+<title>Smartech Education</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+/* Keep your container + basic layout (unchanged) */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+html, body { height: 100%; margin: 0; }
+body { display: flex; flex-direction: column; min-height: 100vh; font-family:'Arial',serif; }
+
+.reference-outer { background:#00295f; border-radius:6px; padding:12px; margin-bottom:8px; border:1px solid #e6e6e6; }
+
+.typing-input { width:98%; resize:vertical; padding:10px; border-radius:6px; border:1px solid #ddd; line-height:1.5; font-size:1.65rem; margin-bottom:8px; font-family:'Arial',serif; }
+.primary-btn { background:#00295f; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; }
+.popup { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.35); display:none; }
+.popup-inner { background:#fff; padding:18px; border-radius:8px; min-width:260px; text-align:center; }
+
+#timer { font-weight:700; margin-bottom:8px; color:#00295f; }
+#current-chunk { margin-bottom:12px; color:#004080; font-weight:600; }
+input {
+    ime-mode: disabled;
+}
+
+/* Disable Windows text suggestions */
+input, textarea {
+    ime-mode: disabled !important;
+}
+
+/* Prevent suggestion UI overlay */
+input::-ms-input-placeholder {
+    opacity: 0 !important;
+}
+</style>
 
 </head>
 <body autocomplete="off" spellcheck="false">
 
-<!-- HEADER -->
-<div id="header-container"></div>
-<script>
-fetch("header.html")
-  .then(r => r.text())
-  .then(d => document.getElementById("header-container").innerHTML = d);
-</script>
 
-<!-- ================= TEST CONTAINER ================= -->
-<main class="container">
+<header class="site-header" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:2px solid #eee;background:linear-gradient(90deg,#fff,#fbfffb);">
+  <img src="Smartech Educatation Computer Centre3.png" alt="Smartech" class="logo" style="height:72px;">
+</header>
 
+<nav style="padding:10px 20px;">
+    <ul style="display:flex;gap:12px;list-style:none;padding:0;margin:0;align-items:center;">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="english_tutor.html">Speed Test</a></li>
+      <li><a href="engtutor.html">English Typing Tutor</a></li>
+      <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- RESULTS (kept as in original) -->
+<section id="results" style="display:none;">
+  <div style="flex:2; min-width:400px;">
+    <h2>Results</h2>
+    <table id="results-table" style="display:none; width:100%; border-collapse:collapse;">
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Gross Characters</td><td id="gross-characters-value"></td></tr>
+        <tr><td>Wrong / Extra / Skipped Words</td><td id="wrong-extra-words-value"></td></tr>
+        <tr><td>Space Errors</td><td id="space-errors-value"></td></tr>
+        <tr><td>Error Characters</td><td id="error-characters-value"></td></tr>
+        <tr><td>Net Characters</td><td id="net-characters-value"></td></tr>
+        <tr><td>Gross Speed</td><td id="gross-speed-value"></td></tr>
+        <tr><td>Actual Gross Speed</td><td id="actual-gross-speed-value"></td></tr>
+        <tr><td>Time Taken</td><td id="time-spent-value"></td></tr>
+        <tr><td>Accuracy</td><td id="accuracy-percentage-value"></td></tr>
+        <tr><td>Backspace Count</td><td id="backspace-count-value"></td></tr>
+        <tr><td>Result</td><td id="result-value"></td></tr>
+        <tr id="notes-section" style="display:none;">
+          <td colspan="2">
+            <div id="results-notes" style="display:none;">
+              <div id="exam-note" style="margin-bottom:5px; color:#b80000;"></div>
+              <div id="pass-note" style="color:#0055b8;"></div>
+            </div>
+          </td>
+        </tr>
+        <tr id="button-row" style="display:none;">
+          <td colspan="2" style="text-align:center; padding-top:10px;">
+            <button id="practice-another-btn-2" class="primary-btn">Practice Another</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="error-section" style="margin-top:15px; display:none;">
+      <div id="error-highlight"></div>
+    </div>
+    <div id="saved-stats-container" style="margin-top:20px;"></div>
+  </div>
+</section>
+<!-- END RESULTS -->
+
+<main class="container" style="margin-top:18px;">
   <center><h2>English Demo Test</h2></center>
 
-  <section class="test-section" id="test-section">
-
-    <!-- TOP BAR -->
-    <div class="top-bar">
-      <div class="left-meta"></div>
-      <div class="center-meta">
-        <div id="timer">Time: 02:00</div>
-      </div>
-      <div class="right-meta"></div>
+  <section class="test-section" id="test-section" style="margin-top:10px;">
+    <div>
+      <div id="timer">Time: 02:00</div>
+      <div id="current-chunk"><center>Current Chunk - 1</center></div>
     </div>
 
-    <!-- CHUNK INFO -->
-    <div id="current-chunk">Current Chunk - 1</div>
-
-    <!-- TEST AREA -->
-    <div id="test-area">
-
-      <!-- REFERENCE TEXT -->
-      <div class="reference-outer">
+    <div id="test-area" style="margin-top:12px;">
+      <div id="reference-text" class="reference-outer">
         <div id="paragraph" class="paragraph">Loading...</div>
       </div>
 
-      <!-- TYPING AREA -->
-      <textarea
-        id="typing-input"
-        class="typing-input"
-        placeholder="Start typing here..."
-        rows="4"
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="off"
-        spellcheck="false"
-        autofocus></textarea>
+      <textarea id="typing-input" placeholder="Start typing here..." rows="4" class="typing-input" type="search"
+       autocomplete="off" autocorrect="off"
+       autocapitalize="off" spellcheck="false" autofocus></textarea>
 
-      <!-- SUBMIT -->
-      <div style="text-align:right;">
-        <button id="submit-btn" class="primary-btn">Submit Test</button>
-      </div>
-
+       <div style="text-align:right;">
+  <button id="submit-btn" class="primary-btn">Submit Test</button>
+</div>
     </div>
   </section>
 </main>
 
-<!-- ================= RESULTS ================= -->
-<section id="results" style="display:none;">
-  <h2>Results</h2>
-
-  <table id="results-table" style="display:none;">
-    <thead>
-      <tr><th>Metric</th><th>Value</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Gross Characters</td><td id="gross-characters-value"></td></tr>
-      <tr><td>Wrong / Extra / Skipped Words</td><td id="wrong-extra-words-value"></td></tr>
-      <tr><td>Space Errors</td><td id="space-errors-value"></td></tr>
-      <tr><td>Error Characters</td><td id="error-characters-value"></td></tr>
-      <tr><td>Net Characters</td><td id="net-characters-value"></td></tr>
-      <tr><td>Gross Speed</td><td id="gross-speed-value"></td></tr>
-      <tr><td>Actual Gross Speed</td><td id="actual-gross-speed-value"></td></tr>
-      <tr><td>Time Taken</td><td id="time-spent-value"></td></tr>
-      <tr><td>Accuracy</td><td id="accuracy-percentage-value"></td></tr>
-      <tr><td>Backspace Count</td><td id="backspace-count-value"></td></tr>
-      <tr><td>Result</td><td id="result-value"></td></tr>
-
-      <tr id="notes-section" style="display:none;">
-        <td colspan="2">
-          <div id="results-notes">
-            <div id="exam-note"></div>
-            <div id="pass-note"></div>
-          </div>
-        </td>
-      </tr>
-
-      <tr id="button-row" style="display:none;">
-        <td colspan="2" style="text-align:center;">
-          <button id="practice-another-btn-2" class="primary-btn">
-            Practice Another
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div id="error-section" style="display:none;">
-    <div id="error-highlight"></div>
-  </div>
-
-  <div id="saved-stats-container"></div>
-</section>
-
-<!-- ================= POPUPS ================= -->
-<div id="time-over-popup" class="popup">
-  <div class="popup-inner">
-    <p>Time is over. View results?</p>
-    <button id="popup-ok-btn" class="primary-btn">Yes</button>
-  </div>
-</div>
-
-<div id="no-input-popup" class="popup">
-  <div class="popup-inner">
-    <p>No typed input detected.</p>
-    <button id="no-input-ok-btn" class="primary-btn">OK</button>
-  </div>
-</div>
-
-
+<!-- POPUPS -->
+<div id="time-over-popup" class="popup"><div class="popup-inner"><p>Time is over. View results?</p><button id="popup-ok-btn" class="primary-btn">Yes</button></div></div>
+<div id="no-input-popup" class="popup"><div class="popup-inner"><p>No typed input detected.</p><button id="no-input-ok-btn" class="primary-btn">OK</button></div></div>
 
 <!-- ======= DEMO PATCH: set fixed paragraph BEFORE the engine loads ======= -->
 <script>
@@ -372,15 +373,5 @@ document.addEventListener('keydown', function(e) {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
 
