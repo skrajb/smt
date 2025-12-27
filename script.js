@@ -744,7 +744,43 @@ function highlightErrors(defaultWords, typedWords, originalInput) {
         }
 
 
-// NEW RULE: If user typed the correct word later, ignore earlier wrong attempts
+
+		
+// NEW RULE: If the correct word occurs later in the typed text,
+// treat the current word as a repeated wrong attempt
+let lookAheadIndex = typedWords
+  .map(w => w.toLowerCase())
+  .indexOf(currentDefaultWord.toLowerCase(), typedIndex + 1);
+
+if (lookAheadIndex !== -1) {
+    // This wrong word is just another attempt before the correct one
+    highlightedParagraph += `<span class="wrong"><u>[${currentTypedWord}]</u></span> `;
+    inputIndex += currentTypedWord.length;
+    typedIndex++;
+
+    // Count extra spaces after this wrong word
+    let spaceCount = 0;
+    while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+        spaceCount++;
+        inputIndex++;
+    }
+
+    if (spaceCount > 1) {
+        for (let i = 0; i < spaceCount - 1; i++) {
+            highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+        }
+    }
+
+    continue;
+}
+
+
+
+
+
+		
+
+/* NEW RULE: If user typed the correct word later, ignore earlier wrong attempts
 let lookAheadIndex = typedWords.indexOf(currentDefaultWord, typedIndex);
 if (lookAheadIndex !== -1 && lookAheadIndex > typedIndex) {
     // This current wrong word is a repeated wrong attempt
@@ -753,7 +789,7 @@ if (lookAheadIndex !== -1 && lookAheadIndex > typedIndex) {
     typedIndex++;
     continue;
 }
-
+*/
 {
     let skipCount = 0;
     let foundMatch = false;
