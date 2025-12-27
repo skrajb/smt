@@ -6,9 +6,7 @@
     <meta name="google-adsense-account" content="ca-pub-3468699928896150">
 <title>Smartech Education</title>
 <link rel="stylesheet" href="styles.css">
-<style>
-/* Keep your container + basic layout (unchanged) */
-.container {
+<style>.container {
     width: 90%;
     max-width: 1100px;
     margin: auto;
@@ -17,33 +15,35 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
-html, body { height: 100%; margin: 0; }
-body { display: flex; flex-direction: column; min-height: 100vh; font-family:'Arial',serif; }
+	html, body {
+  height: 100%;
+  margin: 0;
+}
+nav { background: #00295f; padding: 10px 20px;}
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
+nav ul li { margin-right: 20px; }
+nav ul li a, nav ul li button { color: white; font-weight: bold; text-decoration: none; background: transparent; border: none; font-size: 16px; cursor: pointer; }
+nav ul li a:hover, nav ul li button:hover { color: #00295f; }
 
-.reference-outer { background:#00295f; border-radius:6px; padding:12px; margin-bottom:8px; border:1px solid #e6e6e6; }
-
-.typing-input { width:98%; resize:vertical; padding:10px; border-radius:6px; border:1px solid #ddd; line-height:1.5; font-size:1.65rem; margin-bottom:8px; font-family:'Arial',serif; }
-.primary-btn { background:#00295f; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; }
-.popup { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.35); display:none; }
-.popup-inner { background:#fff; padding:18px; border-radius:8px; min-width:260px; text-align:center; }
-
-#timer { font-weight:700; margin-bottom:8px; color:#00295f; }
-#current-chunk { margin-bottom:12px; color:#004080; font-weight:600; }
-input {
-    ime-mode: disabled;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Disable Windows text suggestions */
-input, textarea {
-    ime-mode: disabled !important;
+/* Toggle Button Style */
+.toggle-btn {
+  background:#6c757d;
+  color:white;
+  border:none;
+  border-radius:6px;
+  padding:8px 14px;
+  cursor:pointer;
+  margin-top:10px;
 }
-
-/* Prevent suggestion UI overlay */
-input::-ms-input-placeholder {
-    opacity: 0 !important;
-}
-</style>
-
+.toggle-btn.active {
+  background:#b80000;
+}</style>
 </head>
 <body autocomplete="off" spellcheck="false">
 
@@ -378,6 +378,7 @@ document.addEventListener('keydown', function(e) {
 
 </body>
 </html>
+
 
 
 
