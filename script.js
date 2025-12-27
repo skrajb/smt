@@ -164,7 +164,7 @@ async function initializeTest() {
   .replace(/&quot;|&#34;/g, '"')
   .replace(/&amp;/g, "&");
 
-    words = fullParagraph.length ? fullParagraph.split(" ") : [];
+    words = fullParagraph.length ? fullParagraph.split(/\s+/u) : [];
     chunkSize = Math.max(1, Math.ceil(words.length / 10)); // try to create 10 chunks
     window.paragraphs.length = 0;
     for (let i = 0; i < words.length; i += chunkSize) {
@@ -175,7 +175,7 @@ async function initializeTest() {
     }
     window.state.currentParagraphIndex = 0;
     window.state.paragraph = window.paragraphs[0];
-    window.state.defaultWords = window.state.paragraph.split(" ");
+    window.state.defaultWords = window.state.paragraph.split(/\s+/u);
 }
 
 // -------------------- DOM ready setup --------------------
@@ -265,7 +265,7 @@ function bindUI() {
                         window.state.totalTypedInput = "|" + typedChunks.join("|") + "|";
                         window.state.currentParagraphIndex++;
                         window.state.paragraph = window.paragraphs[window.state.currentParagraphIndex];
-                        window.state.defaultWords = window.state.paragraph.split(" ");
+                        window.state.defaultWords = window.state.paragraph.split(/\s+/u);
                         if ($("paragraph")) $("paragraph").innerHTML = window.state.paragraph;
                         if ($("current-chunk")) $("current-chunk").textContent = `Current Chunk - ${window.state.currentParagraphIndex + 1}`;
                         if ($("typing-input")) $("typing-input").value = typedChunks[window.state.currentParagraphIndex] || "";
@@ -281,7 +281,7 @@ function bindUI() {
                 window.state.totalTypedInput = "|" + typedChunks.join("|") + "|";
                 window.state.currentParagraphIndex--;
                 window.state.paragraph = window.paragraphs[window.state.currentParagraphIndex];
-                window.state.defaultWords = window.state.paragraph.split(" ");
+                window.state.defaultWords = window.state.paragraph.split(/\s+/u);
                 if ($("paragraph")) $("paragraph").innerHTML = window.state.paragraph;
                 if ($("current-chunk")) $("current-chunk").textContent = `Current Chunk - ${window.state.currentParagraphIndex + 1}`;
                 if ($("typing-input")) $("typing-input").value = typedChunks[window.state.currentParagraphIndex] || "";
@@ -320,7 +320,7 @@ function bindUI() {
 function refreshTest() {
     window.state.currentParagraphIndex = 0;
     window.state.paragraph = window.paragraphs[0];
-    window.state.defaultWords = window.state.paragraph.split(" ");
+    window.state.defaultWords = window.state.paragraph.split(/\s+/u);
     window.state.totalTypedInput = "|";
     window.state.totalTime = 600;
     window.state.isTestRunning = false;
@@ -382,12 +382,12 @@ setTimeout(() => {
 
     const finalTypedText = validChunks.join(" ").trim();
     window.state.typedWords = finalTypedText.split(/\s+/).filter(word => word.length > 0);
-    const allDefaultWords = window.paragraphs.slice(0, validChunks.length).join(" ").split(" ");
+    const allDefaultWords = window.paragraphs.slice(0, validChunks.length).join(" ").split(/\s+/u);
 
     // Build error tables HTML using highlightErrors
     let errorTablesHTML = "";
     for (let i = 0; i < validChunks.length; i++) {
-        const chunkDefaultWords = window.paragraphs[i].split(" ");
+        const chunkDefaultWords = window.paragraphs[i].split(/\s+/u);
         const chunkTypedText = validChunks[i] || "";
         const chunkTypedWords = chunkTypedText.split(/\s+/).filter(w => w.length > 0);
         const chunkErrors = highlightErrors(chunkDefaultWords, chunkTypedWords, chunkTypedText);
@@ -525,8 +525,25 @@ setTimeout(() => {
 // Expose submit
 window.submitResults = submitResults;
 
+
+// ---- Unicode Safe Word Normalizer (Punjabi + English safe) ----
+function normalizeWord(w) {
+    return (w || "")
+        .replace(/\u200C|\u200D|\u00A0/g, "")  // remove ZWNJ / ZWJ / NBSP
+        .replace(/\s+/g, " ")                  // collapse unicode spaces
+        .trim();
+}
+
+
+
+
 // -------------------- highlightErrors (your full engine) --------------------
 function highlightErrors(defaultWords, typedWords, originalInput) {
+	// Normalize all tokens first (Punjabi safe)
+defaultWords = defaultWords.map(normalizeWord);
+typedWords   = typedWords.map(normalizeWord);
+originalInput = normalizeWord(originalInput);
+
     let highlightedParagraph = "";
     let defaultIndex = 0;
     let typedIndex = 0;
@@ -746,32 +763,34 @@ function highlightErrors(defaultWords, typedWords, originalInput) {
 
 
 		
-// NEW RULE: If the correct word occurs later in the typed text,
-// treat the current word as a repeated wrong attempt
-let lookAheadIndex = typedWords
-  .map(w => w.toLowerCase())
-  .indexOf(currentDefaultWord.toLowerCase(), typedIndex + 1);
+// ---- Punjabi + English Safe Look Ahead Rule ----
+{
+    const normalizedDefault = normalizeWord(currentDefaultWord).toLowerCase();
+    const normalizedTypedList = typedWords.map(w => normalizeWord(w).toLowerCase());
 
-if (lookAheadIndex !== -1) {
-    // This wrong word is just another attempt before the correct one
-    highlightedParagraph += `<span class="wrong"><u>[${currentTypedWord}]</u></span> `;
-    inputIndex += currentTypedWord.length;
-    typedIndex++;
+    let lookAheadIndex = normalizedTypedList.indexOf(normalizedDefault, typedIndex + 1);
 
-    // Count extra spaces after this wrong word
-    let spaceCount = 0;
-    while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
-        spaceCount++;
-        inputIndex++;
-    }
+    if (lookAheadIndex !== -1) {
+        // treat current word as repeated wrong attempt
+        highlightedParagraph += `<span class="wrong"><u>[${currentTypedWord}]</u></span> `;
+        inputIndex += currentTypedWord.length;
+        typedIndex++;
 
-    if (spaceCount > 1) {
-        for (let i = 0; i < spaceCount - 1; i++) {
-            highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+        // extra spacing after word
+        let spaceCount = 0;
+        while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+            spaceCount++;
+            inputIndex++;
         }
-    }
 
-    continue;
+        if (spaceCount > 1) {
+            for (let i = 0; i < spaceCount - 1; i++) {
+                highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+            }
+        }
+
+        continue;
+    }
 }
 
 
