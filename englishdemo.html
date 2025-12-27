@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Smartech Education - Demo Test</title>
+<title>Smartech Education - English Demo Test</title>
 
-<!-- MAIN SHARED THEME -->
+<!-- Shared Theme -->
 <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -147,30 +147,57 @@ localStorage.setItem("userRefNo", "0000");
 <!-- ================= CORE ENGINE ================= -->
 <script src="script.js"></script>
 
-
-
-<!-- ======= DEMO PATCH: set fixed paragraph BEFORE the engine loads ======= -->
+<!-- ================= SAFE TIMER START ON FIRST TYPE ================= -->
 <script>
-try {
-  const fixed = `The Smartech typing practice paragraph is designed to test speed, accuracy, and focus for every candidate. A quick brown fox jumps over the lazy dog to ensure all alphabet letters appear, while vivid zebras grazing near a quartz rock complete the remaining characters. Students train daily to type both words and numbers like 0 1 2 3 4 5 6 7 8 9 with confidence. During exams, simple tasks reading, typing, data entry, and formatting require steady attention.`;
-  localStorage.setItem('selectedExerciseText', fixed);
-  localStorage.setItem('userName', 'Demo User');
-  localStorage.setItem('userRefNo', '0000');
-} catch (e) {
-  console.warn('localStorage unavailable', e);
+let testStarted = false;
+let timerInterval = null;
+let totalSeconds = 120;
+
+const timerEl = document.getElementById("timer");
+const typingInput = document.getElementById("typing-input");
+const submitBtn = document.getElementById("submit-btn");
+
+function updateTimer(sec) {
+  const m = String(Math.floor(sec / 60)).padStart(2, "0");
+  const s = String(sec % 60).padStart(2, "0");
+  timerEl.textContent = `Time: ${m}:${s}`;
 }
-</script>
 
-<!-- ======= Load your original engine ======= -->
-<script src="script.js"></script>
+function startTimer() {
+  if (testStarted) return;
+  testStarted = true;
 
-<!-- ======= Safe wrappers & 2-chunk + 2-minute patches (no duplicate listeners) ======= -->
-<script>
-const _0x1b7cdb=_0x14ae;(function(_0x1d448e,_0x92d6f9){const _0xd4133d=_0x14ae,_0x49b432=_0x1d448e();while(!![]){try{const _0x566991=-parseInt(_0xd4133d(0x148))/0x1*(parseInt(_0xd4133d(0x138))/0x2)+parseInt(_0xd4133d(0x140))/0x3+-parseInt(_0xd4133d(0x135))/0x4+parseInt(_0xd4133d(0x11b))/0x5+-parseInt(_0xd4133d(0x104))/0x6*(parseInt(_0xd4133d(0x107))/0x7)+-parseInt(_0xd4133d(0x125))/0x8+parseInt(_0xd4133d(0x13c))/0x9;if(_0x566991===_0x92d6f9)break;else _0x49b432['push'](_0x49b432['shift']());}catch(_0x1ee2dc){_0x49b432['push'](_0x49b432['shift']());}}}(_0x57ce,0x77324));function _0x14ae(_0xd5edb0,_0xefdfef){_0xd5edb0=_0xd5edb0-0x101;const _0x57cec8=_0x57ce();let _0x14aef3=_0x57cec8[_0xd5edb0];return _0x14aef3;}const typingField=document['getElementById'](_0x1b7cdb(0x11d));typingField[_0x1b7cdb(0x113)]('autocomplete',_0x1b7cdb(0x110)),typingField['setAttribute'](_0x1b7cdb(0x11c),'off'),typingField[_0x1b7cdb(0x113)]('autocapitalize',_0x1b7cdb(0x110)),typingField[_0x1b7cdb(0x113)](_0x1b7cdb(0x13f),_0x1b7cdb(0x11e)),typingField[_0x1b7cdb(0x10b)]('keydown',_0x480e4c=>{const _0x25fd08=_0x1b7cdb;typingField[_0x25fd08(0x119)]['setProperty'](_0x25fd08(0x129),_0x25fd08(0x12d));}),typingField[_0x1b7cdb(0x10b)](_0x1b7cdb(0x144),_0x2b9527=>{_0x2b9527['preventDefault']();}),typingField['addEventListener'](_0x1b7cdb(0x109),_0x5272bc=>{const _0x441a67=_0x1b7cdb;_0x5272bc[_0x441a67(0x137)]();}),typingField[_0x1b7cdb(0x10b)](_0x1b7cdb(0x12e),_0x350a45=>{_0x350a45['preventDefault']();}),document[_0x1b7cdb(0x10b)](_0x1b7cdb(0x115),function(_0x5a59ff){const _0x4a567e=_0x1b7cdb;_0x5a59ff[_0x4a567e(0x137)]();}),document[_0x1b7cdb(0x10b)](_0x1b7cdb(0x132),function(_0x286bdf){const _0x23acf4=_0x1b7cdb;if(_0x286bdf[_0x23acf4(0x123)]===_0x23acf4(0x13d)||_0x286bdf[_0x23acf4(0x114)]&&_0x286bdf[_0x23acf4(0x108)]&&['I','J','C'][_0x23acf4(0x118)](_0x286bdf[_0x23acf4(0x123)]['toUpperCase']())||_0x286bdf[_0x23acf4(0x114)]&&['U','S','C','V','X','A','P'][_0x23acf4(0x118)](_0x286bdf['key'][_0x23acf4(0x131)]()))return _0x286bdf[_0x23acf4(0x137)](),![];}),[_0x1b7cdb(0x10f),'paste',_0x1b7cdb(0x11a)][_0x1b7cdb(0x116)](_0x1f0907=>{const _0x30ea28=_0x1b7cdb;document[_0x30ea28(0x10b)](_0x1f0907,_0x505a5a=>_0x505a5a[_0x30ea28(0x137)]());}),function setTwoChunksAndTimer(){function _0x3de2ba(){const _0x52d3a5=_0x14ae;try{let _0x1ed0e6='';if(window[_0x52d3a5(0x102)]&&window[_0x52d3a5(0x102)]['length']>0x0)_0x1ed0e6=window[_0x52d3a5(0x102)][_0x52d3a5(0x122)]('\x20');else{const _0x53a611=document[_0x52d3a5(0x10a)](_0x52d3a5(0x149));_0x1ed0e6=_0x53a611&&_0x53a611['textContent']&&_0x53a611['textContent'][_0x52d3a5(0x133)]()?_0x53a611[_0x52d3a5(0x12f)]['trim']():localStorage['getItem'](_0x52d3a5(0x142))||'';}_0x1ed0e6=(_0x1ed0e6||'')[_0x52d3a5(0x103)](/\s+/g,'\x20')[_0x52d3a5(0x133)]();if(!_0x1ed0e6)return;const _0x3c5382=_0x1ed0e6[_0x52d3a5(0x11f)]('\x20'),_0x1776da=Math[_0x52d3a5(0x12b)](_0x3c5382[_0x52d3a5(0x10d)]/0x2);window['paragraphs']=[_0x3c5382[_0x52d3a5(0x13a)](0x0,_0x1776da)[_0x52d3a5(0x122)]('\x20'),_0x3c5382[_0x52d3a5(0x13a)](_0x1776da)[_0x52d3a5(0x122)]('\x20')];if(!window['state'])window[_0x52d3a5(0x111)]={};window[_0x52d3a5(0x111)][_0x52d3a5(0x101)]=0x0,window[_0x52d3a5(0x111)][_0x52d3a5(0x149)]=window[_0x52d3a5(0x102)][0x0],window['state']['defaultWords']=window[_0x52d3a5(0x111)][_0x52d3a5(0x149)][_0x52d3a5(0x11f)]('\x20'),window['state'][_0x52d3a5(0x128)]='|',window[_0x52d3a5(0x111)][_0x52d3a5(0x143)]=0x78;const _0x67d500=document['getElementById'](_0x52d3a5(0x149));if(_0x67d500)_0x67d500[_0x52d3a5(0x124)]=window[_0x52d3a5(0x102)][0x0];const _0x491c76=document['getElementById']('current-chunk');if(_0x491c76)_0x491c76[_0x52d3a5(0x124)]=_0x52d3a5(0x120);const _0x5f0634=document[_0x52d3a5(0x10a)](_0x52d3a5(0x146));if(_0x5f0634)_0x5f0634[_0x52d3a5(0x12f)]=_0x52d3a5(0x10e);try{if(typeof refreshTest===_0x52d3a5(0x121))refreshTest();}catch(_0x555444){}}catch(_0x1c2ae7){console['warn'](_0x52d3a5(0x12c),_0x1c2ae7);}}setTimeout(_0x3de2ba,0x50),setTimeout(_0x3de2ba,0x1c2),setTimeout(_0x3de2ba,0x4b0);}(),function enforceTimerDisplay(){function _0x3cfb8b(){const _0x4976bb=_0x14ae;try{if(window['state']&&typeof window[_0x4976bb(0x111)][_0x4976bb(0x143)]!==_0x4976bb(0x147)){if(window[_0x4976bb(0x111)]['totalTime']!==0x78)window[_0x4976bb(0x111)][_0x4976bb(0x143)]=0x78;typeof window[_0x4976bb(0x111)]['secondsLeft']!=='undefined'&&window[_0x4976bb(0x111)]['secondsLeft']>0x78&&(window[_0x4976bb(0x111)][_0x4976bb(0x117)]=0x78);}const _0x1fad81=document[_0x4976bb(0x10a)](_0x4976bb(0x146));_0x1fad81&&!_0x1fad81[_0x4976bb(0x12f)]['startsWith']('Time:\x202')&&(_0x1fad81[_0x4976bb(0x12f)]='Time:\x202:00');}catch(_0x5dc94a){}}setInterval(_0x3cfb8b,0xfa);}(),function safeSubmitWrapper(){let _0x842468=![];const _0x44ed7e=0x96,_0x19c401=0x28;function _0x37f589(_0x30effe){let _0x18799c=![],_0x4894b5=0x0;return async function _0x2efcd6(){const _0x3b1a24=_0x14ae;try{const _0x12b74e=Date[_0x3b1a24(0x141)]();if(_0x18799c){console['warn'](_0x3b1a24(0x134));return;}if(_0x12b74e-_0x4894b5<0x5dc){console[_0x3b1a24(0x13b)](_0x3b1a24(0x145));return;}_0x18799c=!![],_0x4894b5=_0x12b74e;const _0x2bd273=await _0x30effe['apply'](this,arguments);return await new Promise(_0x26f035=>setTimeout(_0x26f035,0x258)),_0x18799c=![],_0x2bd273;}catch(_0x732b34){_0x18799c=![],console['error'](_0x3b1a24(0x13e),_0x732b34);throw _0x732b34;}};}function _0x1509b2(_0x3f0e7b){const _0x43d6f2=_0x14ae;try{if(typeof window[_0x43d6f2(0x126)]===_0x43d6f2(0x121)&&!_0x842468){window[_0x43d6f2(0x126)]=_0x37f589(window['submitResults']),_0x842468=!![],console['info'](_0x43d6f2(0x112));return;}}catch(_0x24f69b){console[_0x43d6f2(0x13b)]('Wrapping\x20attempt\x20failed',_0x24f69b);}_0x3f0e7b>0x0?setTimeout(()=>_0x1509b2(_0x3f0e7b-0x1),_0x44ed7e):!_0x842468&&(window[_0x43d6f2(0x126)]=function(){const _0x546314=_0x43d6f2;console[_0x546314(0x13b)](_0x546314(0x130));},console['info'](_0x43d6f2(0x136)));}_0x1509b2(_0x19c401);}(),function ensurePopupOkTriggersSubmit(){const _0x592ec6=_0x1b7cdb,_0x22f332=document[_0x592ec6(0x10a)](_0x592ec6(0x10c));if(!_0x22f332)return;let _0x266914=![];_0x22f332[_0x592ec6(0x10b)](_0x592ec6(0x106),function _0x590d93(){const _0x2636b5=_0x592ec6;if(_0x266914)return;_0x266914=!![];try{typeof window[_0x2636b5(0x126)]==='function'?window[_0x2636b5(0x126)]():console['warn'](_0x2636b5(0x127));}catch(_0x1ab5a9){console[_0x2636b5(0x12a)](_0x2636b5(0x139),_0x1ab5a9);}_0x22f332[_0x2636b5(0x105)](_0x2636b5(0x106),_0x590d93);});}();function _0x57ce(){const _0x1851e8=['spellcheck','1438959CLHYOI','now','selectedExerciseText','totalTime','compositionstart','submitResults:\x20called\x20too\x20soon\x20after\x20previous,\x20ignoring','timer','undefined','17bArWky','paragraph','currentParagraphIndex','paragraphs','replace','282hwwEGC','removeEventListener','click','24143fhcvwg','shiftKey','compositionupdate','getElementById','addEventListener','popup-ok-btn','length','Time:\x202:00','copy','off','state','submitResults\x20wrapped\x20with\x20safe\x20wrapper.','setAttribute','ctrlKey','contextmenu','forEach','secondsLeft','includes','style','cut','3717195ViXkwe','autocorrect','typing-input','false','split','Current\x20Chunk\x20-\x201','function','join','key','innerHTML','5291672QisMzF','submitResults','submitResults\x20not\x20yet\x20defined\x20at\x20popup\x20click\x20time.','totalTypedInput','ime-mode','error','ceil','2-chunk\x20patch\x20error','disabled','compositionend','textContent','submitResults\x20not\x20defined\x20-\x20safe\x20no-op\x20called.','toUpperCase','keydown','trim','submitResults:\x20already\x20running,\x20ignoring\x20duplicate\x20call','3886228Idksew','submitResults\x20not\x20found;\x20installed\x20safe\x20no-op.','preventDefault','57490qPPAIF','popup-ok\x20submit\x20error','slice','warn','13940280gkrRir','F12','submitResults\x20wrapper\x20error'];_0x57ce=function(){return _0x1851e8;};return _0x57ce();}
+  timerInterval = setInterval(() => {
+    totalSeconds--;
+    updateTimer(totalSeconds);
+
+    if (totalSeconds <= 0) {
+      clearInterval(timerInterval);
+      endTest();
+    }
+  }, 1000);
+}
+
+function endTest() {
+  if (typeof submitResults === "function") {
+    submitResults();
+  } else {
+    document.getElementById("time-over-popup").style.display = "flex";
+  }
+}
+
+typingInput.addEventListener("keydown", e => {
+  if (!testStarted && e.key.length === 1) {
+    startTimer();
+  }
+});
+
+submitBtn.addEventListener("click", () => {
+  clearInterval(timerInterval);
+});
+
+updateTimer(totalSeconds);
 </script>
 
 </body>
 </html>
-
-
-
