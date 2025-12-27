@@ -3,6 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3468699928896150">
+<title>Smartech Education</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Keep your container + basic layout (unchanged) */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Smartech Education - English Demo Test</title>
 
@@ -130,74 +146,256 @@ fetch("header.html")
   </div>
 </div>
 
-<!-- ================= DEMO TEXT ================= -->
-<script>
-const demoText = `
-The Smartech typing practice paragraph is designed to test speed, accuracy, and focus.
-A quick brown fox jumps over the lazy dog to include every alphabet letter.
-Candidates practice numbers like 0 1 2 3 4 5 6 7 8 9 for accuracy.
-Consistent practice improves typing confidence and examination performance.
-`;
 
-localStorage.setItem("selectedExerciseText", demoText.trim());
-localStorage.setItem("userName", "Demo User");
-localStorage.setItem("userRefNo", "0000");
+
+<!-- ======= DEMO PATCH: set fixed paragraph BEFORE the engine loads ======= -->
+<script>
+try {
+  const fixed = `The Smartech typing practice paragraph is designed to test speed, accuracy, and focus for every candidate. A quick brown fox jumps over the lazy dog to ensure all alphabet letters appear, while vivid zebras grazing near a quartz rock complete the remaining characters. Students train daily to type both words and numbers like 0 1 2 3 4 5 6 7 8 9 with confidence. During exams, simple tasks—reading, typing, data-entry, and formatting—require steady attention.`;
+  localStorage.setItem('selectedExerciseText', fixed);
+  localStorage.setItem('userName', 'Demo User');
+  localStorage.setItem('userRefNo', '0000');
+} catch (e) {
+  console.warn('localStorage unavailable', e);
+}
 </script>
 
-<!-- ================= CORE ENGINE ================= -->
+<!-- ======= Load your original engine ======= -->
 <script src="script.js"></script>
 
-<!-- ================= SAFE TIMER START ON FIRST TYPE ================= -->
+<!-- ======= Safe wrappers & 2-chunk + 2-minute patches (no duplicate listeners) ======= -->
 <script>
-let testStarted = false;
-let timerInterval = null;
-let totalSeconds = 120;
+const typingField = document.getElementById("typing-input");
 
-const timerEl = document.getElementById("timer");
-const typingInput = document.getElementById("typing-input");
-const submitBtn = document.getElementById("submit-btn");
+typingField.setAttribute("autocomplete", "off");
+typingField.setAttribute("autocorrect", "off");
+typingField.setAttribute("autocapitalize", "off");
+typingField.setAttribute("spellcheck", "false");
 
-function updateTimer(sec) {
-  const m = String(Math.floor(sec / 60)).padStart(2, "0");
-  const s = String(sec % 60).padStart(2, "0");
-  timerEl.textContent = `Time: ${m}:${s}`;
-}
+// Additional forced disable for Windows suggestions
+typingField.addEventListener("keydown", e => {
+    typingField.style.setProperty("ime-mode", "disabled");
+});
 
-function startTimer() {
-  if (testStarted) return;
-  testStarted = true;
+// Prevent Windows suggestion bar activation
+typingField.addEventListener("compositionstart", e => {
+    e.preventDefault();
+});
+typingField.addEventListener("compositionupdate", e => {
+    e.preventDefault();
+});
+typingField.addEventListener("compositionend", e => {
+    e.preventDefault();
+});
 
-  timerInterval = setInterval(() => {
-    totalSeconds--;
-    updateTimer(totalSeconds);
+// Disable right click
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
 
-    if (totalSeconds <= 0) {
-      clearInterval(timerInterval);
-      endTest();
+// Disable keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
+    ) {
+        e.preventDefault();
+        return false;
     }
-  }, 1000);
-}
-
-function endTest() {
-  if (typeof submitResults === "function") {
-    submitResults();
-  } else {
-    document.getElementById("time-over-popup").style.display = "flex";
-  }
-}
-
-typingInput.addEventListener("keydown", e => {
-  if (!testStarted && e.key.length === 1) {
-    startTimer();
-  }
 });
 
-submitBtn.addEventListener("click", () => {
-  clearInterval(timerInterval);
+// Disable copy / paste / cut
+["copy", "paste", "cut"].forEach(evt => {
+    document.addEventListener(evt, e => e.preventDefault());
 });
+/*
+  Strategy:
+  1. Force paragraph into 2 chunks and set 120s.
+  2. Avoid cloning/adding duplicate listeners.
+  3. Wrap global submitResults() with a safe locker so multiple calls won't save multiple times.
+  4. Try to wrap submitResults even if defined later by polling for it briefly.
+*/
 
-updateTimer(totalSeconds);
+// ---------- Helper: set two chunks & timer ----------
+(function setTwoChunksAndTimer(){
+  function applyPatchOnce(){
+    try {
+      // Get paragraph text from existing engine variables or DOM or localStorage
+      let text = "";
+      if (window.paragraphs && window.paragraphs.length > 0) {
+        text = window.paragraphs.join(" ");
+      } else {
+        const pEl = document.getElementById('paragraph');
+        text = (pEl && pEl.textContent && pEl.textContent.trim()) ? pEl.textContent.trim() : localStorage.getItem('selectedExerciseText') || "";
+      }
+      text = (text || "").replace(/\s+/g,' ').trim();
+      if (!text) return;
+
+      const words = text.split(' ');
+      const mid = Math.ceil(words.length / 2);
+      window.paragraphs = [
+        words.slice(0, mid).join(' '),
+        words.slice(mid).join(' ')
+      ];
+
+      // Ensure engine state uses the first chunk
+      if (!window.state) window.state = {};
+      window.state.currentParagraphIndex = 0;
+      window.state.paragraph = window.paragraphs[0];
+      window.state.defaultWords = window.state.paragraph.split(' ');
+      window.state.totalTypedInput = '|';
+      window.state.totalTime = 120; // 2 minutes
+
+      // Update UI text
+      const paraEl = document.getElementById('paragraph');
+      if (paraEl) paraEl.innerHTML = window.paragraphs[0];
+
+      const cc = document.getElementById('current-chunk');
+      if (cc) cc.innerHTML = 'Current Chunk - 1';
+
+      const timerEl = document.getElementById('timer');
+      if (timerEl) timerEl.textContent = 'Time: 2:00';
+
+      // If engine has a refresh function, call it safely
+      try { if (typeof refreshTest === 'function') refreshTest(); } catch(e){}
+
+    } catch (err) {
+      console.warn('2-chunk patch error', err);
+    }
+  }
+
+  // Run multiple times shortly after load to ensure script.js finished initializing
+  setTimeout(applyPatchOnce, 80);
+  setTimeout(applyPatchOnce, 450);
+  setTimeout(applyPatchOnce, 1200);
+})();
+
+
+// ---------- Helper: force displayed timer to 2:00 frequently (defensive) ----------
+(function enforceTimerDisplay(){
+  function tick() {
+    try {
+      if (window.state && typeof window.state.totalTime !== 'undefined') {
+        // keep engine's totalTime at 120
+        if (window.state.totalTime !== 120) window.state.totalTime = 120;
+        if (typeof window.state.secondsLeft !== 'undefined' && window.state.secondsLeft > 120) {
+          window.state.secondsLeft = 120;
+        }
+      }
+      const timerEl = document.getElementById('timer');
+      if (timerEl && !timerEl.textContent.startsWith('Time: 2')) {
+        timerEl.textContent = 'Time: 2:00';
+      }
+    } catch (e) {}
+  }
+  // gentle interval - keeps the display consistent but light on CPU
+  setInterval(tick, 250);
+})();
+
+
+// ---------- Safe wrapper for submitResults to prevent duplicate saves ----------
+(function safeSubmitWrapper(){
+  let wrapped = false;
+  const POLL_INTERVAL = 150; // ms
+  const MAX_TRIES = 40; // ~6 seconds
+
+  function createWrapper(origFn){
+    let running = false;
+    let lastRun = 0;
+    // wrapper prevents reentrant / repeated quick calls
+    return async function wrappedSubmitResults(){
+      try {
+        const now = Date.now();
+        // prevent calls within 1500ms of previous run
+        if (running) {
+          console.warn('submitResults: already running, ignoring duplicate call');
+          return;
+        }
+        if (now - lastRun < 1500) {
+          console.warn('submitResults: called too soon after previous, ignoring');
+          return;
+        }
+        running = true;
+        lastRun = now;
+        // call original
+        const res = await origFn.apply(this, arguments);
+        // small delay to ensure any asynchronous saves complete
+        await new Promise(r => setTimeout(r, 600));
+        running = false;
+        return res;
+      } catch (err) {
+        running = false;
+        console.error('submitResults wrapper error', err);
+        throw err;
+      }
+    };
+  }
+
+  function attemptWrap(triesLeft){
+    try {
+      if (typeof window.submitResults === 'function' && !wrapped) {
+        window.submitResults = createWrapper(window.submitResults);
+        wrapped = true;
+        console.info('submitResults wrapped with safe wrapper.');
+        return;
+      }
+    } catch (e) {
+      console.warn('Wrapping attempt failed', e);
+    }
+    if (triesLeft > 0) {
+      setTimeout(() => attemptWrap(triesLeft - 1), POLL_INTERVAL);
+    } else {
+      // If submitResults never appears, still create a no-op safe function to avoid errors
+      if (!wrapped) {
+        window.submitResults = function(){
+          console.warn('submitResults not defined - safe no-op called.');
+        };
+        console.info('submitResults not found; installed safe no-op.');
+      }
+    }
+  }
+
+  attemptWrap(MAX_TRIES);
+})();
+
+
+// ---------- Ensure popup OK triggers submitResults safely (if engine didn't already) ----------
+(function ensurePopupOkTriggersSubmit(){
+  const popupOk = document.getElementById('popup-ok-btn');
+  if (!popupOk) return;
+  // Add a single listener but only once
+  let added = false;
+  popupOk.addEventListener('click', function onOk(){
+    if (added) return;
+    added = true;
+    try {
+      if (typeof window.submitResults === 'function') {
+        window.submitResults();
+      } else {
+        console.warn('submitResults not yet defined at popup click time.');
+      }
+    } catch (e) {
+      console.error('popup-ok submit error', e);
+    }
+    // remove this listener after first use
+    popupOk.removeEventListener('click', onOk);
+  });
+})();
+
 </script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
