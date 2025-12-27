@@ -104,31 +104,36 @@ input::-ms-input-placeholder {
 </section>
 <!-- END RESULTS -->
 
-<main class="container" style="margin-top:18px;">
-  <center><h2>English Demo Test</h2></center>
+<main class="container">
+<section class="test-section" id="test-section">
 
-  <section class="test-section" id="test-section" style="margin-top:10px;">
-    <div>
-      <div id="timer">Time: 02:00</div>
-      <div id="current-chunk"><center>Current Chunk - 1</center></div>
+
+  <div>
+    <div id="timer">Time: 10:00</div>
+    <div id="current-chunk"><center>Current Chunk - 1</center></div>
+  </div>
+
+  <div id="test-area">
+	  <b>Reference Text</b>
+    <div id="reference-text" class="reference-outer">
+      <div id="paragraph" class="paragraph">Loading...</div>
     </div>
-
-    <div id="test-area" style="margin-top:12px;">
-      <div id="reference-text" class="reference-outer">
-        <div id="paragraph" class="paragraph">Loading...</div>
-      </div>
-
-      <textarea id="typing-input" placeholder="Start typing here..." rows="4" class="typing-input" type="search"
-       autocomplete="off" autocorrect="off"
-       autocapitalize="off" spellcheck="false" autofocus></textarea>
-
-       <div style="text-align:right;">
+<b>Typing Text</b>
+    <textarea id="typing-input" placeholder="Start typing here..."
+              rows="4" class="typing-input" spellcheck="false" autofocus></textarea>
+  <!-- Backspace Toggle Button -->
+  <button id="disable-toggle" class="toggle-btn">
+    Disable Backspace: OFF
+  </button>
+   <div style="text-align:right;">
   <button id="submit-btn" class="primary-btn">Submit Test</button>
 </div>
-    </div>
-  </section>
+  </div>
+  
+</section>
 </main>
 
+    
 <!-- POPUPS -->
 <div id="time-over-popup" class="popup"><div class="popup-inner"><p>Time is over. View results?</p><button id="popup-ok-btn" class="primary-btn">Yes</button></div></div>
 <div id="no-input-popup" class="popup"><div class="popup-inner"><p>No typed input detected.</p><button id="no-input-ok-btn" class="primary-btn">OK</button></div></div>
@@ -373,5 +378,6 @@ document.addEventListener('keydown', function(e) {
 
 </body>
 </html>
+
 
 
