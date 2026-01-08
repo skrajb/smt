@@ -10,6 +10,62 @@
   <link rel="stylesheet" href="styles.css" />
   
   <style>
+	  /* ===== CORNER AD STYLE ===== */
+#corner-ad {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 160px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 9999;
+  overflow: hidden;
+  animation: slideInAd 0.6s ease;
+}
+
+#corner-ad img {
+  width: 100%;
+  display: block;
+}
+
+#corner-ad-close {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  padding: 0 6px;
+}
+
+#corner-ad-close:hover {
+  color: red;
+}
+
+@keyframes slideInAd {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #corner-ad {
+    width: 120px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
 body { font-family: 'Bookman Old Style', serif; margin: 0; background: #f8f9fa; }
 nav { background: #00295f; padding: 10px 20px;}
 nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
@@ -284,6 +340,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     if(e.target===overlay) closePopup();
   });
 });
+
+	document.getElementById("corner-ad-close").onclick = function () {
+  document.getElementById("corner-ad").style.display = "none";
+};
 </script>
 
 
@@ -336,6 +396,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 	-->
+	<!-- ===== CORNER IMAGE AD ===== -->
+<div id="corner-ad">
+  <span id="corner-ad-close">×</span>
+  <a href="https://your-link-here.com" target="_blank">
+    <img src="ad-image.png" alt="Advertisement">
+  </a>
+</div>
+
 
   <!-- ================== INTRO SECTION ================== -->
   <section id="intro">
