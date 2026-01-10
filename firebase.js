@@ -41,7 +41,7 @@ export async function saveScore(data) {
   });
 }
 
-/* ================= LOAD TODAY LEADERBOARD ================= */
+/* ================= LOAD TODAY LEADERBOARD ============k===== */
 export async function loadLeaderboard() {
   const now = new Date();
   const localDate =
