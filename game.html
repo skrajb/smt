@@ -16,29 +16,20 @@ body{
     align-items:center;
     min-height:100vh;
 }
-
 .app{
     width:95%;
     max-width:980px;
-    background:#fff;
+    background:#ffffff;
     border:1px solid #e5e7eb;
     border-radius:16px;
     padding:22px;
 }
-
-/* HEADER */
 .header{
     display:flex;
     justify-content:space-between;
     align-items:center;
     margin-bottom:16px;
 }
-.header h1{
-    font-size:20px;
-    margin:0;
-}
-
-/* CONTROLS */
 .controls{
     display:flex;
     gap:10px;
@@ -50,8 +41,6 @@ select,button{
     border-radius:8px;
     cursor:pointer;
 }
-
-/* STATS */
 .stats{
     display:grid;
     grid-template-columns:repeat(5,1fr);
@@ -73,23 +62,17 @@ select,button{
     font-size:18px;
     margin-top:4px;
 }
-
-/* STREAK */
 .streak-hot{color:#f97316;}
 .streak-fire{
     color:#ef4444;
     text-shadow:0 0 6px rgba(239,68,68,.4);
 }
-
-/* ARENA */
 .arena{
     border:1px solid #e5e7eb;
     border-radius:12px;
     padding:16px;
     margin-bottom:16px;
 }
-
-/* TEXT */
 .text{
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas;
     font-size:20px;
@@ -101,8 +84,6 @@ select,button{
 .wrong{color:#dc2626;}
 .active{color:#2563eb;font-weight:600;}
 .pending{color:#64748b;}
-
-/* INPUT */
 input{
     width:100%;
     padding:14px;
@@ -114,8 +95,6 @@ input{
 input:focus{
     border-color:#2563eb;
 }
-
-/* LEADERBOARD */
 table{
     width:100%;
     border-collapse:collapse;
@@ -129,7 +108,6 @@ th{
     font-size:13px;
     color:#64748b;
 }
-
 @media(max-width:800px){
     .stats{grid-template-columns:repeat(2,1fr);}
 }
@@ -178,22 +156,30 @@ th{
 <script type="module">
 import { saveScore, loadLeaderboard } from "./firebase.js";
 
-/* ================= WORDS ================= */
+/* DOM */
+const textBox = document.getElementById("textBox");
+const input = document.getElementById("input");
+const timeEl = document.getElementById("time");
+const wpm = document.getElementById("wpm");
+const accuracy = document.getElementById("accuracy");
+const scoreEl = document.getElementById("score");
+const streakEl = document.getElementById("streak");
+
+/* WORDS */
 const WORDS = [
  "typing","keyboard","accuracy","performance","education",
  "portal","computer","technology","developer","practice",
  "programming","internet","speed","focus","exam"
 ];
 
-/* ================= GAME STATE ================= */
+/* STATE */
 let text=[], status=[], index=0;
 let time=60, timer=null, startTime=null;
 let correctChars=0, totalChars=0;
 let score=0, streak=0, multiplier=1;
-
-/* DIFFICULTY */
 let minLen=3, maxLen=5, penalty=0;
 
+/* DIFFICULTY */
 function applyDifficulty(){
     const d = difficulty.value;
     if(d==="easy"){ time=60; minLen=3; maxLen=5; penalty=0; }
@@ -202,7 +188,7 @@ function applyDifficulty(){
     timeEl.textContent=time;
 }
 
-/* GENERATE WORDS */
+/* GENERATE */
 function generate(){
     text=[]; status=[];
     while(text.length<20){
@@ -256,9 +242,9 @@ input.addEventListener("input",()=>{
             index += penalty;
         }
 
-        updateStreakUI();
+        updateStreak();
         index++;
-        input.value = "";
+        input.value="";
 
         if(index >= text.length) generate();
         render();
@@ -277,9 +263,9 @@ function updateStats(){
 }
 
 /* STREAK UI */
-function updateStreakUI(){
+function updateStreak(){
     streakEl.textContent = streak;
-    streakEl.className = "";
+    streakEl.className="";
     if(streak>=20) streakEl.classList.add("streak-fire");
     else if(streak>=10) streakEl.classList.add("streak-hot");
 }
@@ -287,22 +273,22 @@ function updateStreakUI(){
 /* END GAME */
 async function endGame(){
     clearInterval(timer);
-    input.disabled = true;
+    input.disabled=true;
 
     const name = prompt("Enter your name");
     if(name){
         await saveScore({
             name,
-            wpm: +wpm.textContent,
-            accuracy: +accuracy.textContent.replace("%",""),
+            wpm:+wpm.textContent,
+            accuracy:+accuracy.textContent.replace("%",""),
             score,
-            difficulty: difficulty.value
+            difficulty:difficulty.value
         });
     }
     loadLB();
 }
 
-/* LOAD LEADERBOARD */
+/* LEADERBOARD */
 async function loadLB(){
     const data = await loadLeaderboard();
     leaderboard.innerHTML = data.map((u,i)=>`
@@ -331,13 +317,6 @@ function restart(){
 applyDifficulty();
 generate();
 loadLB();
-
-/* DOM */
-const timeEl = document.getElementById("time");
-const wpm = document.getElementById("wpm");
-const accuracy = document.getElementById("accuracy");
-const scoreEl = document.getElementById("score");
-const streakEl = document.getElementById("streak");
 </script>
 
 </body>
