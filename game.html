@@ -92,9 +92,7 @@ input{
     border-radius:10px;
     outline:none;
 }
-input:focus{
-    border-color:#2563eb;
-}
+input:focus{ border-color:#2563eb; }
 table{
     width:100%;
     border-collapse:collapse;
@@ -164,8 +162,10 @@ const wpm = document.getElementById("wpm");
 const accuracy = document.getElementById("accuracy");
 const scoreEl = document.getElementById("score");
 const streakEl = document.getElementById("streak");
+const leaderboard = document.getElementById("leaderboard");
+const difficulty = document.getElementById("difficulty");
 
-/* WORDS */
+/* WORD LIST */
 const WORDS = [
  "typing","keyboard","accuracy","performance","education",
  "portal","computer","technology","developer","practice",
@@ -185,17 +185,17 @@ function applyDifficulty(){
     if(d==="easy"){ time=60; minLen=3; maxLen=5; penalty=0; }
     if(d==="medium"){ time=60; minLen=5; maxLen=8; penalty=1; }
     if(d==="hard"){ time=45; minLen=7; maxLen=12; penalty=2; }
-    timeEl.textContent=time;
+    timeEl.textContent = time;
 }
 
-/* GENERATE */
+/* GENERATE WORDS */
 function generate(){
     text=[]; status=[];
     while(text.length<20){
         const w = WORDS[Math.floor(Math.random()*WORDS.length)];
         if(w.length>=minLen && w.length<=maxLen) text.push(w);
     }
-    index=0;
+    index = 0;
     render();
 }
 
@@ -215,12 +215,12 @@ function startTimer(){
     startTime = Date.now();
     timer = setInterval(()=>{
         time--;
-        timeEl.textContent=time;
+        timeEl.textContent = time;
         if(time<=0) endGame();
     },1000);
 }
 
-/* INPUT */
+/* INPUT HANDLING */
 input.addEventListener("input",()=>{
     startTimer();
     totalChars++;
@@ -244,7 +244,7 @@ input.addEventListener("input",()=>{
 
         updateStreak();
         index++;
-        input.value="";
+        input.value = "";
 
         if(index >= text.length) generate();
         render();
@@ -265,18 +265,20 @@ function updateStats(){
 /* STREAK UI */
 function updateStreak(){
     streakEl.textContent = streak;
-    streakEl.className="";
+    streakEl.className = "";
     if(streak>=20) streakEl.classList.add("streak-fire");
     else if(streak>=10) streakEl.classList.add("streak-hot");
 }
 
-/* END GAME */
+/* END GAME (FREEZE SAFE) */
 async function endGame(){
     clearInterval(timer);
-    input.disabled=true;
+    input.disabled = true;
 
-    const name = prompt("Enter your name");
-    if(name){
+    let name = prompt("Enter your name");
+    if(!name || !name.trim()) name = "Guest";
+
+    try{
         await saveScore({
             name,
             wpm:+wpm.textContent,
@@ -284,21 +286,30 @@ async function endGame(){
             score,
             difficulty:difficulty.value
         });
+    }catch(err){
+        console.error("Save failed:",err);
     }
-    loadLB();
+
+    await loadLB();
 }
 
-/* LEADERBOARD */
+/* LOAD LEADERBOARD (SAFE) */
 async function loadLB(){
-    const data = await loadLeaderboard();
-    leaderboard.innerHTML = data.map((u,i)=>`
-        <tr>
-            <td>${i+1}</td>
-            <td>${u.name}</td>
-            <td>${u.wpm}</td>
-            <td>${u.accuracy}%</td>
-        </tr>
-    `).join("");
+    try{
+        const data = await loadLeaderboard();
+        leaderboard.innerHTML = data.map((u,i)=>`
+            <tr>
+                <td>${i+1}</td>
+                <td>${u.name}</td>
+                <td>${u.wpm}</td>
+                <td>${u.accuracy}%</td>
+            </tr>
+        `).join("");
+    }catch(err){
+        leaderboard.innerHTML =
+            `<tr><td colspan="4">Leaderboard unavailable</td></tr>`;
+        console.error(err);
+    }
 }
 
 /* RESET */
