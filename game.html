@@ -4,355 +4,181 @@
 <meta charset="UTF-8">
 <title>Typing Arena | Competitive</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
 body{
-    margin:0;
-    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto;
-    background:#f8fafc;
-    color:#0f172a;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+  margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;
+  background:#f8fafc;color:#0f172a;display:flex;justify-content:center;align-items:center;min-height:100vh
 }
-.app{
-    width:95%;
-    max-width:980px;
-    background:#ffffff;
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    padding:22px;
-}
-.header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:16px;
-}
-.controls{
-    display:flex;
-    gap:10px;
-}
-select,button{
-    padding:8px 12px;
-    border:1px solid #e5e7eb;
-    background:#fff;
-    border-radius:8px;
-    cursor:pointer;
-}
-.stats{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:12px;
-    margin-bottom:16px;
-}
-.stat{
-    padding:12px;
-    border:1px solid #e5e7eb;
-    border-radius:10px;
-    text-align:center;
-}
-.stat small{
-    color:#64748b;
-    font-size:12px;
-}
-.stat strong{
-    display:block;
-    font-size:18px;
-    margin-top:4px;
-}
-.streak-hot{color:#f97316;}
-.streak-fire{
-    color:#ef4444;
-    text-shadow:0 0 6px rgba(239,68,68,.4);
-}
-.arena{
-    border:1px solid #e5e7eb;
-    border-radius:12px;
-    padding:16px;
-    margin-bottom:16px;
-}
-.text{
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas;
-    font-size:20px;
-    line-height:1.8;
-    min-height:120px;
-    margin-bottom:12px;
-}
-.correct{color:#16a34a;}
-.wrong{color:#dc2626;}
-.active{color:#2563eb;font-weight:600;}
-.pending{color:#64748b;}
-input{
-    width:100%;
-    padding:14px;
-    font-size:17px;
-    border:2px solid #e5e7eb;
-    border-radius:10px;
-    outline:none;
-}
-input:focus{ border-color:#2563eb; }
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-th,td{
-    padding:10px;
-    border-bottom:1px solid #e5e7eb;
-    text-align:center;
-}
-th{
-    font-size:13px;
-    color:#64748b;
-}
-@media(max-width:800px){
-    .stats{grid-template-columns:repeat(2,1fr);}
-}
+.app{width:95%;max-width:980px;background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.controls{display:flex;gap:10px}
+select,button{padding:8px 12px;border:1px solid #e5e7eb;background:#fff;border-radius:8px;cursor:pointer}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.stat{padding:12px;border:1px solid #e5e7eb;border-radius:10px;text-align:center}
+.stat small{color:#64748b;font-size:12px}
+.stat strong{display:block;font-size:18px;margin-top:4px}
+.arena{border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin-bottom:16px}
+.text{font-family:ui-monospace,Menlo,Consolas;font-size:20px;line-height:1.8;min-height:120px;margin-bottom:12px}
+.correct{color:#16a34a}.wrong{color:#dc2626}.active{color:#2563eb;font-weight:600}.pending{color:#64748b}
+input{width:100%;padding:14px;font-size:17px;border:2px solid #e5e7eb;border-radius:10px;outline:none}
+input:focus{border-color:#2563eb}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:center}
+th{font-size:13px;color:#64748b}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 
 <body>
-
 <div class="app">
-
-    <div class="header">
-        <h1>Typing Arena – Competitive</h1>
-        <div class="controls">
-            <select id="difficulty">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
-            <button onclick="restart()">Restart</button>
-        </div>
+  <div class="header">
+    <h1>Typing Arena – Competitive</h1>
+    <div class="controls">
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <button onclick="restart()">Restart</button>
     </div>
+  </div>
 
-    <div class="stats">
-        <div class="stat"><small>Time</small><strong id="time">60</strong></div>
-        <div class="stat"><small>WPM</small><strong id="wpm">0</strong></div>
-        <div class="stat"><small>Accuracy</small><strong id="accuracy">100%</strong></div>
-        <div class="stat"><small>Score</small><strong id="score">0</strong></div>
-        <div class="stat"><small>Streak</small><strong id="streak">0</strong></div>
-    </div>
+  <div class="stats">
+    <div class="stat"><small>Time</small><strong id="time">60</strong></div>
+    <div class="stat"><small>WPM</small><strong id="wpm">0</strong></div>
+    <div class="stat"><small>Accuracy</small><strong id="accuracy">100%</strong></div>
+    <div class="stat"><small>Score</small><strong id="score">0</strong></div>
+    <div class="stat"><small>Streak</small><strong id="streak">0</strong></div>
+  </div>
 
-    <div class="arena">
-        <div class="text" id="textBox"></div>
-        <input id="input" placeholder="Type word and press space" autofocus>
-    </div>
+  <div class="arena">
+    <div class="text" id="textBox"></div>
+    <input id="input" placeholder="Type word and press space" autofocus>
+  </div>
 
-    <h3>🏆 Today’s Leaderboard</h3>
-    <table>
-        <thead>
-            <tr><th>#</th><th>Name</th><th>WPM</th><th>Accuracy</th></tr>
-        </thead>
-        <tbody id="leaderboard"></tbody>
-    </table>
-
+  <h3>🏆 Leaderboard (by difficulty)</h3>
+  <table>
+    <thead><tr><th>#</th><th>Name</th><th>WPM</th><th>Accuracy</th></tr></thead>
+    <tbody id="leaderboard"></tbody>
+  </table>
 </div>
 
 <script type="module">
 import { saveScore, loadLeaderboard } from "./firebase.js";
 
 /* DOM */
-const textBox = document.getElementById("textBox");
-const input = document.getElementById("input");
-const timeEl = document.getElementById("time");
-const wpmEl = document.getElementById("wpm");
-const accuracyEl = document.getElementById("accuracy");
-const scoreEl = document.getElementById("score");
-const streakEl = document.getElementById("streak");
-const leaderboard = document.getElementById("leaderboard");
-const difficulty = document.getElementById("difficulty");
+const textBox=document.getElementById("textBox");
+const input=document.getElementById("input");
+const timeEl=document.getElementById("time");
+const wpmEl=document.getElementById("wpm");
+const accEl=document.getElementById("accuracy");
+const scoreEl=document.getElementById("score");
+const streakEl=document.getElementById("streak");
+const leaderboard=document.getElementById("leaderboard");
+const difficulty=document.getElementById("difficulty");
 
-/* WORD LIST */
-const WORDS = [
- "typing","keyboard","accuracy","performance","education",
- "portal","computer","technology","developer","practice",
- "programming","internet","speed","focus","exam"
-];
+/* WORDS */
+const WORDS=["typing","keyboard","accuracy","performance","education","portal","computer","technology","developer","practice","programming","internet","speed","focus","exam"];
 
 /* STATE */
-let text=[], status=[], index=0;
-let time=60, timer=null, startTime=null;
-let correctChars=0, totalChars=0;
-let score=0, streak=0;
-let minLen=3, maxLen=5, penalty=0;
+let text=[],status=[],index=0;
+let time=60,timer=null,startTime=null;
+let correctChars=0,totalChars=0,score=0,streak=0;
+let minLen=3,maxLen=5,penalty=0;
 
-/* ================= DIFFICULTY ================= */
+/* DIFFICULTY */
 function applyDifficulty(){
-    const d = difficulty.value;
-
-    if(d==="easy"){
-        time=60; minLen=3; maxLen=5; penalty=0;
-    }
-    if(d==="medium"){
-        time=60; minLen=5; maxLen=8; penalty=1;
-    }
-    if(d==="hard"){
-        time=45; minLen=7; maxLen=12; penalty=2;
-    }
-
-    timeEl.textContent = time;
+  const d=difficulty.value;
+  if(d==="easy"){time=60;minLen=3;maxLen=5;penalty=0}
+  if(d==="medium"){time=60;minLen=5;maxLen=8;penalty=1}
+  if(d==="hard"){time=45;minLen=7;maxLen=12;penalty=2}
+  timeEl.textContent=time;
 }
 
-/* ================= GENERATE WORDS ================= */
+/* GENERATE */
 function generate(){
-    text=[]; status=[];
-    while(text.length < 20){
-        const w = WORDS[Math.floor(Math.random()*WORDS.length)];
-        if(w.length >= minLen && w.length <= maxLen){
-            text.push(w);
-        }
-    }
-    index = 0;
-    render();
+  text=[];status=[];
+  while(text.length<20){
+    const w=WORDS[Math.floor(Math.random()*WORDS.length)];
+    if(w.length>=minLen && w.length<=maxLen) text.push(w);
+  }
+  index=0;render();
 }
 
-/* ================= RENDER ================= */
+/* RENDER */
 function render(){
-    textBox.innerHTML = text.map((w,i)=>{
-        if(status[i]==="correct") return `<span class="correct">${w}</span> `;
-        if(status[i]==="wrong") return `<span class="wrong">${w}</span> `;
-        if(i===index) return `<span class="active">${w}</span> `;
-        return `<span class="pending">${w}</span> `;
-    }).join("");
+  textBox.innerHTML=text.map((w,i)=>{
+    if(status[i]==="correct")return `<span class="correct">${w}</span> `;
+    if(status[i]==="wrong")return `<span class="wrong">${w}</span> `;
+    if(i===index)return `<span class="active">${w}</span> `;
+    return `<span class="pending">${w}</span> `;
+  }).join("");
 }
 
-/* ================= TIMER ================= */
+/* TIMER */
 function startTimer(){
-    if(timer) return;
-    startTime = Date.now();
-    timer = setInterval(()=>{
-        time--;
-        timeEl.textContent = time;
-        if(time <= 0) endGame();
-    },1000);
+  if(timer) return;
+  startTime=Date.now();
+  timer=setInterval(()=>{ time--; timeEl.textContent=time; if(time<=0) endGame(); },1000);
 }
 
-/* ================= INPUT ================= */
+/* INPUT */
 input.addEventListener("input",()=>{
-    startTimer();
-    totalChars++;
-
-    if(input.value.endsWith(" ")){
-        const typed = input.value.trim();
-        const current = text[index];
-
-        if(typed === current){
-            status[index] = "correct";
-            streak++;
-            correctChars += current.length + 1;
-            score += 10;
-        } else {
-            status[index] = "wrong";
-            streak = 0;
-            index += penalty;
-        }
-
-        index++;
-        input.value="";
-
-        if(index >= text.length) generate();
-        updateStats();
-        updateStreak();
-        render();
+  startTimer(); totalChars++;
+  if(input.value.endsWith(" ")){
+    const typed=input.value.trim();
+    const cur=text[index];
+    if(typed===cur){
+      status[index]="correct"; streak++; correctChars+=cur.length+1; score+=10;
+    }else{
+      status[index]="wrong"; streak=0; index+=penalty;
     }
+    index++; input.value="";
+    if(index>=text.length) generate();
+    updateStats(); updateStreak(); render();
+  }
 });
 
-/* ================= STATS ================= */
+/* STATS */
 function updateStats(){
-    const mins = ((Date.now()-startTime)/1000)/60 || 1/60;
-    wpmEl.textContent = Math.round((correctChars/5)/mins);
-    accuracyEl.textContent = totalChars
-        ? Math.round((correctChars/totalChars)*100)+"%"
-        : "100%";
-    scoreEl.textContent = score;
+  const mins=((Date.now()-startTime)/1000)/60||1/60;
+  wpmEl.textContent=Math.round((correctChars/5)/mins);
+  accEl.textContent=totalChars?Math.round((correctChars/totalChars)*100)+"%":"100%";
+  scoreEl.textContent=score;
 }
+function updateStreak(){ streakEl.textContent=streak }
 
-/* ================= STREAK ================= */
-function updateStreak(){
-    streakEl.textContent = streak;
-    streakEl.className = "";
-    if(streak >= 20) streakEl.classList.add("streak-fire");
-    else if(streak >= 10) streakEl.classList.add("streak-hot");
-}
-
-/* ================= END GAME ================= */
+/* END */
 async function endGame(){
-    clearInterval(timer);
-    input.disabled = true;
-
-    let name = prompt("Enter your name");
-    if(!name) name = "Guest";
-
-    try{
-        await saveScore({
-            name,
-            wpm:+wpmEl.textContent,
-            accuracy:+accuracyEl.textContent.replace("%",""),
-            score,
-            difficulty:difficulty.value
-        });
-    }catch(e){
-        console.error("Save failed", e);
-    }
-
-    loadLB();
+  clearInterval(timer); input.disabled=true;
+  let name=prompt("Enter your name"); if(!name) name="Guest";
+  await saveScore({name,wpm:+wpmEl.textContent,accuracy:+accEl.textContent.replace("%",""),score,difficulty:difficulty.value});
+  loadLB();
 }
 
-/* ================= LEADERBOARD ================= */
+/* LEADERBOARD */
 async function loadLB(){
-    try{
-        const data = await loadLeaderboard();
-        console.log("Leaderboard:", data);
-
-        leaderboard.innerHTML = data.map((u,i)=>`
-            <tr>
-                <td>${i+1}</td>
-                <td>${u.name}</td>
-                <td>${u.wpm}</td>
-                <td>${u.accuracy}%</td>
-            </tr>
-        `).join("");
-    }catch(e){
-        leaderboard.innerHTML =
-          `<tr><td colspan="4">Leaderboard unavailable</td></tr>`;
-        console.error(e);
-    }
+  const data=await loadLeaderboard(difficulty.value);
+  if(!data.length){ leaderboard.innerHTML=`<tr><td colspan="4">No results yet</td></tr>`; return; }
+  leaderboard.innerHTML=data.map((u,i)=>`
+    <tr><td>${i+1}</td><td>${u.name}</td><td>${u.wpm}</td><td>${u.accuracy}%</td></tr>
+  `).join("");
 }
 
-/* ================= RESTART ================= */
+/* RESTART */
 function restart(){
-    clearInterval(timer);
-    timer=null;
-    startTime=null;
-    correctChars=0;
-    totalChars=0;
-    score=0;
-    streak=0;
-    input.disabled=false;
-    input.value="";
-    applyDifficulty();
-    generate();
-    updateStats();
-    updateStreak();
+  clearInterval(timer); timer=null; startTime=null;
+  correctChars=totalChars=score=streak=0;
+  input.disabled=false; input.value="";
+  applyDifficulty(); generate(); updateStats(); updateStreak();
 }
+window.restart=restart;
 
-/* 🔑 MAKE FUNCTIONS GLOBAL FOR HTML */
-window.restart = restart;
+/* EVENTS */
+difficulty.addEventListener("change",()=>{ restart(); loadLB(); });
 
-/* 🔁 DIFFICULTY CHANGE HANDLER */
-difficulty.addEventListener("change", () => {
-    restart();
-});
-
-/* ================= INIT ================= */
-applyDifficulty();
-generate();
-loadLB();
+/* INIT */
+applyDifficulty(); generate(); loadLB();
 </script>
-
-
 </body>
 </html>
