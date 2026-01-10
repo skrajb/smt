@@ -48,8 +48,16 @@ body {
 </head>
 <body autocomplete="off" spellcheck="false">
 
+<div id="header-container" style="background-color:white;"></div>
+<script>
+fetch("header.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("header-container").innerHTML = data;
+  });
+</script>
 
-<header class="site-header" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:2px solid #eee;background:linear-gradient(90deg,#fff,#fbfffb);">
+<!--header class="site-header" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:2px solid #eee;background:linear-gradient(90deg,#fff,#fbfffb);">
   <img src="Smartech Educatation Computer Centre3.png" alt="Smartech" class="logo" style="height:72px;">
 </header>
 
@@ -62,7 +70,7 @@ body {
       <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-</nav>
+</nav>-->
 
 <!-- RESULTS (kept as in original) -->
 <section id="results" style="display:none;">
@@ -379,6 +387,7 @@ document.addEventListener('keydown', function(e) {
 
 </body>
 </html>
+
 
 
 
