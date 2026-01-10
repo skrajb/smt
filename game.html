@@ -265,12 +265,12 @@ function updateStats(){
 /* STREAK UI */
 function updateStreak(){
     streakEl.textContent = streak;
-    streakEl.className = "";
+    streakEl.className="";
     if(streak>=20) streakEl.classList.add("streak-fire");
     else if(streak>=10) streakEl.classList.add("streak-hot");
 }
 
-/* END GAME (FREEZE SAFE) */
+/* END GAME */
 async function endGame(){
     clearInterval(timer);
     input.disabled = true;
@@ -286,14 +286,14 @@ async function endGame(){
             score,
             difficulty:difficulty.value
         });
-    }catch(err){
-        console.error("Save failed:",err);
+    }catch(e){
+        console.error("Save failed", e);
     }
 
     await loadLB();
 }
 
-/* LOAD LEADERBOARD (SAFE) */
+/* LOAD LEADERBOARD */
 async function loadLB(){
     try{
         const data = await loadLeaderboard();
@@ -305,10 +305,9 @@ async function loadLB(){
                 <td>${u.accuracy}%</td>
             </tr>
         `).join("");
-    }catch(err){
+    }catch(e){
         leaderboard.innerHTML =
-            `<tr><td colspan="4">Leaderboard unavailable</td></tr>`;
-        console.error(err);
+          `<tr><td colspan="4">Leaderboard unavailable</td></tr>`;
     }
 }
 
