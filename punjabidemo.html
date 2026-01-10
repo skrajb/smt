@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-adsense-account" content="ca-pub-3468699928896150">
-<title>Punjabi Demo | Typing Exam Portal</title>
+<title>Smartech Education</title>
 <link rel="stylesheet" href="styles.css">
 <style>
 /* Keep your container + basic layout (unchanged) */
@@ -12,7 +12,7 @@
     width: 90%;
     max-width: 1100px;
     margin: auto;
-    background: white;
+    background: #FFFAAE;
     padding: 25px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -20,10 +20,7 @@
 html, body { height: 100%; margin: 0; }
 body { display: flex; flex-direction: column; min-height: 100vh; font-family:'Arial',serif; }
 
-.reference-outer { background:#00295f; border-radius:6px; padding:12px; margin-bottom:8px; border:1px solid #e6e6e6; }
 
-.typing-input { width:98%; resize:vertical; padding:10px; border-radius:6px; border:1px solid #ddd; line-height:1.5; font-size:1.65rem; margin-bottom:8px; font-family:'Arial',serif; }
-.primary-btn { background:#00295f; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; }
 .popup { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.35); display:none; }
 .popup-inner { background:#fff; padding:18px; border-radius:8px; min-width:260px; text-align:center; }
 
@@ -47,14 +44,21 @@ input::-ms-input-placeholder {
 </head>
 <body autocomplete="off" spellcheck="false">
 
-<div id="header-container"></div>
-<script>
-fetch("header.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("header-container").innerHTML = data;
-  });
-</script>
+
+<header class="site-header" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:2px solid #eee;background:linear-gradient(90deg,#fff,#fbfffb);">
+  <img src="Smartech Educatation Computer Centre3.png" alt="Smartech" class="logo" style="height:72px;">
+</header>
+
+<nav style="padding:10px 20px;">
+    <ul style="display:flex;gap:12px;list-style:none;padding:0;margin:0;align-items:center;">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="english_tutor.html">Speed Test</a></li>
+      <li><a href="engtutor.html">English Typing Tutor</a></li>
+      <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
 <!-- RESULTS (kept as in original) -->
 <section id="results" style="display:none;">
@@ -368,5 +372,4 @@ typingField.addEventListener("compositionend", e => {
 
 </body>
 </html>
-
 
