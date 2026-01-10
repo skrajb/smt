@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="icon" type="image/png" href="/icon.ico">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-adsense-account" content="ca-pub-3468699928896150">
-<title>English Demo | Typing Exam Portal</title>
+<title>Smartech Education</title>
 <link rel="stylesheet" href="styles.css">
-<style>.container {
+<style>
+/* Keep your container + basic layout (unchanged) */
+.container {
     width: 90%;
     max-width: 1100px;
     margin: auto;
-    background: white;
+    background: #FFFAAE;
     padding: 25px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
-	html, body {
-  height: 100%;
-  margin: 0;
-}
-nav { background: #00295f; padding: 10px 20px;}
-nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
-nav ul li { margin-right: 20px; }
-nav ul li a, nav ul li button { color: white; font-weight: bold; text-decoration: none; background: transparent; border: none; font-size: 16px; cursor: pointer; }
-nav ul li a:hover, nav ul li button:hover { color: #00295f; }
+html, body { height: 100%; margin: 0; }
+body { display: flex; flex-direction: column; min-height: 100vh; font-family:'Arial',serif; }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+
+.popup { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.35); display:none; }
+.popup-inner { background:#fff; padding:18px; border-radius:8px; min-width:260px; text-align:center; }
+
+#timer { font-weight:700; margin-bottom:8px; color:#00295f; }
+#current-chunk { margin-bottom:12px; color:#004080; font-weight:600; }
+input {
+    ime-mode: disabled;
 }
 
-/* Toggle Button Style */
-.toggle-btn {
-  background:#6c757d;
-  color:white;
-  border:none;
-  border-radius:6px;
-  padding:8px 14px;
-  cursor:pointer;
-  margin-top:10px;
+/* Disable Windows text suggestions */
+input, textarea {
+    ime-mode: disabled !important;
 }
-.toggle-btn.active {
-  background:#b80000;
-}</style>
+
+/* Prevent suggestion UI overlay */
+input::-ms-input-placeholder {
+    opacity: 0 !important;
+}
+</style>
+
 </head>
 <body autocomplete="off" spellcheck="false">
-
 <div id="header-container" style="background-color:white;"></div>
 <script>
 fetch("header.html")
@@ -57,7 +52,8 @@ fetch("header.html")
   });
 </script>
 
-<!--header class="site-header" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:2px solid #eee;background:linear-gradient(90deg,#fff,#fbfffb);">
+<!--
+<header class="site-header" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:2px solid #eee;background:linear-gradient(90deg,#fff,#fbfffb);">
   <img src="Smartech Educatation Computer Centre3.png" alt="Smartech" class="logo" style="height:72px;">
 </header>
 
@@ -70,9 +66,9 @@ fetch("header.html")
       <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-</nav>-->
+</nav>
 
-<!-- RESULTS (kept as in original) -->
+ RESULTS (kept as in original) -->
 <section id="results" style="display:none;">
   <div style="flex:2; min-width:400px;">
     <h2>Results</h2>
@@ -113,36 +109,31 @@ fetch("header.html")
 </section>
 <!-- END RESULTS -->
 
-<main class="container" style="yellow">
-<section class="test-section" id="test-section">
+<main class="container" style="margin-top:18px;">
+  <center><h2>English Demo Test</h2></center>
 
-
-  <div>
-    <div id="timer">Time: 10:00</div>
-    <div id="current-chunk"><center>Current Chunk - 1</center></div>
-  </div>
-
-  <div id="test-area">
-	  <b>Reference Text</b>
-    <div id="reference-text" class="reference-outer">
-      <div id="paragraph" class="paragraph">Loading...</div>
+  <section class="test-section" id="test-section" style="margin-top:10px;">
+    <div>
+      <div id="timer">Time: 02:00</div>
+      <div id="current-chunk"><center>Current Chunk - 1</center></div>
     </div>
-<b>Typing Text</b>
-    <textarea id="typing-input" placeholder="Start typing here..."
-              rows="4" class="typing-input" spellcheck="false" autofocus></textarea>
-  <!-- Backspace Toggle Button -->
-  <button id="disable-toggle" class="toggle-btn">
-    Disable Backspace: OFF
-  </button>
-   <div style="text-align:right;">
+
+    <div id="test-area" style="margin-top:12px;">
+      <div id="reference-text" class="reference-outer">
+        <div id="paragraph" class="paragraph">Loading...</div>
+      </div>
+
+      <textarea id="typing-input" placeholder="Start typing here..." rows="4" class="typing-input" type="search"
+       autocomplete="off" autocorrect="off"
+       autocapitalize="off" spellcheck="false" autofocus></textarea>
+
+       <div style="text-align:right;">
   <button id="submit-btn" class="primary-btn">Submit Test</button>
 </div>
-  </div>
-  
-</section>
+    </div>
+  </section>
 </main>
 
-    
 <!-- POPUPS -->
 <div id="time-over-popup" class="popup"><div class="popup-inner"><p>Time is over. View results?</p><button id="popup-ok-btn" class="primary-btn">Yes</button></div></div>
 <div id="no-input-popup" class="popup"><div class="popup-inner"><p>No typed input detected.</p><button id="no-input-ok-btn" class="primary-btn">OK</button></div></div>
@@ -150,7 +141,7 @@ fetch("header.html")
 <!-- ======= DEMO PATCH: set fixed paragraph BEFORE the engine loads ======= -->
 <script>
 try {
-  const fixed = `The Smartech typing practice paragraph is designed to test speed, accuracy, and focus for every candidate. A quick brown fox jumps over the lazy dog to ensure all alphabet letters appear, while vivid zebras grazing near a quartz rock complete the remaining characters. Students train daily to type both words and numbers like 0 1 2 3 4 5 6 7 8 9 with confidence. During exams, simple tasks—reading, typing, data-entry, and formatting—require steady attention.`;
+  const fixed = `The Smartech typing practice paragraph is designed to test speed, accuracy, and focus for every candidate. A quick brown fox jumps over the lazy dog to ensure all alphabet letters appear, while vivid zebras grazing near a quartz rock complete the remaining characters. Students train daily to type both words and numbers like 0 1 2 3 4 5 6 7 8 9 with confidence. During exams, simple tasks reading, typing, data entry, and formatting require steady attention.`;
   localStorage.setItem('selectedExerciseText', fixed);
   localStorage.setItem('userName', 'Demo User');
   localStorage.setItem('userRefNo', '0000');
@@ -387,10 +378,6 @@ document.addEventListener('keydown', function(e) {
 
 </body>
 </html>
-
-
-
-
 
 
 
