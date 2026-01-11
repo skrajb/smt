@@ -1,3 +1,4 @@
+// firebase.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getFirestore,
@@ -15,18 +16,19 @@ const firebaseConfig = {
   apiKey: "AIzaSyBJneY1E9Pdh47zQP_EEOma7Uta_cFXwBw",
   authDomain: "typingexamportal-c9874.firebaseapp.com",
   projectId: "typingexamportal-c9874",
-  storageBucket: "typingexamportal-c9874.firebasestorage.app",
+  storageBucket: "typingexamportal-c9874.appspot.com",
   messagingSenderId: "968196378362",
   appId: "1:968196378362:web:b3ee5839c1365f3608c343"
 };
 
+/* INIT */
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-/* ================= SAVE SCORE ================= */
+/* SAVE SCORE */
 export async function saveScore(data) {
   const now = new Date();
-  const localDate =
+  const date =
     now.getFullYear() + "-" +
     String(now.getMonth() + 1).padStart(2, "0") + "-" +
     String(now.getDate()).padStart(2, "0");
@@ -37,25 +39,26 @@ export async function saveScore(data) {
     accuracy: Number(data.accuracy),
     score: Number(data.score),
     difficulty: data.difficulty,
-    date: localDate
+    date
   });
 }
 
-/* ================= LOAD TODAY LEADERBOARD ============k===== */
-export async function loadLeaderboard() {
+/* LOAD TODAY TOP 10 BY DIFFICULTY */
+export async function loadLeaderboard(difficulty) {
   const now = new Date();
-  const localDate =
+  const date =
     now.getFullYear() + "-" +
     String(now.getMonth() + 1).padStart(2, "0") + "-" +
     String(now.getDate()).padStart(2, "0");
 
   const q = query(
     collection(db, "leaderboard"),
-    where("date", "==", localDate),
+    where("date", "==", date),
+    where("difficulty", "==", difficulty),
     orderBy("wpm", "desc"),
     limit(10)
   );
 
   const snap = await getDocs(q);
-  return snap.docs.map(doc => doc.data());
+  return snap.docs.map(d => d.data());
 }
