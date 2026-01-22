@@ -11,6 +11,71 @@ const _0xe010cf=_0x252f;function _0x252f(_0xfce634,_0x532989){const _0x3ca41e=_0
   </script>
 </head>
 <body>
+<!-- Popup Ad Container -->
+<div id="popupAd">
+    <span class="closeBtn" onclick="closeAd()">×</span>
+    <a href="#" target="_blank">
+        <img src="add1.jpg" alt="Advertisement">
+    </a>
+</div>
+
+<style>
+#popupAd {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 260px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 9999;
+    animation: slideIn 0.8s ease;
+}
+
+#popupAd img {
+    width: 100%;
+    display: block;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 20px;
+    color: #fff;
+    background: rgba(0,0,0,0.6);
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+</style>
+
+<script>
+function closeAd() {
+    document.getElementById("popupAd").style.display = "none";
+}
+</script>
+
+
+
+
+	<!-- Course Adds on the Right Corner of Webpage-->
+	
   <!-- 🌟 Floating Letters Intro -->
   <div id="intro-screen">
     <div class="letters-container"></div>
