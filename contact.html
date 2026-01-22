@@ -220,6 +220,41 @@ button:hover {
     </script>
 </head>
 <body>
+
+	<!-- WhatsApp Chat Button -->
+<a href="https://wa.me/919530994404?text=Hello%20Smartech%20Education,%20I%20want%20course%20details."
+   class="whatsapp-float"
+   target="_blank">
+   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+</a>
+
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
+}
+</style>
+
 <div id="header-container"></div>
 <script>
 fetch("header.html")
@@ -257,6 +292,7 @@ fetch("header.html")
 
 </body>
 </html>
+
 
 
 
