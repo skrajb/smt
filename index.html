@@ -205,143 +205,67 @@ fetch("header.html")
   });
 </script>
 
-
-<!--
+<!-- Popup Ad Container -->
+<div id="popupAd">
+    <span class="closeBtn" onclick="closeAd()">×</span>
+    <a href="#" target="_blank">
+        <img src="add1.png" alt="Advertisement">
+    </a>
+</div>
 
 <style>
-#ny-popup-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:999999;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .6s ease;
+#popupAd {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 260px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 9999;
+    animation: slideIn 0.8s ease;
 }
 
-#ny-popup-overlay.show{
-  opacity:1;
-  pointer-events:auto;
+#popupAd img {
+    width: 100%;
+    display: block;
 }
 
-#ny-popup-box{
-  background:white;
-  border-radius:16px;
-  padding:10px;
-  box-shadow:0 25px 80px rgba(0,0,0,.45);
-  animation:zoomIn .7s ease;
-  max-width:700px;
+.closeBtn {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 20px;
+    color: #fff;
+    background: rgba(0,0,0,0.6);
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-#ny-popup-box img{
-  width:100%;
-  border-radius:12px;
-}
-
-#ny-popup-close{
-  display:block;
-  margin:10px auto 0;
-  padding:10px 22px;
-  background:#00295f;
-  border:none;
-  color:white;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-#ny-popup-close:hover{
-  background:black;
-}
-
-@keyframes zoomIn{
-  from{transform:scale(.8); opacity:0;}
-  to{transform:scale(1); opacity:1;}
+@keyframes slideIn {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 </style>
 
-<div id="ny-popup-overlay">
-  <div id="ny-popup-box">
-    <img src="ny2.png" alt="Happy New Year 2026 - Smartech Education">
-    <button id="ny-popup-close">Start Your Journey</button>
-  </div>
-</div>
-
 <script>
-document.addEventListener("DOMContentLoaded",()=>{
-  const overlay=document.getElementById("ny-popup-overlay");
-  const closeBtn=document.getElementById("ny-popup-close");
-
-  setTimeout(()=>overlay.classList.add("show"),1200);
-
-  function closePopup(){
-    overlay.classList.remove("show");
-  }
-
-  closeBtn.addEventListener("click",closePopup);
-  overlay.addEventListener("click",e=>{
-    if(e.target===overlay) closePopup();
-  });
-});
-
-	document.getElementById("corner-ad-close").onclick = function () {
-  document.getElementById("corner-ad").style.display = "none";
-};
+function closeAd() {
+    document.getElementById("popupAd").style.display = "none";
+}
 </script>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const overlay=document.getElementById("ny2026-overlay");
-  const closeBtn=document.getElementById("ny2026-close");
-
-  /* Confetti burst from bottom corners */
-  for(let i=0;i<55;i++){
-    let c=document.createElement("div");
-    c.className="ny-confetti";
-
-    c.style.background=[
-      "#ff2b2b","#ff6f6f","#6fc3ff","#7cff8a","#ffa93a"
-    ][Math.floor(Math.random()*5)];
-
-    const fromLeft = Math.random() < 0.5;
-
-    c.style.bottom="-4vh";
-    c.style.left = fromLeft
-      ? (2+Math.random()*10)+"%"
-      : (88+Math.random()*10)+"%";
-
-    c.style.setProperty("--spread",
-      (fromLeft ? 1 : -1)*(40+Math.random()*70)+"vw"
-    );
-
-    c.style.animationDelay=(Math.random()*1.5)+"s";
-    c.style.animationDuration=(2.8+Math.random()*1.4)+"s";
-
-    overlay.appendChild(c);
-  }
-
-  /* Show popup */
-  setTimeout(()=>overlay.classList.add("show"),1200);
-
-  /* Close popup */
-  function closePopup(){
-    overlay.classList.add("hide");
-    setTimeout(()=>overlay.remove(),800);
-  }
-
-  closeBtn.addEventListener("click", closePopup);
-  overlay.addEventListener("click", e=>{
-    if(e.target===overlay) closePopup();
-  });
-});
-</script>
-
-
-	-->
 
 
 
