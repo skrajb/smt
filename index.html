@@ -162,50 +162,63 @@ button:hover { background: black; }
     z-index: 9999;
 }
 
+/* Smaller popup */
 .popup-box {
-    width: 90%;
-    max-width: 800px;
+    width: 75%;
+    max-width: 600px;
     background: #fff;
     display: flex;
     flex-wrap: wrap;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     position: relative;
 }
 
+/* Logo */
 .popup-logo {
     position: absolute;
-    top: 10px;
-    left: 15px;
+    top: 8px;
+    left: 12px;
 }
 
 .popup-logo img {
-    height: 40px;
+    height: 32px;
 }
 
+/* Left side */
 .popup-left {
     flex: 1;
-    min-width: 280px;
-    padding: 60px 30px 30px;
+    min-width: 240px;
+    padding: 45px 20px 20px;
     text-align: center;
 }
 
+.popup-left h2 {
+    font-size: 20px;
+}
+
+.popup-left p {
+    font-size: 14px;
+}
+
 .popup-left img {
-    width: 140px;
-    margin: 15px auto;
+    width: 110px;
+    margin: 10px auto;
 }
 
 .popup-left button {
-    padding: 12px 22px;
+    padding: 10px 18px;
+    font-size: 14px;
     background: #000;
     color: #fff;
     border: none;
     cursor: pointer;
 }
 
+/* Right side */
 .popup-right {
     flex: 1;
-    min-width: 280px;
+    min-width: 240px;
     background: #000;
     display: flex;
     justify-content: center;
@@ -218,13 +231,15 @@ button:hover { background: black; }
     object-fit: cover;
 }
 
+/* Close button */
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 22px;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
     cursor: pointer;
 }
+
 
 
 
