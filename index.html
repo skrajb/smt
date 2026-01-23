@@ -265,6 +265,36 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById('out').textContent = 'Error: ' + err.message;
     }
   });
+
+
+/* script for the book order pop up*/
+
+function closePopup() {
+    document.getElementById("popupOverlay").style.display = "none";
+}
+
+document.getElementById("popupOverlay").addEventListener("click", function () {
+    this.style.display = "none";
+});
+
+function orderNow() {
+    window.open(
+        "https://wa.me/919530994404?text=Hello%20I%20want%20to%20buy%20English%20and%20Punjabi%20Typing%20Books",
+        "_blank"
+    );
+}
+
+
+
+
+
+
+
+
+
+
+
+	  
   </script>
 </head>
 
