@@ -149,6 +149,88 @@ button:hover { background: black; }
   
 }
 
+
+<!-- Style tags for the popup for order -->
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-box {
+    width: 90%;
+    max-width: 800px;
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.popup-logo {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+.popup-logo img {
+    height: 40px;
+}
+
+.popup-left {
+    flex: 1;
+    min-width: 280px;
+    padding: 60px 30px 30px;
+    text-align: center;
+}
+
+.popup-left img {
+    width: 140px;
+    margin: 15px auto;
+}
+
+.popup-left button {
+    padding: 12px 22px;
+    background: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-right {
+    flex: 1;
+    min-width: 280px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-right video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+
+
+
+	  
   </style>
 		
   <script>
@@ -213,6 +295,64 @@ fetch("header.html")
     </a>
 </div>
 
+
+
+
+
+
+
+
+
+<!-- POPUP START -->
+<div class="popup-overlay" id="popupOverlay">
+
+    <div class="popup-box" onclick="event.stopPropagation()">
+
+        <!-- Logo -->
+        <div class="popup-logo">
+            <img src="Smartech Educatation Computer Centre3.png" alt="Logo">
+        </div>
+
+        <!-- Close -->
+        <div class="close-btn" onclick="closePopup()">✖</div>
+
+        <!-- Left Content -->
+        <div class="popup-left">
+            <h2>Typing Books<br>Special Offer</h2>
+            <p>Combo of English & Punjabi<br><b>Rs. 120/- Only</b></p>
+
+            <img src="order_qr.png" alt="QR Code">
+
+            <button onclick="orderNow()">Place Order</button>
+        </div>
+
+        <!-- Right Video -->
+        <div class="popup-right">
+            <video autoplay muted loop>
+                <source src="typing_books.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+</div>
+<!-- POPUP END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 <style>
 #popupAd {
     position: fixed;
