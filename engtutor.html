@@ -124,6 +124,37 @@ html, body {
 
 <body>
 <div id="header-container"></div>
+	<script src="activation.js"></script>
+
+<script>
+
+if(!localStorage.getItem("engActivated")){
+
+setTimeout(()=>{
+
+const code = prompt("Enter English Tutor Activation Code");
+
+activateProduct(code,"ENG").then(valid=>{
+
+if(valid){
+
+localStorage.setItem("engActivated","true");
+location.reload();
+
+}else{
+
+alert("English Tutor not activated");
+location.href="index.html";
+
+}
+
+});
+
+},500);
+
+}
+
+</script>
 <script>
 fetch("header.html")
   .then(response => response.text())
