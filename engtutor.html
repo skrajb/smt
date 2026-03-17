@@ -126,42 +126,7 @@ html, body {
 <div id="header-container"></div>
 <script src="activation.js"></script>
 
-<script>
 
-async function checkEnglishActivation(){
-
-if(localStorage.getItem("engActivated")) return;
-
-while(true){
-
-const code = prompt("Enter English Tutor Activation Code");
-
-if(!code){
-alert("Activation required for English Tutor");
-continue;
-}
-
-const valid = await activateProduct(code,"ENG");
-
-if(valid){
-
-localStorage.setItem("engActivated","true");
-location.reload();
-break;
-
-}else{
-
-alert("Invalid English Tutor Code");
-
-}
-
-}
-
-}
-
-checkEnglishActivation();
-
-</script>
 <script>
 fetch("header.html")
   .then(response => response.text())
