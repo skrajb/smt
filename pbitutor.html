@@ -313,7 +313,20 @@ document.addEventListener('keydown', function(e) {
 	  function makeLessonButton(key, idx){
 		const btn = document.createElement('button');
 		btn.className = 'lessonBtn';
-		btn.innerHTML = `<h3>Lesson ${idx}</h3><p>${key.replace('lesson','').trim()}</p>`;
+		const lessonNumber = i + 1;
+
+btn.innerHTML = `
+  <h3>Lesson ${lessonNumber}</h3>
+  <p>
+    ${lessonNumber === 1 
+      ? lessons[k].slice(0,5).join(', ') + "..."
+      : "🔒 Locked - Buy Full Version"}
+  </p>
+`;
+
+if (lessonNumber !== 1) {
+  btn.style.opacity = "0.6";
+}
 		btn.addEventListener('click', () => startLesson(key));
 		return btn;
 	  }
