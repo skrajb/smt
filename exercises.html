@@ -340,7 +340,7 @@ function renderExercises(language) {
         ? document.getElementById("exerciseListEnglish")
         : document.getElementById("exerciseListPunjabi");
 
-    const list = language === 'English' ? exercisesEnglish : exercisesPunjabi;
+  const list = (language === 'English' ? exercisesEnglish : exercisesPunjabi).slice(0, 20);
 
     container.innerHTML = list.length === 0
         ? "<p style='text-align:center;color:#555;'>No exercises found.</p>"
