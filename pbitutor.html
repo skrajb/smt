@@ -352,10 +352,20 @@ if (lessonNumber !== 1) {
 			const btn = document.createElement('div');
 			btn.className = 'lessonBtn';
 
-			btn.innerHTML = `
-				<h3>${lessonLabels[k] || "Lesson " + (i+1)}</h3>
-				<p>${lessons[k].slice(0,5).join(', ')}...</p>
-			`;
+		const lessonNumber = i + 1;
+
+btn.innerHTML = `
+  <h3>Lesson ${lessonNumber}</h3>
+  <p>
+    ${lessonNumber === 1 
+      ? lessons[k].slice(0,5).join(', ') + "..."
+      : "🔒 Locked - Buy Full Version"}
+  </p>
+`;
+
+if (lessonNumber !== 1) {
+  btn.style.opacity = "0.6";
+}
 
 			btn.addEventListener('click', () => startLesson(k));
 			lessonGrid.appendChild(btn);
