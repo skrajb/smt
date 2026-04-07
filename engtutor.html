@@ -318,8 +318,30 @@ document.addEventListener('keydown', function(e) {
     keys.forEach((k,i) => {
       const btn = document.createElement('div');
       btn.className = 'lessonBtn';
-      btn.innerHTML = `<h3>Lesson ${i+1}</h3><p>${lessons[k].slice(0,5).join(', ')}...</p>`;
-      btn.addEventListener('click', () => startLesson(k));
+     const lessonNumber = i + 1;
+
+btn.innerHTML = `
+  <h3>Lesson ${lessonNumber}</h3>
+  <p>
+    ${lessonNumber === 1 
+      ? lessons[k].slice(0,5).join(', ') + "..."
+      : "🔒 Locked - Buy Full Version"}
+  </p>
+`;
+
+if (lessonNumber !== 1) {
+  btn.style.opacity = "0.6";
+}
+      btn.addEventListener('click', () => {
+  const lessonNumber = i + 1;
+
+  // Only Lesson 1 is allowed
+  if (lessonNumber === 1) {
+    startLesson(k);
+  } else {
+    showBuyPopup();
+  }
+});
       lessonGrid.appendChild(btn);
     });
   })();
@@ -638,7 +660,20 @@ fullscreenBtn.addEventListener('click', () => {
   }
 });
 
+function showBuyPopup() {
+  const goToBuy = confirm(
+    "🔒 Only Lesson 1 is Free!\n\n" +
+    "To unlock all lessons, you need to purchase the full Typing Tutor.\n\n" +
+    "Click OK to buy now."
+  );
 
+  if (goToBuy) {
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSfCzPcUgy6hDPIqdE82Bn4U5UvS6H6VHehAO5bO7p_3aiFsCA/viewform?usp=header",
+      "_blank"
+    );
+  }
+}
 
 </script>
 	 
