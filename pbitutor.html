@@ -398,25 +398,27 @@ document.addEventListener('keydown', function(e) {
 
 	  // ---------- start lesson ----------
 function startLesson(lessonKey){
-  currentLesson = lessonKey;
-  lessonTitle.textContent = lessonLabels[lessonKey] || lessonKey;
 
+  // Get lesson number
+  const lessonNumber = Object.keys(lessons).indexOf(lessonKey) + 1;
+
+  // ONLY allow Lesson 1
+  if (lessonNumber !== 1) {
+    showBuyPopup();
+    return;
+  }
+
+  // ORIGINAL CODE (same as before)
+  currentLesson = lessonKey;
+  lessonTitle.textContent = `Lesson ${lessonNumber}`;
   lessonsSection.style.display = 'none';
   testArea.style.display = 'block';
-
-  // ✅ HIDE EXTRA SECTIONS
-  document.getElementById("extraSections").style.display = "none";
-
   resultsBox.style.display = 'none';
   resetStats();
-
-  const wordCount = lessonWordCounts[lessonKey] || 80;
-  currentString = generateRandomText(lessonKey, wordCount);
-
+  currentString = generateRandomText(lessonKey, 80);
   renderText(currentString);
   textDisplay.focus();
 }
-
 	  // ---------- reset stats ----------
 	  function resetStats(){
 		stopTimer();
@@ -699,7 +701,21 @@ if(sortedErrors.length){
 	});
 
 
+function showBuyPopup() {
+  const go = confirm(
+    "🔒 This lesson is locked!\n\n" +
+    "Only Lesson 1 is free.\n\n" +
+    "Buy full typing tutor to unlock all lessons.\n\n" +
+    "Click OK to continue."
+  );
 
+  if (go) {
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSfCzPcUgy6hDPIqdE82Bn4U5UvS6H6VHehAO5bO7p_3aiFsCA/viewform?usp=header",
+      "_blank"
+    );
+  }
+}
 	</script>
 
 </body>
