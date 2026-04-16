@@ -6,6 +6,57 @@
 <title>Punjabi Tutor | Typing Exam Portal</title>
 	  <link rel="stylesheet" href="styles.css" />
 <style>
+	.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* POPUP BOX */
+.popup-content {
+  position: relative;
+  max-width: 800px;
+  width: 90%;
+  animation: zoomIn 0.6s ease;
+}
+
+/* IMAGE */
+.popup-img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* CLOSE BUTTON */
+.close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* ZOOM + FLOAT ANIMATION */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.6) translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
  :root{
     --bg:#f7f8fb; --card:#fff; --accent:#00295f; --muted:#6b7280;
     --green:#1f9d55; --red:#e03d3d; --blue:#2563eb;
@@ -167,6 +218,11 @@ body {
 </style>
 
 <script>
+	window.onload = function() {
+  setTimeout(function() {
+    document.getElementById("popup").style.display = "flex";
+  }, 2000);
+};
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
